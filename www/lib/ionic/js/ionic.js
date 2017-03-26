@@ -452,7 +452,7 @@ window.ionic.version = '1.3.3';
 })(window, document, ionic);
 
 /**
- * ion-events.components
+ * ion-events.js
  *
  * Author: Max Lynch <max@drifty.com>
  *
@@ -460,7 +460,7 @@ window.ionic.version = '1.3.3';
  * detects special events like tap/swipe/etc. and emits them
  * as custom events that can be used in an app.
  *
- * Portions lovingly adapted from github.com/maker/ratchet and github.com/alexgibson/tap.components - thanks guys!
+ * Portions lovingly adapted from github.com/maker/ratchet and github.com/alexgibson/tap.js - thanks guys!
  */
 
 (function(ionic) {
@@ -569,7 +569,7 @@ window.ionic.version = '1.3.3';
      * @alias ionic.onGesture
      * @description Add an event listener for a gesture on an element.
      *
-     * Available eventTypes (from [hammer.components](http://eightmedia.github.io/hammer.js/)):
+     * Available eventTypes (from [hammer.js](http://eightmedia.github.io/hammer.js/)):
      *
      * `hold`, `tap`, `doubletap`, `drag`, `dragstart`, `dragend`, `dragup`, `dragdown`, <br/>
      * `dragleft`, `dragright`, `swipe`, `swipeup`, `swipedown`, `swipeleft`, `swiperight`, <br/>
@@ -621,7 +621,7 @@ window.ionic.version = '1.3.3';
   * Simple gesture controllers with some common gestures that emit
   * gesture events.
   *
-  * Ported from github.com/EightMedia/hammer.components Gestures - thanks!
+  * Ported from github.com/EightMedia/hammer.js Gestures - thanks!
   */
 (function(ionic) {
 
@@ -818,7 +818,7 @@ window.ionic.version = '1.3.3';
 
 
     /**
-     * enable of disable hammer.components detection
+     * enable of disable hammer.js detection
      * @param   {Boolean}   state
      * @returns {ionic.Gestures.Instance}
      */
@@ -1017,7 +1017,7 @@ window.ionic.version = '1.3.3';
 
 
     /**
-     * collect event data for ionic.Gestures components
+     * collect event data for ionic.Gestures js
      * @param   {HTMLElement}   element
      * @param   {String}        eventType        like ionic.Gestures.EVENT_MOVE
      * @param   {Object}        eventData
@@ -1318,7 +1318,7 @@ window.ionic.version = '1.3.3';
     stopDefaultBrowserBehavior: function stopDefaultBrowserBehavior(element, css_class) {
       // changed from making many style changes to just adding a preset classname
       // less DOM manipulations, less code, and easier to control in the CSS side of things
-      // hammer.components doesn't come with CSS, but ionic does, which is why we prefer this method
+      // hammer.js doesn't come with CSS, but ionic does, which is why we prefer this method
       if(element && element.classList) {
         element.classList.add(css_class);
         element.onselectstart = function() {
@@ -1478,7 +1478,7 @@ window.ionic.version = '1.3.3';
 
     /**
      * register new gesture
-     * @param   {Object}    gesture object, see gestures.components for documentation
+     * @param   {Object}    gesture object, see gestures.js for documentation
      * @returns {Array}     gestures
      */
     register: function register(gesture) {
@@ -2053,7 +2053,7 @@ window.ionic.version = '1.3.3';
    * various other information such as what kind of platform the app is currently installed on.
    *
    * @usage
-   * ```components
+   * ```js
    * angular.module('PlatformApp', ['ionic'])
    * .controller('PlatformCtrl', function($scope) {
    *
@@ -3346,7 +3346,7 @@ ionic.DomUtil.ready(function() {
   /**
    * Various utilities used throughout Ionic
    *
-   * Some of these are adopted from underscore.components and backbone.components, both also MIT licensed.
+   * Some of these are adopted from underscore.js and backbone.js, both also MIT licensed.
    */
   ionic.Utils = {
 
@@ -3433,7 +3433,7 @@ ionic.DomUtil.ready(function() {
         return result;
       };
     },
-     // Borrowed from Backbone.components's extend
+     // Borrowed from Backbone.js's extend
      // Helper function to correctly set up the prototype chain, for subclasses.
      // Similar to `goog.inherits`, but uses a hash of prototype properties and
      // class properties to be extended.
@@ -3470,7 +3470,7 @@ ionic.DomUtil.ready(function() {
       return child;
     },
 
-    // Extend adapted from Underscore.components
+    // Extend adapted from Underscore.js
     extend: function(obj) {
        var args = Array.prototype.slice.call(arguments, 1);
        for (var i = 0; i < args.length; i++) {
@@ -3589,7 +3589,7 @@ ionic.DomUtil.ready(function() {
  * from the Ionic Keyboard plugin. If you would like them to disappear immediately, you could do something
  * like:
  *
- * ```components
+ * ```js
  *   window.addEventListener('native.keyboardshow', function(){
  *     document.body.classList.add('keyboard-open');
  *   });
@@ -4378,7 +4378,7 @@ function viewportLoadTag() {
 }
 
 function viewportUpdate() {
-  // unit tests in viewport.unit.components
+  // unit tests in viewport.unit.js
 
   var initWidth = viewportProperties.width;
   var initHeight = viewportProperties.height;
@@ -5258,7 +5258,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
     };
 
     //Broadcasted when keyboard is shown on some platforms.
-    //See components/utils/keyboard.components
+    //See js/utils/keyboard.js
     container.addEventListener('scrollChildIntoView', self.scrollChildIntoView);
 
     // Listen on document because container may not have had the last
@@ -7521,7 +7521,7 @@ ionic.scroll = {
       container.addEventListener('scroll', self.onScroll);
 
       //Broadcasted when keyboard is shown on some platforms.
-      //See components/utils/keyboard.components
+      //See js/utils/keyboard.js
       container.addEventListener('scrollChildIntoView', self.scrollChildIntoView);
 
       container.addEventListener(ionic.EVENTS.touchstart, self.handleTouchMove);
@@ -8289,7 +8289,7 @@ ionic.scroll = {
 })(ionic);
 
 /*
- * Adapted from Swipe.components 2.0
+ * Adapted from Swipe.js 2.0
  *
  * Brad Birdsall
  * Copyright 2013, MIT License

@@ -288,7 +288,7 @@ function isArrayLike(obj) {
  * providing 'undefined' or 'null' values for `obj` will not throw a TypeError, but rather just
  * return the value provided.
  *
-   ```components
+   ```js
      var values = {name: 'misko', gender: 'male'};
      var log = [];
      angular.forEach(values, function(value, key) {
@@ -493,7 +493,7 @@ function inherit(parent, extra) {
  * @description
  * A function that performs no operations. This function can be useful when writing code in the
  * functional style.
-   ```components
+   ```js
      function foo(callback) {
        var result = calculateResult();
        (callback || angular.noop)(result);
@@ -514,7 +514,7 @@ noop.$inject = [];
  * A function that returns its first argument. This function is useful when writing code in the
  * functional style.
  *
-   ```components
+   ```js
      function transformer(transformationFn, value) {
        return (transformationFn || angular.identity)(value);
      };
@@ -1651,7 +1651,7 @@ function angularInit(element, bootstrap) {
  *   {{greeting}}
  * </div>
  *
- * <script src="angular.components"></script>
+ * <script src="angular.js"></script>
  * <script>
  *   var app = angular.module('demo', [])
  *   .controller('WelcomeController', function($scope) {
@@ -1987,7 +1987,7 @@ function setupModuleLoader(window) {
      * A module is a collection of services, directives, controllers, filters, and configuration information.
      * `angular.module` is used to configure the {@link auto.$injector $injector}.
      *
-     * ```components
+     * ```js
      * // Create a new module
      * var myModule = angular.module('myModule', []);
      *
@@ -2003,7 +2003,7 @@ function setupModuleLoader(window) {
      *
      * Then you can create an injector and load your modules like this:
      *
-     * ```components
+     * ```js
      * var injector = angular.injector(['ng', 'myModule'])
      * ```
      *
@@ -2160,7 +2160,7 @@ function setupModuleLoader(window) {
            * Defines an animation hook that can be later used with
            * {@link $animate $animate} service and directives that use this service.
            *
-           * ```components
+           * ```js
            * module.animation('.animation-name', function($inject1, $inject2) {
            *   return {
            *     eventName : function(element, done) {
@@ -2629,7 +2629,7 @@ function publishExternalAPI(angular) {
  * Angular to manipulate the DOM in a cross-browser compatible way. jqLite implements only the most
  * commonly needed functionality with the goal of having a very small footprint.
  *
- * To use `jQuery`, simply ensure it is loaded before the `angular.components` file. You can also use the
+ * To use `jQuery`, simply ensure it is loaded before the `angular.js` file. You can also use the
  * {@link ngJq `ngJq`} directive to specify that jqlite should be used over jQuery, or to use a
  * specific version of jQuery if multiple versions exist on the page.
  *
@@ -3780,7 +3780,7 @@ var $$HashMapProvider = [function() {
  *
  * @example
  * Typical usage
- * ```components
+ * ```js
  *   // create an injector
  *   var $injector = angular.injector(['ng']);
  *
@@ -3804,7 +3804,7 @@ var $$HashMapProvider = [function() {
  * directive is added to the end of the document body by JQuery. We then compile and link
  * it into the current AngularJS scope.
  *
- * ```components
+ * ```js
  * var $div = $('<div ng-controller="MyCtrl">{{content.label}}</div>');
  * $(document.body).append($div);
  *
@@ -3896,7 +3896,7 @@ function annotate(fn, strictDi, name) {
  *
  * The following always holds true:
  *
- * ```components
+ * ```js
  *   var $injector = angular.injector();
  *   expect($injector.get('$injector')).toBe($injector);
  *   expect($injector.invoke(function($injector) {
@@ -3909,7 +3909,7 @@ function annotate(fn, strictDi, name) {
  * JavaScript does not have annotations, and annotations are needed for dependency injection. The
  * following are all valid ways of annotating function with injection arguments and are equivalent.
  *
- * ```components
+ * ```js
  *   // inferred (only works if code not minified/obfuscated)
  *   $injector.invoke(function(serviceA){});
  *
@@ -4004,7 +4004,7 @@ function annotate(fn, strictDi, name) {
  * The simplest form is to extract the dependencies from the arguments of the function. This is done
  * by converting the function into a string using `toString()` method and extracting the argument
  * names.
- * ```components
+ * ```js
  *   // Given
  *   function MyController($scope, $route) {
  *     // ...
@@ -4023,7 +4023,7 @@ function annotate(fn, strictDi, name) {
  *
  * If a function has an `$inject` property and its value is an array of strings, then the strings
  * represent names of services to be injected into the function.
- * ```components
+ * ```js
  *   // Given
  *   var MyController = function(obfuscatedScope, obfuscatedRoute) {
  *     // ...
@@ -4041,7 +4041,7 @@ function annotate(fn, strictDi, name) {
  * is very inconvenient. In these situations using the array notation to specify the dependencies in
  * a way that survives minification is a better choice:
  *
- * ```components
+ * ```js
  *   // We wish to write this (not minification / obfuscation safe)
  *   injector.invoke(function($compile, $rootScope) {
  *     // ...
@@ -4152,7 +4152,7 @@ function annotate(fn, strictDi, name) {
  * The following example shows how to create a simple event tracking service and register it using
  * {@link auto.$provide#provider $provide.provider()}.
  *
- * ```components
+ * ```js
  *  // Define the eventTracker provider
  *  function EventTrackerProvider() {
  *    var trackingUrl = '/track';
@@ -4230,7 +4230,7 @@ function annotate(fn, strictDi, name) {
  *
  * @example
  * Here is an example of registering a service
- * ```components
+ * ```js
  *   $provide.factory('ping', ['$http', function($http) {
  *     return function ping() {
  *       return $http.send('/ping');
@@ -4238,7 +4238,7 @@ function annotate(fn, strictDi, name) {
  *   }]);
  * ```
  * You would then inject and use this service like this:
- * ```components
+ * ```js
  *   someModule.controller('Ctrl', ['ping', function(ping) {
  *     ping();
  *   }]);
@@ -4279,7 +4279,7 @@ function annotate(fn, strictDi, name) {
  * @example
  * Here is an example of registering a service using
  * {@link auto.$provide#service $provide.service(class)}.
- * ```components
+ * ```js
  *   var Ping = function($http) {
  *     this.$http = $http;
  *   };
@@ -4292,7 +4292,7 @@ function annotate(fn, strictDi, name) {
  *   $provide.service('ping', Ping);
  * ```
  * You would then inject and use this service like this:
- * ```components
+ * ```js
  *   someModule.controller('Ctrl', ['ping', function(ping) {
  *     ping.send();
  *   }]);
@@ -4320,7 +4320,7 @@ function annotate(fn, strictDi, name) {
  *
  * @example
  * Here are some examples of creating value services.
- * ```components
+ * ```js
  *   $provide.value('ADMIN_USER', 'admin');
  *
  *   $provide.value('RoleLookup', { admin: 0, writer: 1, reader: 2 });
@@ -4351,7 +4351,7 @@ function annotate(fn, strictDi, name) {
  *
  * @example
  * Here a some examples of creating constants:
- * ```components
+ * ```js
  *   $provide.constant('SHARD_HEIGHT', 306);
  *
  *   $provide.constant('MY_COLOURS', ['red', 'blue', 'grey']);
@@ -4385,7 +4385,7 @@ function annotate(fn, strictDi, name) {
  * @example
  * Here we decorate the {@link ng.$log $log} service to convert warnings to errors by intercepting
  * calls to {@link ng.$log#error $log.warn()}.
- * ```components
+ * ```js
  *   $provide.decorator('$log', ['$delegate', function($delegate) {
  *     $delegate.warn = $delegate.error;
  *     return $delegate;
@@ -4984,7 +4984,7 @@ var $$CoreAnimateJsProvider = function() {
 };
 
 // this is prefixed with Core since it conflicts with
-// the animateQueueProvider defined in ngAnimate/animateQueue.components
+// the animateQueueProvider defined in ngAnimate/animateQueue.js
 var $$CoreAnimateQueueProvider = function() {
   var postDigestQueue = new HashMap();
   var postDigestElements = [];
@@ -5091,7 +5091,7 @@ var $$CoreAnimateQueueProvider = function() {
  *
  * In order to enable animations the `ngAnimate` module has to be loaded.
  *
- * To see the functional implementation check out `src/ngAnimate/animate.components`.
+ * To see the functional implementation check out `src/ngAnimate/animate.js`.
  */
 var $AnimateProvider = ['$provide', function($provide) {
   var provider = this;
@@ -5120,7 +5120,7 @@ var $AnimateProvider = ['$provide', function($provide) {
    *
    *   Make sure to trigger the `doneFunction` once the animation is fully complete.
    *
-   * ```components
+   * ```js
    *   return {
    *     //enter, leave, move signature
    *     eventFn : function(element, done, options) {
@@ -5221,7 +5221,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *    has fired on the given element or among any of its children. Once the listener is fired, the provided callback
        *    is fired with the following params:
        *
-       * ```components
+       * ```js
        * $animate.on('enter', container,
        *    function callback(element, phase) {
        *      // cool we detected an enter animation within the container
@@ -5248,7 +5248,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @description Deregisters an event listener based on the event which has been associated with the provided element. This method
        * can be used in three different ways depending on the arguments:
        *
-       * ```components
+       * ```js
        * // remove all the animation event listeners listening for `enter`
        * $animate.off('enter');
        *
@@ -5292,7 +5292,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @description Used to get and set whether animations are enabled or not on the entire application or on an element and its children. This
        * function can be called in four ways:
        *
-       * ```components
+       * ```js
        * // returns true or false
        * $animate.enabled();
        *
@@ -5485,7 +5485,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * If a JavaScript animation is detected then the provided styles will be given in as function parameters into the `animate`
        * method (or as part of the `options` parameter):
        *
-       * ```components
+       * ```js
        * ngModule.animation('.my-inline-animation', function() {
        *   return {
        *     animate : function(element, from, to, done, options) {
@@ -6241,7 +6241,7 @@ function $CacheFactoryProvider() {
        * {@link $http $http} and the {@link ng.directive:script script} directive to cache
        * templates and other data.
        *
-       * ```components
+       * ```js
        *  angular.module('superCache')
        *    .factory('superCache', ['$cacheFactory', function($cacheFactory) {
        *      return $cacheFactory('super-cache');
@@ -6250,7 +6250,7 @@ function $CacheFactoryProvider() {
        *
        * Example test:
        *
-       * ```components
+       * ```js
        *  it('should behave like a cache', inject(function(superCache) {
        *    superCache.put('key', 'value');
        *    superCache.put('another key', 'another value');
@@ -6509,7 +6509,7 @@ function $CacheFactoryProvider() {
  *
  * Adding via the `$templateCache` service:
  *
- * ```components
+ * ```js
  * var myApp = angular.module('myApp', []);
  * myApp.run(function($templateCache) {
  *   $templateCache.put('templateId.html', 'This is the content of the template');
@@ -6522,7 +6522,7 @@ function $CacheFactoryProvider() {
  * ```
  *
  * or get it via Javascript:
- * ```components
+ * ```js
  * $templateCache.get('templateId.html')
  * ```
  *
@@ -7596,7 +7596,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
    *
    * Here are a few examples of how you would usually define components:
    *
-   * ```components
+   * ```js
    *   var myMod = angular.module(...);
    *   myMod.component('myComp', {
    *     template: '<div>My name is {{$ctrl.name}}</div>',
@@ -10101,12 +10101,12 @@ function $DocumentProvider() {
  * The default implementation simply delegates to `$log.error` which logs it into
  * the browser console.
  *
- * In unit tests, if `angular-mocks.components` is loaded, this service is overridden by
+ * In unit tests, if `angular-mocks.js` is loaded, this service is overridden by
  * {@link ngMock.$exceptionHandler mock $exceptionHandler} which aids in testing.
  *
  * ## Example:
  *
- * ```components
+ * ```js
  *   angular.module('exceptionOverride', []).factory('$exceptionHandler', function() {
  *     return function(exception, cause) {
  *       exception.message += ' (caused by "' + cause + '")';
@@ -10234,7 +10234,7 @@ function $HttpParamSerializerJQLikeProvider() {
    *
    * To use it for serializing `$http` request parameters, set it as the `paramSerializer` property:
    *
-   * ```components
+   * ```js
    * $http({
    *   url: myUrl,
    *   method: 'GET',
@@ -10249,7 +10249,7 @@ function $HttpParamSerializerJQLikeProvider() {
    * Additionally, you can inject the serializer and use it explicitly, for example to serialize
    * form data for submission:
    *
-   * ```components
+   * ```js
    * .controller(function($http, $httpParamSerializerJQLike) {
    *   //...
    *
@@ -11819,7 +11819,7 @@ function $InterpolateProvider() {
       return value;
     }
 
-    //TODO: this is the same as the constantWatchDelegate in parse.components
+    //TODO: this is the same as the constantWatchDelegate in parse.js
     function constantWatchDelegate(scope, listener, objectEquality, constantInterp) {
       var unwatch;
       return unwatch = scope.$watch(function constantInterpolateWatch(scope) {
@@ -12629,7 +12629,7 @@ var locationPrototype = {
    * [RFC 3986](http://www.ietf.org/rfc/rfc3986.txt).
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var absUrl = $location.absUrl();
    * // => "http://example.com/#/some/path?foo=bar&baz=xoxo"
@@ -12651,7 +12651,7 @@ var locationPrototype = {
    * Change path, search and hash, when called with parameter and return `$location`.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var url = $location.url();
    * // => "/some/path?foo=bar&baz=xoxo"
@@ -12683,7 +12683,7 @@ var locationPrototype = {
    * Return protocol of current url.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var protocol = $location.protocol();
    * // => "http"
@@ -12705,7 +12705,7 @@ var locationPrototype = {
    * Note: compared to the non-angular version `location.host` which returns `hostname:port`, this returns the `hostname` portion only.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var host = $location.host();
    * // => "example.com"
@@ -12731,7 +12731,7 @@ var locationPrototype = {
    * Return port of current url.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var port = $location.port();
    * // => 80
@@ -12756,7 +12756,7 @@ var locationPrototype = {
    * if it is missing.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var path = $location.path();
    * // => "/some/path"
@@ -12782,7 +12782,7 @@ var locationPrototype = {
    * Change search part when called with parameter and return `$location`.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var searchObject = $location.search();
    * // => {foo: 'bar', baz: 'xoxo'}
@@ -12860,7 +12860,7 @@ var locationPrototype = {
    * Changes the hash fragment when called with a parameter and returns `$location`.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo#hashValue
    * var hash = $location.hash();
    * // => "hashValue"
@@ -15131,7 +15131,7 @@ function getValueOf(value) {
  *
  * Converts Angular {@link guide/expression expression} into a function.
  *
- * ```components
+ * ```js
  *   var getter = $parse('user.name');
  *   var setter = getter.assign;
  *   var context = {user:{name:'angular'}};
@@ -15468,7 +15468,7 @@ function $ParseProvider() {
  *
  * It can be used like so:
  *
- * ```components
+ * ```js
  *   // for the purpose of this example let's assume that variables `$q` and `okToGreet`
  *   // are available in the current lexical scope (they could have been injected or passed in).
  *
@@ -15506,7 +15506,7 @@ function $ParseProvider() {
  * From the perspective of dealing with error handling, deferred and promise APIs are to
  * asynchronous programming what `try`, `catch` and `throw` keywords are to synchronous programming.
  *
- * ```components
+ * ```js
  *   // for the purpose of this example let's assume that variables `$q` and `okToGreet`
  *   // are available in the current lexical scope (they could have been injected or passed in).
  *
@@ -15603,7 +15603,7 @@ function $ParseProvider() {
  * Because calling the `then` method of a promise returns a new derived promise, it is easily
  * possible to create a chain of promises:
  *
- * ```components
+ * ```js
  *   promiseB = promiseA.then(function(result) {
  *     return result + 1;
  *   });
@@ -15630,7 +15630,7 @@ function $ParseProvider() {
  *
  * # Testing
  *
- *  ```components
+ *  ```js
  *    it('should simulate promise', inject(function($q, $rootScope) {
  *      var deferred = $q.defer();
  *      var promise = deferred.promise;
@@ -15869,7 +15869,7 @@ function qFactory(nextTick, exceptionHandler) {
    * current promise, you have to "rethrow" the error by returning a rejection constructed via
    * `reject`.
    *
-   * ```components
+   * ```js
    *   promiseB = promiseA.then(function(result) {
    *     // success: do something and resolve promiseB
    *     //          with the old or a new result
@@ -16204,7 +16204,7 @@ function $RootScopeProvider() {
      *
      * # Inheritance
      * A scope can inherit from a parent scope, as in this example:
-     * ```components
+     * ```js
          var parent = $rootScope;
          var child = parent.$new();
 
@@ -16376,7 +16376,7 @@ function $RootScopeProvider() {
        *
        *
        * # Example
-       * ```components
+       * ```js
            // let's assume that scope was dependency injected as the $rootScope
            var scope = $rootScope;
            scope.name = 'misko';
@@ -16588,7 +16588,7 @@ function $RootScopeProvider() {
        *
        *
        * # Example
-       * ```components
+       * ```js
           $scope.names = ['igor', 'matias', 'misko', 'james'];
           $scope.dataCount = 4;
 
@@ -16784,7 +16784,7 @@ function $RootScopeProvider() {
        * In unit tests, you may need to call `$digest()` to simulate the scope life cycle.
        *
        * # Example
-       * ```components
+       * ```js
            var scope = ...;
            scope.name = 'misko';
            scope.counter = 0;
@@ -17004,7 +17004,7 @@ function $RootScopeProvider() {
        * expressions.
        *
        * # Example
-       * ```components
+       * ```js
            var scope = ng.$rootScope.Scope();
            scope.a = 1;
            scope.b = 2;
@@ -17088,7 +17088,7 @@ function $RootScopeProvider() {
        * ## Life cycle
        *
        * # Pseudo-Code of `$apply()`
-       * ```components
+       * ```js
            function $apply(expr) {
              try {
                return $eval(expr);
@@ -17538,7 +17538,7 @@ var SCE_CONTEXTS = {
   // RESOURCE_URL is a subtype of URL used in contexts where a privileged resource is sourced from a
   // url.  (e.g. ng-include, script src, templateUrl)
   RESOURCE_URL: 'resourceUrl',
-  JS: 'components'
+  JS: 'js'
 };
 
 // Helper functions follow.
@@ -17802,7 +17802,7 @@ function $SceDelegateProvider() {
      * See {@link ng.$sce $sce} for enabling strict contextual escaping.
      *
      * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
-     *   resourceUrl, html, components and css.
+     *   resourceUrl, html, js and css.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
      * where Angular expects a $sce.trustAs() return value.
@@ -18251,7 +18251,7 @@ function $SceProvider() {
    *
    * Inheritance happens to capture this in a natural way.  In some future, we
    * may not use inheritance anymore.  That is OK because no code outside of
-   * sce.components and sceSpecs.components would need to be aware of this detail.
+   * sce.js and sceSpecs.js would need to be aware of this detail.
    */
 
   this.$get = ['$parse', '$sceDelegate', function(
@@ -18333,7 +18333,7 @@ function $SceProvider() {
      * escaping.
      *
      * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
-     *   resourceUrl, html, components and css.
+     *   resourceUrl, html, js and css.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
      * where Angular expects a $sce.trustAs() return value.
@@ -19217,7 +19217,7 @@ function $$CookieReaderProvider() {
  * (`myapp_subsection_filterx`).
  * </div>
  *
- * ```components
+ * ```js
  *   // Filter registration
  *   function MyModule($provide, $filterProvider) {
  *     // create a service to demonstrate injection (not always needed)
@@ -19241,7 +19241,7 @@ function $$CookieReaderProvider() {
  * The filter function is registered with the `$injector` under the filter name suffix with
  * `Filter`.
  *
- * ```components
+ * ```js
  *   it('should be the same instance', inject(
  *     function($filterProvider) {
  *       $filterProvider.register('reverse', function(){

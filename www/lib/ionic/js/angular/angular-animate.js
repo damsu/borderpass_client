@@ -566,7 +566,7 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  *
  * Now we create the **JavaScript animation** that will trigger the CSS transition:
  *
- * ```components
+ * ```js
  * ngModule.animation('.fold-animation', ['$animateCss', function($animateCss) {
  *   return {
  *     enter: function(element, doneFn) {
@@ -593,7 +593,7 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  *
  * The example below showcases a more advanced version of the `.fold-animation` from the example above:
  *
- * ```components
+ * ```js
  * ngModule.animation('.fold-animation', ['$animateCss', function($animateCss) {
  *   return {
  *     enter: function(element, doneFn) {
@@ -643,7 +643,7 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  * works with the options provided. Say for example we were adding a class that contained a keyframe value and we wanted to also animate some inline
  * styles using the `from` and `to` properties.
  *
- * ```components
+ * ```js
  * var animator = $animateCss(element, {
  *   from: { background:'red' },
  *   to: { background:'blue' }
@@ -680,13 +680,13 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  * start the animation. All that is going on here is that the element is being prepared for the animation (which means that the generated CSS classes are
  * added and removed on the element). Once `$animateCss` is called it will return an object with the following properties:
  *
- * ```components
+ * ```js
  * var animator = $animateCss(element, { ... });
  * ```
  *
  * Now what do the contents of our `animator` variable look like:
  *
- * ```components
+ * ```js
  * {
  *   // starts the animation
  *   start: Function,

@@ -459,7 +459,7 @@ window.ionic.version = '1.3.3';
 })(window, document, ionic);
 
 /**
- * ion-events.components
+ * ion-events.js
  *
  * Author: Max Lynch <max@drifty.com>
  *
@@ -467,7 +467,7 @@ window.ionic.version = '1.3.3';
  * detects special events like tap/swipe/etc. and emits them
  * as custom events that can be used in an app.
  *
- * Portions lovingly adapted from github.com/maker/ratchet and github.com/alexgibson/tap.components - thanks guys!
+ * Portions lovingly adapted from github.com/maker/ratchet and github.com/alexgibson/tap.js - thanks guys!
  */
 
 (function(ionic) {
@@ -576,7 +576,7 @@ window.ionic.version = '1.3.3';
      * @alias ionic.onGesture
      * @description Add an event listener for a gesture on an element.
      *
-     * Available eventTypes (from [hammer.components](http://eightmedia.github.io/hammer.js/)):
+     * Available eventTypes (from [hammer.js](http://eightmedia.github.io/hammer.js/)):
      *
      * `hold`, `tap`, `doubletap`, `drag`, `dragstart`, `dragend`, `dragup`, `dragdown`, <br/>
      * `dragleft`, `dragright`, `swipe`, `swipeup`, `swipedown`, `swipeleft`, `swiperight`, <br/>
@@ -628,7 +628,7 @@ window.ionic.version = '1.3.3';
   * Simple gesture controllers with some common gestures that emit
   * gesture events.
   *
-  * Ported from github.com/EightMedia/hammer.components Gestures - thanks!
+  * Ported from github.com/EightMedia/hammer.js Gestures - thanks!
   */
 (function(ionic) {
 
@@ -825,7 +825,7 @@ window.ionic.version = '1.3.3';
 
 
     /**
-     * enable of disable hammer.components detection
+     * enable of disable hammer.js detection
      * @param   {Boolean}   state
      * @returns {ionic.Gestures.Instance}
      */
@@ -1024,7 +1024,7 @@ window.ionic.version = '1.3.3';
 
 
     /**
-     * collect event data for ionic.Gestures components
+     * collect event data for ionic.Gestures js
      * @param   {HTMLElement}   element
      * @param   {String}        eventType        like ionic.Gestures.EVENT_MOVE
      * @param   {Object}        eventData
@@ -1325,7 +1325,7 @@ window.ionic.version = '1.3.3';
     stopDefaultBrowserBehavior: function stopDefaultBrowserBehavior(element, css_class) {
       // changed from making many style changes to just adding a preset classname
       // less DOM manipulations, less code, and easier to control in the CSS side of things
-      // hammer.components doesn't come with CSS, but ionic does, which is why we prefer this method
+      // hammer.js doesn't come with CSS, but ionic does, which is why we prefer this method
       if(element && element.classList) {
         element.classList.add(css_class);
         element.onselectstart = function() {
@@ -1485,7 +1485,7 @@ window.ionic.version = '1.3.3';
 
     /**
      * register new gesture
-     * @param   {Object}    gesture object, see gestures.components for documentation
+     * @param   {Object}    gesture object, see gestures.js for documentation
      * @returns {Array}     gestures
      */
     register: function register(gesture) {
@@ -2060,7 +2060,7 @@ window.ionic.version = '1.3.3';
    * various other information such as what kind of platform the app is currently installed on.
    *
    * @usage
-   * ```components
+   * ```js
    * angular.module('PlatformApp', ['ionic'])
    * .controller('PlatformCtrl', function($scope) {
    *
@@ -3353,7 +3353,7 @@ ionic.DomUtil.ready(function() {
   /**
    * Various utilities used throughout Ionic
    *
-   * Some of these are adopted from underscore.components and backbone.components, both also MIT licensed.
+   * Some of these are adopted from underscore.js and backbone.js, both also MIT licensed.
    */
   ionic.Utils = {
 
@@ -3440,7 +3440,7 @@ ionic.DomUtil.ready(function() {
         return result;
       };
     },
-     // Borrowed from Backbone.components's extend
+     // Borrowed from Backbone.js's extend
      // Helper function to correctly set up the prototype chain, for subclasses.
      // Similar to `goog.inherits`, but uses a hash of prototype properties and
      // class properties to be extended.
@@ -3477,7 +3477,7 @@ ionic.DomUtil.ready(function() {
       return child;
     },
 
-    // Extend adapted from Underscore.components
+    // Extend adapted from Underscore.js
     extend: function(obj) {
        var args = Array.prototype.slice.call(arguments, 1);
        for (var i = 0; i < args.length; i++) {
@@ -3596,7 +3596,7 @@ ionic.DomUtil.ready(function() {
  * from the Ionic Keyboard plugin. If you would like them to disappear immediately, you could do something
  * like:
  *
- * ```components
+ * ```js
  *   window.addEventListener('native.keyboardshow', function(){
  *     document.body.classList.add('keyboard-open');
  *   });
@@ -4385,7 +4385,7 @@ function viewportLoadTag() {
 }
 
 function viewportUpdate() {
-  // unit tests in viewport.unit.components
+  // unit tests in viewport.unit.js
 
   var initWidth = viewportProperties.width;
   var initHeight = viewportProperties.height;
@@ -5265,7 +5265,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
     };
 
     //Broadcasted when keyboard is shown on some platforms.
-    //See components/utils/keyboard.components
+    //See js/utils/keyboard.js
     container.addEventListener('scrollChildIntoView', self.scrollChildIntoView);
 
     // Listen on document because container may not have had the last
@@ -7528,7 +7528,7 @@ ionic.scroll = {
       container.addEventListener('scroll', self.onScroll);
 
       //Broadcasted when keyboard is shown on some platforms.
-      //See components/utils/keyboard.components
+      //See js/utils/keyboard.js
       container.addEventListener('scrollChildIntoView', self.scrollChildIntoView);
 
       container.addEventListener(ionic.EVENTS.touchstart, self.handleTouchMove);
@@ -8296,7 +8296,7 @@ ionic.scroll = {
 })(ionic);
 
 /*
- * Adapted from Swipe.components 2.0
+ * Adapted from Swipe.js 2.0
  *
  * Brad Birdsall
  * Copyright 2013, MIT License
@@ -13367,10 +13367,10 @@ ionic.views.Slider = ionic.views.View.inherit({
 
 })();
 /*!
- * ionic.bundle.components is a concatenation of:
- * ionic.components, angular.components, angular-animate.components,
- * angular-sanitize.components, angular-ui-router.components,
- * and ionic-angular.components
+ * ionic.bundle.js is a concatenation of:
+ * ionic.js, angular.js, angular-animate.js,
+ * angular-sanitize.js, angular-ui-router.js,
+ * and ionic-angular.js
  */
 
 /**
@@ -13663,7 +13663,7 @@ function isArrayLike(obj) {
  * providing 'undefined' or 'null' values for `obj` will not throw a TypeError, but rather just
  * return the value provided.
  *
-   ```components
+   ```js
      var values = {name: 'misko', gender: 'male'};
      var log = [];
      angular.forEach(values, function(value, key) {
@@ -13868,7 +13868,7 @@ function inherit(parent, extra) {
  * @description
  * A function that performs no operations. This function can be useful when writing code in the
  * functional style.
-   ```components
+   ```js
      function foo(callback) {
        var result = calculateResult();
        (callback || angular.noop)(result);
@@ -13889,7 +13889,7 @@ noop.$inject = [];
  * A function that returns its first argument. This function is useful when writing code in the
  * functional style.
  *
-   ```components
+   ```js
      function transformer(transformationFn, value) {
        return (transformationFn || angular.identity)(value);
      };
@@ -15026,7 +15026,7 @@ function angularInit(element, bootstrap) {
  *   {{greeting}}
  * </div>
  *
- * <script src="angular.components"></script>
+ * <script src="angular.js"></script>
  * <script>
  *   var app = angular.module('demo', [])
  *   .controller('WelcomeController', function($scope) {
@@ -15362,7 +15362,7 @@ function setupModuleLoader(window) {
      * A module is a collection of services, directives, controllers, filters, and configuration information.
      * `angular.module` is used to configure the {@link auto.$injector $injector}.
      *
-     * ```components
+     * ```js
      * // Create a new module
      * var myModule = angular.module('myModule', []);
      *
@@ -15378,7 +15378,7 @@ function setupModuleLoader(window) {
      *
      * Then you can create an injector and load your modules like this:
      *
-     * ```components
+     * ```js
      * var injector = angular.injector(['ng', 'myModule'])
      * ```
      *
@@ -15535,7 +15535,7 @@ function setupModuleLoader(window) {
            * Defines an animation hook that can be later used with
            * {@link $animate $animate} service and directives that use this service.
            *
-           * ```components
+           * ```js
            * module.animation('.animation-name', function($inject1, $inject2) {
            *   return {
            *     eventName : function(element, done) {
@@ -16004,7 +16004,7 @@ function publishExternalAPI(angular) {
  * Angular to manipulate the DOM in a cross-browser compatible way. jqLite implements only the most
  * commonly needed functionality with the goal of having a very small footprint.
  *
- * To use `jQuery`, simply ensure it is loaded before the `angular.components` file. You can also use the
+ * To use `jQuery`, simply ensure it is loaded before the `angular.js` file. You can also use the
  * {@link ngJq `ngJq`} directive to specify that jqlite should be used over jQuery, or to use a
  * specific version of jQuery if multiple versions exist on the page.
  *
@@ -17155,7 +17155,7 @@ var $$HashMapProvider = [function() {
  *
  * @example
  * Typical usage
- * ```components
+ * ```js
  *   // create an injector
  *   var $injector = angular.injector(['ng']);
  *
@@ -17179,7 +17179,7 @@ var $$HashMapProvider = [function() {
  * directive is added to the end of the document body by JQuery. We then compile and link
  * it into the current AngularJS scope.
  *
- * ```components
+ * ```js
  * var $div = $('<div ng-controller="MyCtrl">{{content.label}}</div>');
  * $(document.body).append($div);
  *
@@ -17271,7 +17271,7 @@ function annotate(fn, strictDi, name) {
  *
  * The following always holds true:
  *
- * ```components
+ * ```js
  *   var $injector = angular.injector();
  *   expect($injector.get('$injector')).toBe($injector);
  *   expect($injector.invoke(function($injector) {
@@ -17284,7 +17284,7 @@ function annotate(fn, strictDi, name) {
  * JavaScript does not have annotations, and annotations are needed for dependency injection. The
  * following are all valid ways of annotating function with injection arguments and are equivalent.
  *
- * ```components
+ * ```js
  *   // inferred (only works if code not minified/obfuscated)
  *   $injector.invoke(function(serviceA){});
  *
@@ -17379,7 +17379,7 @@ function annotate(fn, strictDi, name) {
  * The simplest form is to extract the dependencies from the arguments of the function. This is done
  * by converting the function into a string using `toString()` method and extracting the argument
  * names.
- * ```components
+ * ```js
  *   // Given
  *   function MyController($scope, $route) {
  *     // ...
@@ -17398,7 +17398,7 @@ function annotate(fn, strictDi, name) {
  *
  * If a function has an `$inject` property and its value is an array of strings, then the strings
  * represent names of services to be injected into the function.
- * ```components
+ * ```js
  *   // Given
  *   var MyController = function(obfuscatedScope, obfuscatedRoute) {
  *     // ...
@@ -17416,7 +17416,7 @@ function annotate(fn, strictDi, name) {
  * is very inconvenient. In these situations using the array notation to specify the dependencies in
  * a way that survives minification is a better choice:
  *
- * ```components
+ * ```js
  *   // We wish to write this (not minification / obfuscation safe)
  *   injector.invoke(function($compile, $rootScope) {
  *     // ...
@@ -17527,7 +17527,7 @@ function annotate(fn, strictDi, name) {
  * The following example shows how to create a simple event tracking service and register it using
  * {@link auto.$provide#provider $provide.provider()}.
  *
- * ```components
+ * ```js
  *  // Define the eventTracker provider
  *  function EventTrackerProvider() {
  *    var trackingUrl = '/track';
@@ -17605,7 +17605,7 @@ function annotate(fn, strictDi, name) {
  *
  * @example
  * Here is an example of registering a service
- * ```components
+ * ```js
  *   $provide.factory('ping', ['$http', function($http) {
  *     return function ping() {
  *       return $http.send('/ping');
@@ -17613,7 +17613,7 @@ function annotate(fn, strictDi, name) {
  *   }]);
  * ```
  * You would then inject and use this service like this:
- * ```components
+ * ```js
  *   someModule.controller('Ctrl', ['ping', function(ping) {
  *     ping();
  *   }]);
@@ -17654,7 +17654,7 @@ function annotate(fn, strictDi, name) {
  * @example
  * Here is an example of registering a service using
  * {@link auto.$provide#service $provide.service(class)}.
- * ```components
+ * ```js
  *   var Ping = function($http) {
  *     this.$http = $http;
  *   };
@@ -17667,7 +17667,7 @@ function annotate(fn, strictDi, name) {
  *   $provide.service('ping', Ping);
  * ```
  * You would then inject and use this service like this:
- * ```components
+ * ```js
  *   someModule.controller('Ctrl', ['ping', function(ping) {
  *     ping.send();
  *   }]);
@@ -17695,7 +17695,7 @@ function annotate(fn, strictDi, name) {
  *
  * @example
  * Here are some examples of creating value services.
- * ```components
+ * ```js
  *   $provide.value('ADMIN_USER', 'admin');
  *
  *   $provide.value('RoleLookup', { admin: 0, writer: 1, reader: 2 });
@@ -17726,7 +17726,7 @@ function annotate(fn, strictDi, name) {
  *
  * @example
  * Here a some examples of creating constants:
- * ```components
+ * ```js
  *   $provide.constant('SHARD_HEIGHT', 306);
  *
  *   $provide.constant('MY_COLOURS', ['red', 'blue', 'grey']);
@@ -17760,7 +17760,7 @@ function annotate(fn, strictDi, name) {
  * @example
  * Here we decorate the {@link ng.$log $log} service to convert warnings to errors by intercepting
  * calls to {@link ng.$log#error $log.warn()}.
- * ```components
+ * ```js
  *   $provide.decorator('$log', ['$delegate', function($delegate) {
  *     $delegate.warn = $delegate.error;
  *     return $delegate;
@@ -18359,7 +18359,7 @@ var $$CoreAnimateJsProvider = function() {
 };
 
 // this is prefixed with Core since it conflicts with
-// the animateQueueProvider defined in ngAnimate/animateQueue.components
+// the animateQueueProvider defined in ngAnimate/animateQueue.js
 var $$CoreAnimateQueueProvider = function() {
   var postDigestQueue = new HashMap();
   var postDigestElements = [];
@@ -18466,7 +18466,7 @@ var $$CoreAnimateQueueProvider = function() {
  *
  * In order to enable animations the `ngAnimate` module has to be loaded.
  *
- * To see the functional implementation check out `src/ngAnimate/animate.components`.
+ * To see the functional implementation check out `src/ngAnimate/animate.js`.
  */
 var $AnimateProvider = ['$provide', function($provide) {
   var provider = this;
@@ -18495,7 +18495,7 @@ var $AnimateProvider = ['$provide', function($provide) {
    *
    *   Make sure to trigger the `doneFunction` once the animation is fully complete.
    *
-   * ```components
+   * ```js
    *   return {
    *     //enter, leave, move signature
    *     eventFn : function(element, done, options) {
@@ -18596,7 +18596,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *    has fired on the given element or among any of its children. Once the listener is fired, the provided callback
        *    is fired with the following params:
        *
-       * ```components
+       * ```js
        * $animate.on('enter', container,
        *    function callback(element, phase) {
        *      // cool we detected an enter animation within the container
@@ -18623,7 +18623,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @description Deregisters an event listener based on the event which has been associated with the provided element. This method
        * can be used in three different ways depending on the arguments:
        *
-       * ```components
+       * ```js
        * // remove all the animation event listeners listening for `enter`
        * $animate.off('enter');
        *
@@ -18667,7 +18667,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @description Used to get and set whether animations are enabled or not on the entire application or on an element and its children. This
        * function can be called in four ways:
        *
-       * ```components
+       * ```js
        * // returns true or false
        * $animate.enabled();
        *
@@ -18860,7 +18860,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * If a JavaScript animation is detected then the provided styles will be given in as function parameters into the `animate`
        * method (or as part of the `options` parameter):
        *
-       * ```components
+       * ```js
        * ngModule.animation('.my-inline-animation', function() {
        *   return {
        *     animate : function(element, from, to, done, options) {
@@ -19616,7 +19616,7 @@ function $CacheFactoryProvider() {
        * {@link $http $http} and the {@link ng.directive:script script} directive to cache
        * templates and other data.
        *
-       * ```components
+       * ```js
        *  angular.module('superCache')
        *    .factory('superCache', ['$cacheFactory', function($cacheFactory) {
        *      return $cacheFactory('super-cache');
@@ -19625,7 +19625,7 @@ function $CacheFactoryProvider() {
        *
        * Example test:
        *
-       * ```components
+       * ```js
        *  it('should behave like a cache', inject(function(superCache) {
        *    superCache.put('key', 'value');
        *    superCache.put('another key', 'another value');
@@ -19884,7 +19884,7 @@ function $CacheFactoryProvider() {
  *
  * Adding via the `$templateCache` service:
  *
- * ```components
+ * ```js
  * var myApp = angular.module('myApp', []);
  * myApp.run(function($templateCache) {
  *   $templateCache.put('templateId.html', 'This is the content of the template');
@@ -19897,7 +19897,7 @@ function $CacheFactoryProvider() {
  * ```
  *
  * or get it via Javascript:
- * ```components
+ * ```js
  * $templateCache.get('templateId.html')
  * ```
  *
@@ -20971,7 +20971,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
    *
    * Here are a few examples of how you would usually define components:
    *
-   * ```components
+   * ```js
    *   var myMod = angular.module(...);
    *   myMod.component('myComp', {
    *     template: '<div>My name is {{$ctrl.name}}</div>',
@@ -23476,12 +23476,12 @@ function $DocumentProvider() {
  * The default implementation simply delegates to `$log.error` which logs it into
  * the browser console.
  *
- * In unit tests, if `angular-mocks.components` is loaded, this service is overridden by
+ * In unit tests, if `angular-mocks.js` is loaded, this service is overridden by
  * {@link ngMock.$exceptionHandler mock $exceptionHandler} which aids in testing.
  *
  * ## Example:
  *
- * ```components
+ * ```js
  *   angular.module('exceptionOverride', []).factory('$exceptionHandler', function() {
  *     return function(exception, cause) {
  *       exception.message += ' (caused by "' + cause + '")';
@@ -23609,7 +23609,7 @@ function $HttpParamSerializerJQLikeProvider() {
    *
    * To use it for serializing `$http` request parameters, set it as the `paramSerializer` property:
    *
-   * ```components
+   * ```js
    * $http({
    *   url: myUrl,
    *   method: 'GET',
@@ -23624,7 +23624,7 @@ function $HttpParamSerializerJQLikeProvider() {
    * Additionally, you can inject the serializer and use it explicitly, for example to serialize
    * form data for submission:
    *
-   * ```components
+   * ```js
    * .controller(function($http, $httpParamSerializerJQLike) {
    *   //...
    *
@@ -25194,7 +25194,7 @@ function $InterpolateProvider() {
       return value;
     }
 
-    //TODO: this is the same as the constantWatchDelegate in parse.components
+    //TODO: this is the same as the constantWatchDelegate in parse.js
     function constantWatchDelegate(scope, listener, objectEquality, constantInterp) {
       var unwatch;
       return unwatch = scope.$watch(function constantInterpolateWatch(scope) {
@@ -26004,7 +26004,7 @@ var locationPrototype = {
    * [RFC 3986](http://www.ietf.org/rfc/rfc3986.txt).
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var absUrl = $location.absUrl();
    * // => "http://example.com/#/some/path?foo=bar&baz=xoxo"
@@ -26026,7 +26026,7 @@ var locationPrototype = {
    * Change path, search and hash, when called with parameter and return `$location`.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var url = $location.url();
    * // => "/some/path?foo=bar&baz=xoxo"
@@ -26058,7 +26058,7 @@ var locationPrototype = {
    * Return protocol of current url.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var protocol = $location.protocol();
    * // => "http"
@@ -26080,7 +26080,7 @@ var locationPrototype = {
    * Note: compared to the non-angular version `location.host` which returns `hostname:port`, this returns the `hostname` portion only.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var host = $location.host();
    * // => "example.com"
@@ -26106,7 +26106,7 @@ var locationPrototype = {
    * Return port of current url.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var port = $location.port();
    * // => 80
@@ -26131,7 +26131,7 @@ var locationPrototype = {
    * if it is missing.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var path = $location.path();
    * // => "/some/path"
@@ -26157,7 +26157,7 @@ var locationPrototype = {
    * Change search part when called with parameter and return `$location`.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var searchObject = $location.search();
    * // => {foo: 'bar', baz: 'xoxo'}
@@ -26235,7 +26235,7 @@ var locationPrototype = {
    * Changes the hash fragment when called with a parameter and returns `$location`.
    *
    *
-   * ```components
+   * ```js
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo#hashValue
    * var hash = $location.hash();
    * // => "hashValue"
@@ -28506,7 +28506,7 @@ function getValueOf(value) {
  *
  * Converts Angular {@link guide/expression expression} into a function.
  *
- * ```components
+ * ```js
  *   var getter = $parse('user.name');
  *   var setter = getter.assign;
  *   var context = {user:{name:'angular'}};
@@ -28843,7 +28843,7 @@ function $ParseProvider() {
  *
  * It can be used like so:
  *
- * ```components
+ * ```js
  *   // for the purpose of this example let's assume that variables `$q` and `okToGreet`
  *   // are available in the current lexical scope (they could have been injected or passed in).
  *
@@ -28881,7 +28881,7 @@ function $ParseProvider() {
  * From the perspective of dealing with error handling, deferred and promise APIs are to
  * asynchronous programming what `try`, `catch` and `throw` keywords are to synchronous programming.
  *
- * ```components
+ * ```js
  *   // for the purpose of this example let's assume that variables `$q` and `okToGreet`
  *   // are available in the current lexical scope (they could have been injected or passed in).
  *
@@ -28978,7 +28978,7 @@ function $ParseProvider() {
  * Because calling the `then` method of a promise returns a new derived promise, it is easily
  * possible to create a chain of promises:
  *
- * ```components
+ * ```js
  *   promiseB = promiseA.then(function(result) {
  *     return result + 1;
  *   });
@@ -29005,7 +29005,7 @@ function $ParseProvider() {
  *
  * # Testing
  *
- *  ```components
+ *  ```js
  *    it('should simulate promise', inject(function($q, $rootScope) {
  *      var deferred = $q.defer();
  *      var promise = deferred.promise;
@@ -29244,7 +29244,7 @@ function qFactory(nextTick, exceptionHandler) {
    * current promise, you have to "rethrow" the error by returning a rejection constructed via
    * `reject`.
    *
-   * ```components
+   * ```js
    *   promiseB = promiseA.then(function(result) {
    *     // success: do something and resolve promiseB
    *     //          with the old or a new result
@@ -29579,7 +29579,7 @@ function $RootScopeProvider() {
      *
      * # Inheritance
      * A scope can inherit from a parent scope, as in this example:
-     * ```components
+     * ```js
          var parent = $rootScope;
          var child = parent.$new();
 
@@ -29751,7 +29751,7 @@ function $RootScopeProvider() {
        *
        *
        * # Example
-       * ```components
+       * ```js
            // let's assume that scope was dependency injected as the $rootScope
            var scope = $rootScope;
            scope.name = 'misko';
@@ -29963,7 +29963,7 @@ function $RootScopeProvider() {
        *
        *
        * # Example
-       * ```components
+       * ```js
           $scope.names = ['igor', 'matias', 'misko', 'james'];
           $scope.dataCount = 4;
 
@@ -30159,7 +30159,7 @@ function $RootScopeProvider() {
        * In unit tests, you may need to call `$digest()` to simulate the scope life cycle.
        *
        * # Example
-       * ```components
+       * ```js
            var scope = ...;
            scope.name = 'misko';
            scope.counter = 0;
@@ -30379,7 +30379,7 @@ function $RootScopeProvider() {
        * expressions.
        *
        * # Example
-       * ```components
+       * ```js
            var scope = ng.$rootScope.Scope();
            scope.a = 1;
            scope.b = 2;
@@ -30463,7 +30463,7 @@ function $RootScopeProvider() {
        * ## Life cycle
        *
        * # Pseudo-Code of `$apply()`
-       * ```components
+       * ```js
            function $apply(expr) {
              try {
                return $eval(expr);
@@ -30913,7 +30913,7 @@ var SCE_CONTEXTS = {
   // RESOURCE_URL is a subtype of URL used in contexts where a privileged resource is sourced from a
   // url.  (e.g. ng-include, script src, templateUrl)
   RESOURCE_URL: 'resourceUrl',
-  JS: 'components'
+  JS: 'js'
 };
 
 // Helper functions follow.
@@ -31177,7 +31177,7 @@ function $SceDelegateProvider() {
      * See {@link ng.$sce $sce} for enabling strict contextual escaping.
      *
      * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
-     *   resourceUrl, html, components and css.
+     *   resourceUrl, html, js and css.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
      * where Angular expects a $sce.trustAs() return value.
@@ -31626,7 +31626,7 @@ function $SceProvider() {
    *
    * Inheritance happens to capture this in a natural way.  In some future, we
    * may not use inheritance anymore.  That is OK because no code outside of
-   * sce.components and sceSpecs.components would need to be aware of this detail.
+   * sce.js and sceSpecs.js would need to be aware of this detail.
    */
 
   this.$get = ['$parse', '$sceDelegate', function(
@@ -31708,7 +31708,7 @@ function $SceProvider() {
      * escaping.
      *
      * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
-     *   resourceUrl, html, components and css.
+     *   resourceUrl, html, js and css.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
      * where Angular expects a $sce.trustAs() return value.
@@ -32592,7 +32592,7 @@ function $$CookieReaderProvider() {
  * (`myapp_subsection_filterx`).
  * </div>
  *
- * ```components
+ * ```js
  *   // Filter registration
  *   function MyModule($provide, $filterProvider) {
  *     // create a service to demonstrate injection (not always needed)
@@ -32616,7 +32616,7 @@ function $$CookieReaderProvider() {
  * The filter function is registered with the `$injector` under the filter name suffix with
  * `Filter`.
  *
- * ```components
+ * ```js
  *   it('should be the same instance', inject(
  *     function($filterProvider) {
  *       $filterProvider.register('reverse', function(){
@@ -44088,10 +44088,10 @@ $provide.value("$locale", {
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 /*!
- * ionic.bundle.components is a concatenation of:
- * ionic.components, angular.components, angular-animate.components,
- * angular-sanitize.components, angular-ui-router.components,
- * and ionic-angular.components
+ * ionic.bundle.js is a concatenation of:
+ * ionic.js, angular.js, angular-animate.js,
+ * angular-sanitize.js, angular-ui-router.js,
+ * and ionic-angular.js
  */
 
 /**
@@ -44662,7 +44662,7 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  *
  * Now we create the **JavaScript animation** that will trigger the CSS transition:
  *
- * ```components
+ * ```js
  * ngModule.animation('.fold-animation', ['$animateCss', function($animateCss) {
  *   return {
  *     enter: function(element, doneFn) {
@@ -44689,7 +44689,7 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  *
  * The example below showcases a more advanced version of the `.fold-animation` from the example above:
  *
- * ```components
+ * ```js
  * ngModule.animation('.fold-animation', ['$animateCss', function($animateCss) {
  *   return {
  *     enter: function(element, doneFn) {
@@ -44739,7 +44739,7 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  * works with the options provided. Say for example we were adding a class that contained a keyframe value and we wanted to also animate some inline
  * styles using the `from` and `to` properties.
  *
- * ```components
+ * ```js
  * var animator = $animateCss(element, {
  *   from: { background:'red' },
  *   to: { background:'blue' }
@@ -44776,13 +44776,13 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  * start the animation. All that is going on here is that the element is being prepared for the animation (which means that the generated CSS classes are
  * added and removed on the element). Once `$animateCss` is called it will return an object with the following properties:
  *
- * ```components
+ * ```js
  * var animator = $animateCss(element, { ... });
  * ```
  *
  * Now what do the contents of our `animator` variable look like:
  *
- * ```components
+ * ```js
  * {
  *   // starts the animation
  *   start: Function,
@@ -48211,10 +48211,10 @@ angular.module('ngAnimate', [])
 })(window, window.angular);
 
 /*!
- * ionic.bundle.components is a concatenation of:
- * ionic.components, angular.components, angular-animate.components,
- * angular-sanitize.components, angular-ui-router.components,
- * and ionic-angular.components
+ * ionic.bundle.js is a concatenation of:
+ * ionic.js, angular.js, angular-animate.js,
+ * angular-sanitize.js, angular-ui-router.js,
+ * and ionic-angular.js
  */
 
 /**
@@ -48936,10 +48936,10 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 })(window, window.angular);
 
 /*!
- * ionic.bundle.components is a concatenation of:
- * ionic.components, angular.components, angular-animate.components,
- * angular-sanitize.components, angular-ui-router.components,
- * and ionic-angular.components
+ * ionic.bundle.js is a concatenation of:
+ * ionic.js, angular.js, angular-animate.js,
+ * angular-sanitize.js, angular-ui-router.js,
+ * and ionic-angular.js
  */
 
 /**
@@ -49114,7 +49114,7 @@ function indexBy(array, propName) {
   return result;
 }
 
-// extracted from underscore.components
+// extracted from underscore.js
 // Return a copy of the object only containing the whitelisted properties.
 function pick(obj) {
   var copy = {};
@@ -49125,7 +49125,7 @@ function pick(obj) {
   return copy;
 }
 
-// extracted from underscore.components
+// extracted from underscore.js
 // Return a copy of the object omitting the blacklisted properties.
 function omit(obj) {
   var copy = {};
@@ -49181,7 +49181,7 @@ angular.module('ui.router.util', ['ng']);
 /**
  * @ngdoc overview
  * @name ui.router.router
- *
+ * 
  * @requires ui.router.util
  *
  * @description
@@ -49195,7 +49195,7 @@ angular.module('ui.router.router', ['ui.router.util']);
 /**
  * @ngdoc overview
  * @name ui.router.state
- *
+ * 
  * @requires ui.router.router
  * @requires ui.router.util
  *
@@ -49204,7 +49204,7 @@ angular.module('ui.router.router', ['ui.router.util']);
  *
  * This module is a dependency of the main ui.router module. Do not include this module as a dependency
  * in your angular app (use {@link ui.router} module instead).
- *
+ * 
  */
 angular.module('ui.router.state', ['ui.router.router', 'ui.router.util']);
 
@@ -49216,24 +49216,24 @@ angular.module('ui.router.state', ['ui.router.router', 'ui.router.util']);
  *
  * @description
  * # ui.router
- *
- * ## The main module for ui.router
+ * 
+ * ## The main module for ui.router 
  * There are several sub-modules included with the ui.router module, however only this module is needed
- * as a dependency within your angular app. The other modules are for organization purposes.
+ * as a dependency within your angular app. The other modules are for organization purposes. 
  *
  * The modules are:
  * * ui.router - the main "umbrella" module
- * * ui.router.router -
- *
+ * * ui.router.router - 
+ * 
  * *You'll need to include **only** this module as the dependency within your angular app.*
- *
+ * 
  * <pre>
  * <!doctype html>
  * <html ng-app="myApp">
  * <head>
- *   <script src="components/angular.components"></script>
+ *   <script src="js/angular.js"></script>
  *   <!-- Include the ui-router script -->
- *   <script src="components/angular-ui-router.min.components"></script>
+ *   <script src="js/angular-ui-router.min.js"></script>
  *   <script>
  *     // ...and add 'ui.router' as a dependency
  *     var myApp = angular.module('myApp', ['ui.router']);
@@ -49260,14 +49260,14 @@ angular.module('ui.router.compat', ['ui.router']);
  */
 $Resolve.$inject = ['$q', '$injector'];
 function $Resolve(  $q,    $injector) {
-
+  
   var VISIT_IN_PROGRESS = 1,
       VISIT_DONE = 2,
       NOTHING = {},
       NO_DEPENDENCIES = [],
       NO_LOCALS = NOTHING,
       NO_PARENT = extend($q.when(NOTHING), { $$promises: NOTHING, $$values: NOTHING });
-
+  
 
   /**
    * @ngdoc function
@@ -49283,7 +49283,7 @@ function $Resolve(  $q,    $injector) {
    * <pre>
    * $resolve.resolve(invocables, locals, parent, self)
    * </pre>
-   * but the former is more efficient (in fact `resolve` just calls `study`
+   * but the former is more efficient (in fact `resolve` just calls `study` 
    * internally).
    *
    * @param {object} invocables Invocable objects
@@ -49292,19 +49292,19 @@ function $Resolve(  $q,    $injector) {
   this.study = function (invocables) {
     if (!isObject(invocables)) throw new Error("'invocables' must be an object");
     var invocableKeys = objectKeys(invocables || {});
-
+    
     // Perform a topological sort of invocables to build an ordered plan
     var plan = [], cycle = [], visited = {};
     function visit(value, key) {
       if (visited[key] === VISIT_DONE) return;
-
+      
       cycle.push(key);
       if (visited[key] === VISIT_IN_PROGRESS) {
         cycle.splice(0, indexOf(cycle, key));
         throw new Error("Cyclic dependency: " + cycle.join(" -> "));
       }
       visited[key] = VISIT_IN_PROGRESS;
-
+      
       if (isString(value)) {
         plan.push(key, [ function() { return $injector.get(value); }], NO_DEPENDENCIES);
       } else {
@@ -49314,17 +49314,17 @@ function $Resolve(  $q,    $injector) {
         });
         plan.push(key, value, params);
       }
-
+      
       cycle.pop();
       visited[key] = VISIT_DONE;
     }
     forEach(invocables, visit);
     invocables = cycle = visited = null; // plan is all that's required
-
+    
     function isResolve(value) {
       return isObject(value) && value.then && value.$$promises;
     }
-
+    
     return function (locals, parent, self) {
       if (isResolve(locals) && self === undefined) {
         self = parent; parent = locals; locals = null;
@@ -49332,12 +49332,12 @@ function $Resolve(  $q,    $injector) {
       if (!locals) locals = NO_LOCALS;
       else if (!isObject(locals)) {
         throw new Error("'locals' must be an object");
-      }
+      }       
       if (!parent) parent = NO_PARENT;
       else if (!isResolve(parent)) {
         throw new Error("'parent' must be a promise returned by $resolve.resolve()");
       }
-
+      
       // To complete the overall resolution, we have to wait for the parent
       // promise and for the promise for each invokable in our plan.
       var resolution = $q.defer(),
@@ -49346,18 +49346,18 @@ function $Resolve(  $q,    $injector) {
           values = extend({}, locals),
           wait = 1 + plan.length/3,
           merged = false;
-
+          
       function done() {
         // Merge parent values we haven't got yet and publish our own $$values
         if (!--wait) {
-          if (!merged) merge(values, parent.$$values);
+          if (!merged) merge(values, parent.$$values); 
           result.$$values = values;
           result.$$promises = result.$$promises || true; // keep for isResolve()
           delete result.$$inheritedValues;
           resolution.resolve(values);
         }
       }
-
+      
       function fail(reason) {
         result.$$failure = reason;
         resolution.reject(reason);
@@ -49368,7 +49368,7 @@ function $Resolve(  $q,    $injector) {
         fail(parent.$$failure);
         return result;
       }
-
+      
       if (parent.$$inheritedValues) {
         merge(values, omit(parent.$$inheritedValues, invocableKeys));
       }
@@ -49383,16 +49383,16 @@ function $Resolve(  $q,    $injector) {
       } else {
         if (parent.$$inheritedValues) {
           result.$$inheritedValues = omit(parent.$$inheritedValues, invocableKeys);
-        }
+        }        
         parent.then(done, fail);
       }
-
+      
       // Process each invocable in the plan, but ignore any where a local of the same name exists.
       for (var i=0, ii=plan.length; i<ii; i+=3) {
         if (locals.hasOwnProperty(plan[i])) done();
         else invoke(plan[i], plan[i+1], plan[i+2]);
       }
-
+      
       function invoke(key, invocable, params) {
         // Create a deferred for this invocation. Failures will propagate to the resolution as well.
         var invocation = $q.defer(), waitParams = 0;
@@ -49427,65 +49427,65 @@ function $Resolve(  $q,    $injector) {
         // Publish promise synchronously; invocations further down in the plan may depend on it.
         promises[key] = invocation.promise;
       }
-
+      
       return result;
     };
   };
-
+  
   /**
    * @ngdoc function
    * @name ui.router.util.$resolve#resolve
    * @methodOf ui.router.util.$resolve
    *
    * @description
-   * Resolves a set of invocables. An invocable is a function to be invoked via
-   * `$injector.invoke()`, and can have an arbitrary number of dependencies.
+   * Resolves a set of invocables. An invocable is a function to be invoked via 
+   * `$injector.invoke()`, and can have an arbitrary number of dependencies. 
    * An invocable can either return a value directly,
-   * or a `$q` promise. If a promise is returned it will be resolved and the
-   * resulting value will be used instead. Dependencies of invocables are resolved
+   * or a `$q` promise. If a promise is returned it will be resolved and the 
+   * resulting value will be used instead. Dependencies of invocables are resolved 
    * (in this order of precedence)
    *
    * - from the specified `locals`
    * - from another invocable that is part of this `$resolve` call
-   * - from an invocable that is inherited from a `parent` call to `$resolve`
+   * - from an invocable that is inherited from a `parent` call to `$resolve` 
    *   (or recursively
    * - from any ancestor `$resolve` of that parent).
    *
-   * The return value of `$resolve` is a promise for an object that contains
+   * The return value of `$resolve` is a promise for an object that contains 
    * (in this order of precedence)
    *
    * - any `locals` (if specified)
    * - the resolved return values of all injectables
    * - any values inherited from a `parent` call to `$resolve` (if specified)
    *
-   * The promise will resolve after the `parent` promise (if any) and all promises
-   * returned by injectables have been resolved. If any invocable
-   * (or `$injector.invoke`) throws an exception, or if a promise returned by an
-   * invocable is rejected, the `$resolve` promise is immediately rejected with the
-   * same error. A rejection of a `parent` promise (if specified) will likewise be
-   * propagated immediately. Once the `$resolve` promise has been rejected, no
+   * The promise will resolve after the `parent` promise (if any) and all promises 
+   * returned by injectables have been resolved. If any invocable 
+   * (or `$injector.invoke`) throws an exception, or if a promise returned by an 
+   * invocable is rejected, the `$resolve` promise is immediately rejected with the 
+   * same error. A rejection of a `parent` promise (if specified) will likewise be 
+   * propagated immediately. Once the `$resolve` promise has been rejected, no 
    * further invocables will be called.
-   *
+   * 
    * Cyclic dependencies between invocables are not permitted and will caues `$resolve`
-   * to throw an error. As a special case, an injectable can depend on a parameter
-   * with the same name as the injectable, which will be fulfilled from the `parent`
-   * injectable of the same name. This allows inherited values to be decorated.
+   * to throw an error. As a special case, an injectable can depend on a parameter 
+   * with the same name as the injectable, which will be fulfilled from the `parent` 
+   * injectable of the same name. This allows inherited values to be decorated. 
    * Note that in this case any other injectable in the same `$resolve` with the same
    * dependency would see the decorated value, not the inherited value.
    *
-   * Note that missing dependencies -- unlike cyclic dependencies -- will cause an
-   * (asynchronous) rejection of the `$resolve` promise rather than a (synchronous)
+   * Note that missing dependencies -- unlike cyclic dependencies -- will cause an 
+   * (asynchronous) rejection of the `$resolve` promise rather than a (synchronous) 
    * exception.
    *
-   * Invocables are invoked eagerly as soon as all dependencies are available.
+   * Invocables are invoked eagerly as soon as all dependencies are available. 
    * This is true even for dependencies inherited from a `parent` call to `$resolve`.
    *
-   * As a special case, an invocable can be a string, in which case it is taken to
-   * be a service name to be passed to `$injector.get()`. This is supported primarily
-   * for backwards-compatibility with the `resolve` property of `$routeProvider`
+   * As a special case, an invocable can be a string, in which case it is taken to 
+   * be a service name to be passed to `$injector.get()`. This is supported primarily 
+   * for backwards-compatibility with the `resolve` property of `$routeProvider` 
    * routes.
    *
-   * @param {object} invocables functions to invoke or
+   * @param {object} invocables functions to invoke or 
    * `$injector` services to fetch.
    * @param {object} locals  values to make available to the injectables
    * @param {object} parent  a promise returned by another call to `$resolve`.
@@ -49521,23 +49521,23 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    * @methodOf ui.router.util.$templateFactory
    *
    * @description
-   * Creates a template from a configuration object.
+   * Creates a template from a configuration object. 
    *
-   * @param {object} config Configuration object for which to load a template.
-   * The following properties are search in the specified order, and the first one
+   * @param {object} config Configuration object for which to load a template. 
+   * The following properties are search in the specified order, and the first one 
    * that is defined is used to create the template:
    *
-   * @param {string|object} config.template html string template or function to
+   * @param {string|object} config.template html string template or function to 
    * load via {@link ui.router.util.$templateFactory#fromString fromString}.
-   * @param {string|object} config.templateUrl url to load or a function returning
+   * @param {string|object} config.templateUrl url to load or a function returning 
    * the url to load via {@link ui.router.util.$templateFactory#fromUrl fromUrl}.
-   * @param {Function} config.templateProvider function to invoke via
+   * @param {Function} config.templateProvider function to invoke via 
    * {@link ui.router.util.$templateFactory#fromProvider fromProvider}.
    * @param {object} params  Parameters to pass to the template function.
-   * @param {object} locals Locals to pass to `invoke` if the template is loaded
+   * @param {object} locals Locals to pass to `invoke` if the template is loaded 
    * via a `templateProvider`. Defaults to `{ params: params }`.
    *
-   * @return {string|object}  The template html as a string, or a promise for
+   * @return {string|object}  The template html as a string, or a promise for 
    * that string,or `null` if no template is configured.
    */
   this.fromConfig = function (config, params, locals) {
@@ -49557,11 +49557,11 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    * @description
    * Creates a template from a string or a function returning a string.
    *
-   * @param {string|object} template html template as a string or function that
+   * @param {string|object} template html template as a string or function that 
    * returns an html template as a string.
    * @param {object} params Parameters to pass to the template function.
    *
-   * @return {string|object} The template html as a string, or a promise for that
+   * @return {string|object} The template html as a string, or a promise for that 
    * string.
    */
   this.fromString = function (template, params) {
@@ -49572,14 +49572,14 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    * @ngdoc function
    * @name ui.router.util.$templateFactory#fromUrl
    * @methodOf ui.router.util.$templateFactory
-   *
+   * 
    * @description
    * Loads a template from the a URL via `$http` and `$templateCache`.
    *
-   * @param {string|Function} url url of the template to load, or a function
+   * @param {string|Function} url url of the template to load, or a function 
    * that returns a url.
    * @param {Object} params Parameters to pass to the url function.
-   * @return {string|Promise.<string>} The template html as a string, or a promise
+   * @return {string|Promise.<string>} The template html as a string, or a promise 
    * for that string.
    */
   this.fromUrl = function (url, params) {
@@ -49600,9 +49600,9 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    *
    * @param {Function} provider Function to invoke via `$injector.invoke`
    * @param {Object} params Parameters for the template.
-   * @param {Object} locals Locals to pass to `invoke`. Defaults to
+   * @param {Object} locals Locals to pass to `invoke`. Defaults to 
    * `{ params: params }`.
-   * @return {string|Promise.<string>} The template html as a string, or a promise
+   * @return {string|Promise.<string>} The template html as a string, or a promise 
    * for that string.
    */
   this.fromProvider = function (provider, params, locals) {
@@ -49624,7 +49624,7 @@ var $$UMFP; // reference to $UrlMatcherFactoryProvider
  * of search parameters. Multiple search parameter names are separated by '&'. Search parameters
  * do not influence whether or not a URL is matched, but their values are passed through into
  * the matched parameters returned by {@link ui.router.util.type:UrlMatcher#methods_exec exec}.
- *
+ * 
  * Path parameter placeholders can be specified using simple colon/catch-all syntax or curly brace
  * syntax, which optionally allows a regular expression for the parameter to be specified:
  *
@@ -49635,13 +49635,13 @@ var $$UMFP; // reference to $UrlMatcherFactoryProvider
  *   regexp itself contain curly braces, they must be in matched pairs or escaped with a backslash.
  *
  * Parameter names may contain only word characters (latin letters, digits, and underscore) and
- * must be unique within the pattern (across both path and search parameters). For colon
+ * must be unique within the pattern (across both path and search parameters). For colon 
  * placeholders or curly placeholders without an explicit regexp, a path parameter matches any
  * number of characters other than '/'. For catch-all placeholders the path parameter matches
  * any number of characters.
- *
+ * 
  * Examples:
- *
+ * 
  * * `'/hello/'` - Matches only if the path is exactly '/hello/'. There is no special treatment for
  *   trailing slashes, and patterns have to match the entire path, not just a prefix.
  * * `'/user/:id'` - Matches '/user/bob' or '/user/1234!!!' or even '/user/' but not '/user' or
@@ -49674,7 +49674,7 @@ var $$UMFP; // reference to $UrlMatcherFactoryProvider
  *
  * @property {string} sourceSearch  The search portion of the source property
  *
- * @property {string} regex  The constructed regex that will be used to match against the url when
+ * @property {string} regex  The constructed regex that will be used to match against the url when 
  *   it is time to determine which url will match.
  *
  * @returns {Object}  New `UrlMatcher` object
@@ -49889,7 +49889,7 @@ UrlMatcher.prototype.exec = function (path, searchParams) {
  *
  * @description
  * Returns the names of all path and search parameters of this pattern in an unspecified order.
- *
+ * 
  * @returns {Array.<string>}  An array of parameter names. Must be treated as read-only. If the
  *    pattern has no parameters, an empty array is returned.
  */
@@ -50657,9 +50657,9 @@ angular.module('ui.router.util').run(['$urlMatcherFactory', function($urlMatcher
  * @requires $locationProvider
  *
  * @description
- * `$urlRouterProvider` has the responsibility of watching `$location`.
- * When `$location` changes it runs through a list of rules one by one until a
- * match is found. `$urlRouterProvider` is used behind the scenes anytime you specify
+ * `$urlRouterProvider` has the responsibility of watching `$location`. 
+ * When `$location` changes it runs through a list of rules one by one until a 
+ * match is found. `$urlRouterProvider` is used behind the scenes anytime you specify 
  * a url in a state configuration. All urls are compiled into a UrlMatcher object.
  *
  * There are several methods on `$urlRouterProvider` that make it useful to use directly
@@ -50744,8 +50744,8 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * });
    * </pre>
    *
-   * @param {string|object} rule The url path you want to redirect to or a function
-   * rule that returns the url path. The function version is passed two params:
+   * @param {string|object} rule The url path you want to redirect to or a function 
+   * rule that returns the url path. The function version is passed two params: 
    * `$injector` and `$location` services, and must return a url string.
    *
    * @return {object} `$urlRouterProvider` - `$urlRouterProvider` instance
@@ -51039,7 +51039,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
         if (angular.isObject(isHtml5)) {
           isHtml5 = isHtml5.enabled;
         }
-
+        
         var url = urlMatcher.format(params);
         options = options || {};
 
@@ -51187,7 +51187,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
     if (path) {
       if (!base) throw new Error("No reference point given for path '"  + name + "'");
       base = findState(base);
-
+      
       var rel = name.split("."), i = 0, pathLength = rel.length, current = base;
 
       for (; i < pathLength; i++) {
@@ -51322,9 +51322,9 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * @methodOf ui.router.state.$stateProvider
    *
    * @description
-   * Allows you to extend (carefully) or override (at your own peril) the
-   * `stateBuilder` object used internally by `$stateProvider`. This can be used
-   * to add custom functionality to ui-router, for example inferring templateUrl
+   * Allows you to extend (carefully) or override (at your own peril) the 
+   * `stateBuilder` object used internally by `$stateProvider`. This can be used 
+   * to add custom functionality to ui-router, for example inferring templateUrl 
    * based on the state name.
    *
    * When passing only a name, it returns the current (original or decorated) builder
@@ -51333,14 +51333,14 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * The builder functions that can be decorated are listed below. Though not all
    * necessarily have a good use case for decoration, that is up to you to decide.
    *
-   * In addition, users can attach custom decorators, which will generate new
-   * properties within the state's internal definition. There is currently no clear
-   * use-case for this beyond accessing internal states (i.e. $state.$current),
-   * however, expect this to become increasingly relevant as we introduce additional
+   * In addition, users can attach custom decorators, which will generate new 
+   * properties within the state's internal definition. There is currently no clear 
+   * use-case for this beyond accessing internal states (i.e. $state.$current), 
+   * however, expect this to become increasingly relevant as we introduce additional 
    * meta-programming features.
    *
-   * **Warning**: Decorators should not be interdependent because the order of
-   * execution of the builder functions in non-deterministic. Builder functions
+   * **Warning**: Decorators should not be interdependent because the order of 
+   * execution of the builder functions in non-deterministic. Builder functions 
    * should only be dependent on the state definition object and super function.
    *
    *
@@ -51351,21 +51351,21 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   overridden by own values (if any).
    * - **url** `{object}` - returns a {@link ui.router.util.type:UrlMatcher UrlMatcher}
    *   or `null`.
-   * - **navigable** `{object}` - returns closest ancestor state that has a URL (aka is
+   * - **navigable** `{object}` - returns closest ancestor state that has a URL (aka is 
    *   navigable).
-   * - **params** `{object}` - returns an array of state params that are ensured to
+   * - **params** `{object}` - returns an array of state params that are ensured to 
    *   be a super-set of parent's params.
-   * - **views** `{object}` - returns a views object where each key is an absolute view
-   *   name (i.e. "viewName@stateName") and each value is the config object
-   *   (template, controller) for the view. Even when you don't use the views object
+   * - **views** `{object}` - returns a views object where each key is an absolute view 
+   *   name (i.e. "viewName@stateName") and each value is the config object 
+   *   (template, controller) for the view. Even when you don't use the views object 
    *   explicitly on a state config, one is still created for you internally.
-   *   So by decorating this builder function you have access to decorating template
+   *   So by decorating this builder function you have access to decorating template 
    *   and controller properties.
-   * - **ownParams** `{object}` - returns an array of params that belong to the state,
+   * - **ownParams** `{object}` - returns an array of params that belong to the state, 
    *   not including any params defined by ancestor states.
-   * - **path** `{string}` - returns the full path from the root down to this state.
+   * - **path** `{string}` - returns the full path from the root down to this state. 
    *   Needed for state activation.
-   * - **includes** `{object}` - returns an object that includes every state that
+   * - **includes** `{object}` - returns an object that includes every state that 
    *   would pass a `$state.includes()` test.
    *
    * @example
@@ -51398,8 +51398,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * // and /partials/home/contact/item.html, respectively.
    * </pre>
    *
-   * @param {string} name The name of the builder function to decorate.
-   * @param {object} func A function that is responsible for decorating the original
+   * @param {string} name The name of the builder function to decorate. 
+   * @param {object} func A function that is responsible for decorating the original 
    * builder function. The function receives two parameters:
    *
    *   - `{object}` - state - The state config object.
@@ -51438,9 +51438,9 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * @param {string|function=} stateConfig.template
    * <a id='template'></a>
    *   html template as a string or a function that returns
-   *   an html template as a string which should be used by the uiView directives. This property
+   *   an html template as a string which should be used by the uiView directives. This property 
    *   takes precedence over templateUrl.
-   *
+   *   
    *   If `template` is a function, it will be called with the following parameters:
    *
    *   - {array.&lt;object&gt;} - state parameters extracted from the current $location.path() by
@@ -51458,10 +51458,10 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    *   path or function that returns a path to an html
    *   template that should be used by uiView.
-   *
+   *   
    *   If `templateUrl` is a function, it will be called with the following parameters:
    *
-   *   - {array.&lt;object&gt;} - state parameters extracted from the current $location.path() by
+   *   - {array.&lt;object&gt;} - state parameters extracted from the current $location.path() by 
    *     applying the current state
    *
    * <pre>templateUrl: "home.html"</pre>
@@ -51505,7 +51505,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    * @param {string=} stateConfig.controllerAs
    * <a id='controllerAs'></a>
-   *
+   * 
    * A controller alias name. If present the controller will be
    *   published to scope under the controllerAs name.
    * <pre>controllerAs: "myCtrl"</pre>
@@ -51514,17 +51514,17 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * <a id='resolve'></a>
    *
    * An optional map&lt;string, function&gt; of dependencies which
-   *   should be injected into the controller. If any of these dependencies are promises,
+   *   should be injected into the controller. If any of these dependencies are promises, 
    *   the router will wait for them all to be resolved before the controller is instantiated.
    *   If all the promises are resolved successfully, the $stateChangeSuccess event is fired
    *   and the values of the resolved promises are injected into any controllers that reference them.
    *   If any  of the promises are rejected the $stateChangeError event is fired.
    *
    *   The map object is:
-   *
+   *   
    *   - key - {string}: name of dependency to be injected into controller
-   *   - factory - {string|function}: If string then it is alias for service. Otherwise if function,
-   *     it is injected and return value it treated as dependency. If result is a promise, it is
+   *   - factory - {string|function}: If string then it is alias for service. Otherwise if function, 
+   *     it is injected and return value it treated as dependency. If result is a promise, it is 
    *     resolved before its value is injected into controller.
    *
    * <pre>resolve: {
@@ -51538,7 +51538,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * <a id='url'></a>
    *
    *   A url fragment with optional parameters. When a state is navigated or
-   *   transitioned to, the `$stateParams` service will be populated with any
+   *   transitioned to, the `$stateParams` service will be populated with any 
    *   parameters that were passed.
    *
    * examples:
@@ -51617,7 +51617,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * <a id='reloadOnSearch'></a>
    *
    * If `false`, will not retrigger the same state
-   *   just because a search/query parameter has changed (via $location.search() or $location.hash()).
+   *   just because a search/query parameter has changed (via $location.search() or $location.hash()). 
    *   Useful for when you'd like to modify $location.search() without triggering a reload.
    * <pre>reloadOnSearch: false</pre>
    *
@@ -51752,11 +51752,11 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * @requires ui.router.state.$stateParams
    * @requires ui.router.router.$urlRouter
    *
-   * @property {object} params A param object, e.g. {sectionId: section.id)}, that
+   * @property {object} params A param object, e.g. {sectionId: section.id)}, that 
    * you'd like to test against the current active state.
-   * @property {object} current A reference to the state's config object. However
+   * @property {object} current A reference to the state's config object. However 
    * you passed it in. Useful for accessing custom data.
-   * @property {object} transition Currently pending transition. A promise that'll
+   * @property {object} transition Currently pending transition. A promise that'll 
    * resolve or reject.
    *
    * @description
@@ -51853,7 +51853,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * @methodOf ui.router.state.$state
      *
      * @description
-     * A method that force reloads the current state. All resolves are re-resolved, events are not re-fired,
+     * A method that force reloads the current state. All resolves are re-resolved, events are not re-fired, 
      * and controllers reinstantiated (bug with controllers reinstantiating right now, fixing soon).
      *
      * @example
@@ -51869,7 +51869,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      *
      * `reload()` is just an alias for:
      * <pre>
-     * $state.transitionTo($state.current, $stateParams, {
+     * $state.transitionTo($state.current, $stateParams, { 
      *   reload: true, inherit: false, notify: true
      * });
      * </pre>
@@ -51887,11 +51887,11 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * @methodOf ui.router.state.$state
      *
      * @description
-     * Convenience method for transitioning to a new state. `$state.go` calls
-     * `$state.transitionTo` internally but automatically sets options to
-     * `{ location: true, inherit: true, relative: $state.$current, notify: true }`.
-     * This allows you to easily use an absolute or relative to path and specify
-     * only the parameters you'd like to update (while letting unspecified parameters
+     * Convenience method for transitioning to a new state. `$state.go` calls 
+     * `$state.transitionTo` internally but automatically sets options to 
+     * `{ location: true, inherit: true, relative: $state.$current, notify: true }`. 
+     * This allows you to easily use an absolute or relative to path and specify 
+     * only the parameters you'd like to update (while letting unspecified parameters 
      * inherit from the currently active ancestor states).
      *
      * @example
@@ -51913,8 +51913,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * - `$state.go('^.sibling')` - will go to a sibling state
      * - `$state.go('.child.grandchild')` - will go to grandchild state
      *
-     * @param {object=} params A map of the parameters that will be sent to the state,
-     * will populate $stateParams. Any parameters that are not specified will be inherited from currently
+     * @param {object=} params A map of the parameters that will be sent to the state, 
+     * will populate $stateParams. Any parameters that are not specified will be inherited from currently 
      * defined parameters. This allows, for example, going to a sibling state that shares parameters
      * specified in a parent state. Parameter inheritance only works between common ancestor states, I.e.
      * transitioning to a sibling will get you the parameters for all parents, transitioning to a child
@@ -51924,10 +51924,10 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * - **`location`** - {boolean=true|string=} - If `true` will update the url in the location bar, if `false`
      *    will not. If string, must be `"replace"`, which will update url and also replace last history record.
      * - **`inherit`** - {boolean=true}, If `true` will inherit url parameters from current url.
-     * - **`relative`** - {object=$state.$current}, When transitioning with relative path (e.g '^'),
+     * - **`relative`** - {object=$state.$current}, When transitioning with relative path (e.g '^'), 
      *    defines which state to be relative from.
      * - **`notify`** - {boolean=true}, If `true` will broadcast $stateChangeStart and $stateChangeSuccess events.
-     * - **`reload`** (v0.2.5) - {boolean=false}, If `true` will force transition even if the state or params
+     * - **`reload`** (v0.2.5) - {boolean=false}, If `true` will force transition even if the state or params 
      *    have not changed, aka a reload of the same state. It differs from reloadOnSearch because you'd
      *    use this when you want to force a reload when *everything* is the same, including search params.
      *
@@ -51979,10 +51979,10 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * - **`location`** - {boolean=true|string=} - If `true` will update the url in the location bar, if `false`
      *    will not. If string, must be `"replace"`, which will update url and also replace last history record.
      * - **`inherit`** - {boolean=false}, If `true` will inherit url parameters from current url.
-     * - **`relative`** - {object=}, When transitioning with relative path (e.g '^'),
+     * - **`relative`** - {object=}, When transitioning with relative path (e.g '^'), 
      *    defines which state to be relative from.
      * - **`notify`** - {boolean=true}, If `true` will broadcast $stateChangeStart and $stateChangeSuccess events.
-     * - **`reload`** (v0.2.5) - {boolean=false}, If `true` will force transition even if the state or params
+     * - **`reload`** (v0.2.5) - {boolean=false}, If `true` will force transition even if the state or params 
      *    have not changed, aka a reload of the same state. It differs from reloadOnSearch because you'd
      *    use this when you want to force a reload when *everything* is the same, including search params.
      *
@@ -52329,10 +52329,10 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      *    first parameter, then the constructed href url will be built from the first navigable ancestor (aka
      *    ancestor with a valid url).
      * - **`inherit`** - {boolean=true}, If `true` will inherit url parameters from current url.
-     * - **`relative`** - {object=$state.$current}, When transitioning with relative path (e.g '^'),
+     * - **`relative`** - {object=$state.$current}, When transitioning with relative path (e.g '^'), 
      *    defines which state to be relative from.
      * - **`absolute`** - {boolean=false},  If true will generate an absolute url, e.g. "http://www.example.com/fullurl".
-     *
+     * 
      * @returns {string} compiled state url
      */
     $state.href = function href(stateOrName, params, options) {
@@ -52347,7 +52347,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
 
       if (!isDefined(state)) return null;
       if (options.inherit) params = inheritParams($stateParams, params || {}, $state.$current, state);
-
+      
       var nav = (state && options.lossy) ? state.navigable : state;
 
       if (!nav || nav.url === undefined || nav.url === null) {
@@ -52590,26 +52590,26 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * functionality, call `$uiViewScrollProvider.useAnchorScroll()`.*
  *
  * @param {string=} onload Expression to evaluate whenever the view updates.
- *
+ * 
  * @example
- * A view can be unnamed or named.
+ * A view can be unnamed or named. 
  * <pre>
  * <!-- Unnamed -->
- * <div ui-view></div>
- *
+ * <div ui-view></div> 
+ * 
  * <!-- Named -->
  * <div ui-view="viewName"></div>
  * </pre>
  *
- * You can only have one unnamed view within any template (or root html). If you are only using a
+ * You can only have one unnamed view within any template (or root html). If you are only using a 
  * single view and it is unnamed then you can populate it like so:
  * <pre>
- * <div ui-view></div>
+ * <div ui-view></div> 
  * $stateProvider.state("home", {
  *   template: "<h1>HELLO!</h1>"
  * })
  * </pre>
- *
+ * 
  * The above is a convenient shortcut equivalent to specifying your view explicitly with the {@link ui.router.state.$stateProvider#views `views`}
  * config property, by name, in this case an empty name:
  * <pre>
@@ -52618,33 +52618,33 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  *     "": {
  *       template: "<h1>HELLO!</h1>"
  *     }
- *   }
+ *   }    
  * })
  * </pre>
- *
- * But typically you'll only use the views property if you name your view or have more than one view
- * in the same template. There's not really a compelling reason to name a view if its the only one,
+ * 
+ * But typically you'll only use the views property if you name your view or have more than one view 
+ * in the same template. There's not really a compelling reason to name a view if its the only one, 
  * but you could if you wanted, like so:
  * <pre>
  * <div ui-view="main"></div>
- * </pre>
+ * </pre> 
  * <pre>
  * $stateProvider.state("home", {
  *   views: {
  *     "main": {
  *       template: "<h1>HELLO!</h1>"
  *     }
- *   }
+ *   }    
  * })
  * </pre>
- *
+ * 
  * Really though, you'll use views to set up multiple views:
  * <pre>
  * <div ui-view></div>
- * <div ui-view="chart"></div>
- * <div ui-view="data"></div>
+ * <div ui-view="chart"></div> 
+ * <div ui-view="data"></div> 
  * </pre>
- *
+ * 
  * <pre>
  * $stateProvider.state("home", {
  *   views: {
@@ -52657,7 +52657,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  *     "data": {
  *       template: "<data_thing/>"
  *     }
- *   }
+ *   }    
  * })
  * </pre>
  *
@@ -52891,17 +52891,17 @@ function stateContext(el) {
  * @restrict A
  *
  * @description
- * A directive that binds a link (`<a>` tag) to a state. If the state has an associated
- * URL, the directive will automatically generate & update the `href` attribute via
- * the {@link ui.router.state.$state#methods_href $state.href()} method. Clicking
- * the link will trigger a state transition with optional parameters.
+ * A directive that binds a link (`<a>` tag) to a state. If the state has an associated 
+ * URL, the directive will automatically generate & update the `href` attribute via 
+ * the {@link ui.router.state.$state#methods_href $state.href()} method. Clicking 
+ * the link will trigger a state transition with optional parameters. 
  *
- * Also middle-clicking, right-clicking, and ctrl-clicking on the link will be
+ * Also middle-clicking, right-clicking, and ctrl-clicking on the link will be 
  * handled natively by the browser.
  *
- * You can also use relative state paths within ui-sref, just like the relative
+ * You can also use relative state paths within ui-sref, just like the relative 
  * paths passed to `$state.go()`. You just need to be aware that the path is relative
- * to the state that the link lives in, in other words the state that loaded the
+ * to the state that the link lives in, in other words the state that loaded the 
  * template containing the link.
  *
  * You can specify options to pass to {@link ui.router.state.$state#go $state.go()}
@@ -52909,22 +52909,22 @@ function stateContext(el) {
  * and `reload`.
  *
  * @example
- * Here's an example of how you'd use ui-sref and how it would compile. If you have the
+ * Here's an example of how you'd use ui-sref and how it would compile. If you have the 
  * following template:
  * <pre>
  * <a ui-sref="home">Home</a> | <a ui-sref="about">About</a> | <a ui-sref="{page: 2}">Next page</a>
- *
+ * 
  * <ul>
  *     <li ng-repeat="contact in contacts">
  *         <a ui-sref="contacts.detail({ id: contact.id })">{{ contact.name }}</a>
  *     </li>
  * </ul>
  * </pre>
- *
+ * 
  * Then the compiled html would be (assuming Html5Mode is off and current state is contacts):
  * <pre>
  * <a href="#/home" ui-sref="home">Home</a> | <a href="#/about" ui-sref="about">About</a> | <a href="#/contacts?page=2" ui-sref="{page: 2}">Next page</a>
- *
+ * 
  * <ul>
  *     <li ng-repeat="contact in contacts">
  *         <a href="#/contacts/1" ui-sref="contacts.detail({ id: contact.id })">Joe</a>
@@ -53175,10 +53175,10 @@ angular.module('ui.router.state')
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
 /*!
- * ionic.bundle.components is a concatenation of:
- * ionic.components, angular.components, angular-animate.components,
- * angular-sanitize.components, angular-ui-router.components,
- * and ionic-angular.components
+ * ionic.bundle.js is a concatenation of:
+ * ionic.js, angular.js, angular-animate.js,
+ * angular-sanitize.js, angular-ui-router.js,
+ * and ionic-angular.js
  */
 
 /*!
@@ -53222,7 +53222,7 @@ var IonicModule = angular.module('ionic', ['ngAnimate', 'ngSanitize', 'ui.router
  * @usage
  * To trigger an Action Sheet in your code, use the $ionicActionSheet service in your angular controllers:
  *
- * ```components
+ * ```js
  * angular.module('mySuperApp', ['ionic'])
  * .controller(function($scope, $ionicActionSheet, $timeout) {
  *
@@ -53494,7 +53494,7 @@ jqLite.prototype.removeClass = function(cssClasses) {
  *
  * @usage
  *
- * ```components
+ * ```js
  * function MyController($scope, $ionicBackdrop, $timeout, $rootScope) {
  *   //Show a backdrop for one second
  *   $scope.action = function() {
@@ -53585,7 +53585,7 @@ IonicModule
   var LOCAL_REGEXP = /^\s*([@=&])(\??)\s*(\w*)\s*$/;
   return function(scope, attrs, bindDefinition) {
     forEach(bindDefinition || {}, function(definition, scopeName) {
-      //Adapted from angular.components $compile
+      //Adapted from angular.js $compile
       var match = definition.match(LOCAL_REGEXP) || [],
         attrName = match[3] || scopeName,
         mode = match[1], // @, =, or &
@@ -54518,7 +54518,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
      * * `disableBack`: The next view should forget its back view, and set it to null.
      * * `historyRoot`: The next view should become the root view in its history stack.
      *
-     * ```components
+     * ```js
      * $ionicHistory.nextViewOptions({
      *   disableAnimate: true,
      *   disableBack: true
@@ -54717,19 +54717,19 @@ function($rootScope, $state, $location, $document, $ionicPlatform, $ionicHistory
  * level so all platforms follow the same setting, rather than its platform config.
  * The following code would set the same config variable for all platforms:
  *
- * ```components
+ * ```js
  * $ionicConfigProvider.views.maxCache(10);
  * ```
  *
  * Additionally, each platform can have its own config within the `$ionicConfigProvider.platform`
  * property. The config below would only apply to Android devices.
  *
- * ```components
+ * ```js
  * $ionicConfigProvider.platform.android.views.maxCache(5);
  * ```
  *
  * @usage
- * ```components
+ * ```js
  * var myApp = angular.module('reallyCoolApp', ['ionic']);
  *
  * myApp.config(function($ionicConfigProvider) {
@@ -55382,7 +55382,7 @@ var LOADING_TPL =
  * interaction.
  *
  * @usage
- * ```components
+ * ```js
  * angular.module('LoadingApp', ['ionic'])
  * .controller('LoadingCtrl', function($scope, $ionicLoading) {
  *   $scope.show = function() {
@@ -55409,7 +55409,7 @@ var LOADING_TPL =
  * Set the default options to be passed to the {@link ionic.service:$ionicLoading} service.
  *
  * @usage
- * ```components
+ * ```js
  * var app = angular.module('myApp', ['ionic'])
  * app.constant('$ionicLoadingConfig', {
  *   template: 'Default Loading Template...'
@@ -55634,7 +55634,7 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
  *   </ion-modal-view>
  * </script>
  * ```
- * ```components
+ * ```js
  * angular.module('testApp', ['ionic'])
  * .controller('MyController', function($scope, $ionicModal) {
  *   $ionicModal.fromTemplateUrl('my-modal.html', {
@@ -56001,7 +56001,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
  *   </ion-nav-bar>
  * </body>
  * ```
- * ```components
+ * ```js
  * function MyCtrl($scope, $ionicNavBarDelegate) {
  *   $scope.setNavTitle = function(title) {
  *     $ionicNavBarDelegate.title(title);
@@ -56283,7 +56283,7 @@ IonicModule
  *   </ion-popover-view>
  * </script>
  * ```
- * ```components
+ * ```js
  * angular.module('testApp', ['ionic'])
  * .controller('MyController', function($scope, $ionicPopover) {
  *
@@ -56510,7 +56510,7 @@ var POPUP_TPL =
  * @usage
  * A few basic examples, see below for details about all of the options available.
  *
- * ```components
+ * ```js
  *angular.module('mySuperApp', ['ionic'])
  *.controller('PopupCtrl',function($scope, $ionicPopup, $timeout) {
  *
@@ -57093,7 +57093,7 @@ IonicModule
  *   </ion-content>
  * </body>
  * ```
- * ```components
+ * ```js
  * function MainCtrl($scope, $ionicScrollDelegate) {
  *   $scope.scrollTop = function() {
  *     $ionicScrollDelegate.scrollTop();
@@ -57118,7 +57118,7 @@ IonicModule
  *   </ion-content>
  * </body>
  * ```
- * ```components
+ * ```js
  * function MainCtrl($scope, $ionicScrollDelegate) {
  *   $scope.scrollMainToTop = function() {
  *     $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop();
@@ -57265,7 +57265,7 @@ IonicModule
  *   </ion-side-menus>
  * </body>
  * ```
- * ```components
+ * ```js
  * function MainCtrl($scope, $ionicSideMenuDelegate) {
  *   $scope.toggleLeftSideMenu = function() {
  *     $ionicSideMenuDelegate.toggleLeft();
@@ -57379,7 +57379,7 @@ IonicModule
  *   </ion-slide-box>
  * </ion-view>
  * ```
- * ```components
+ * ```js
  * function MyCtrl($scope, $ionicSlideBoxDelegate) {
  *   $scope.nextSlide = function() {
  *     $ionicSlideBoxDelegate.next();
@@ -57495,7 +57495,7 @@ IonicModule
  *   </ion-tabs>
  * </body>
  * ```
- * ```components
+ * ```js
  * function MyCtrl($scope, $ionicTabsDelegate) {
  *   $scope.selectTabWithIndex = function(index) {
  *     $ionicTabsDelegate.select(index);
@@ -57552,14 +57552,14 @@ IonicModule
  * @usage
  * State templates are cached automatically, but you can optionally cache other templates.
  *
- * ```components
+ * ```js
  * $ionicTemplateCache('myNgIncludeTemplate.html');
  * ```
  *
  * Optionally disable all preemptive caching with the `$ionicConfigProvider` or individual states by setting `prefetchTemplate`
  * in the `$state` definition
  *
- * ```components
+ * ```js
  *   angular.module('myApp', ['ionic'])
  *   .config(function($stateProvider, $ionicConfigProvider) {
  *
@@ -58370,7 +58370,7 @@ function($timeout, $document, $q, $ionicClickBlock, $ionicConfig, $ionicNavBarDe
 }]);
 
 /**
- * ==================  angular-ios9-uiwebview.patch.components v1.1.1 ==================
+ * ==================  angular-ios9-uiwebview.patch.js v1.1.1 ==================
  *
  * This patch works around iOS9 UIWebView regression that causes infinite digest
  * errors in Angular.
@@ -59031,7 +59031,7 @@ function($scope, $attrs, $element, $timeout) {
  * {% endraw %}
  * ```
 
- * ```components
+ * ```js
  * function MyCtrl($scope, $ionicListDelegate) {
  *   $scope.showDeleteButtons = function() {
  *     $ionicListDelegate.showDelete(true);
@@ -63809,7 +63809,7 @@ function headerFooterBarDirective(isHeader) {
  *   </ion-infinite-scroll>
  * </ion-content>
  * ```
- * ```components
+ * ```js
  * function MyController($scope, $http) {
  *   $scope.items = [];
  *   $scope.loadMore = function() {
@@ -63855,7 +63855,7 @@ IonicModule
       // if this view is not beneath a scrollCtrl, it can't be injected, proceed w/ native scrolling
       if (jsScrolling) {
         infiniteScrollCtrl.scrollView = scrollCtrl.scrollView;
-        $scope.scrollingType = 'components-scrolling';
+        $scope.scrollingType = 'js-scrolling';
         //bind to JS scroll events
         scrollCtrl.$element.on('scroll', infiniteScrollCtrl.checkBounds);
       } else {
@@ -64296,7 +64296,7 @@ var ITEM_TPL_REORDER_BUTTON =
 *   </ion-item>
 * </ion-list>
 * ```
-* ```components
+* ```js
 * function MyCtrl($scope) {
 *   $scope.items = [1, 2, 3, 4];
 *   $scope.moveItem = function(item, fromIndex, toIndex) {
@@ -64656,7 +64656,7 @@ function($timeout) {
  * takes longer than a standard transition (300ms), you'll need to set the
  * `nextViewOptions` manually as your resolve completes.
  *
- * ```components
+ * ```js
  * $ionicHistory.nextViewOptions({
  *  historyRoot: true,
  *  disableAnimate: true,
@@ -64679,7 +64679,7 @@ IonicModule
           });
           // if no transition in 300ms, reset nextViewOptions
           // the expire should take care of it, but will be cancelled in some
-          // cases. This directive is an exception to the rules of history.components
+          // cases. This directive is an exception to the rules of history.js
           $timeout( function() {
             $ionicHistory.nextViewOptions({
               historyRoot: false,
@@ -64830,7 +64830,7 @@ IonicModule
  *   </ion-nav-back-button>
  * </ion-nav-bar>
  * ```
- * ```components
+ * ```js
  * function MyCtrl($scope, $ionicHistory) {
  *   $scope.myGoBack = function() {
  *     $ionicHistory.goBack();
@@ -65235,7 +65235,7 @@ IonicModule
  *
  * Next, we need to setup our states that will be rendered.
  *
- * ```components
+ * ```js
  * var app = angular.module('myApp', ['ionic']);
  * app.config(function($stateProvider) {
  *   $stateProvider
@@ -65294,7 +65294,7 @@ IonicModule
  * instance. Basically, any forward views are reset each time. This can be configured using the
  * {@link ionic.provider:$ionicConfigProvider}:
  *
- * ```components
+ * ```js
  * $ionicConfigProvider.views.forwardCache(true);
  * ```
  *
@@ -65303,13 +65303,13 @@ IonicModule
  * The {@link ionic.provider:$ionicConfigProvider} can be used to set the maximum allowable views
  * which can be cached, but this can also be use to disable all caching by setting it to 0.
  *
- * ```components
+ * ```js
  * $ionicConfigProvider.views.maxCache(0);
  * ```
  *
  * #### Disable cache within state provider
  *
- * ```components
+ * ```js
  * $stateProvider.state('myState', {
  *    cache: false,
  *    url : '/myUrl',
@@ -65605,7 +65605,7 @@ IonicModule
  *   </ion-list>
  * </ion-content>
  * ```
- * ```components
+ * ```js
  * angular.module('testApp', ['ionic'])
  * .controller('MyController', function($scope, $http) {
  *   $scope.items = [1,2,3];
@@ -65670,7 +65670,7 @@ IonicModule
         // Kick off native scrolling
         refresherCtrl.init();
       } else {
-        $element[0].classList.add('components-scrolling');
+        $element[0].classList.add('js-scrolling');
         scrollCtrl._setRefresher(
           $scope,
           $element[0],
@@ -66191,7 +66191,7 @@ IonicModule
  *
  * </ion-side-menus>
  * ```
- * ```components
+ * ```js
  * function ContentController($scope, $ionicSideMenuDelegate) {
  *   $scope.toggleLeft = function() {
  *     $ionicSideMenuDelegate.toggleLeft();
@@ -66505,7 +66505,7 @@ function($animate, $timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $i
  * </ion-content>
  * ```
  *
- * ```components
+ * ```js
  * $scope.options = {
  *   loop: false,
  *   effect: 'fade',
@@ -67526,7 +67526,7 @@ function($timeout, $ionicConfig) {
  * Below is an example of how to listen to life cycle events and
  * access state parameter data
  *
- * ```components
+ * ```js
  * $scope.$on("$ionicView.beforeEnter", function(event, data){
  *    // handle event
  *    console.log("State Params: ", data.stateParams);
