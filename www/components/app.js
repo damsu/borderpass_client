@@ -1,5 +1,5 @@
 // Initialize the application.
-var app = angular.module('borderpass', ['ionic']);
+var app = angular.module('borderpass', ['ionic', 'angular.filter']);
 
 app.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
@@ -17,7 +17,7 @@ app.run(function ($ionicPlatform) {
   });
 });
 
-app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider) {
+app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $compileProvider) {
 
   // note that you can also chain configs
   //$ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');

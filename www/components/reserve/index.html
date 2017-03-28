@@ -3,6 +3,46 @@
     <h2 class="title">Reserve</h2>
   </ion-header-bar>
   <ion-content padding="true" class="has-header">
-    Reserve
+  <div class="padding">
+	  <div ng-show="from_country == null && to_country == null && address == null">
+	  <h2>From :</h2>
+	    <ul ng-repeat="crossing in crossings | unique: 'from_country'">
+	  		<li>
+	  			<button class="button button-block button-stable" ng-click=saveFromCountry(crossing.from_country) style="padding:0px; overflow: hidden;">
+	  			<img style="height:47px; width:80px;" align="left" src="img/flags/{{crossing.from_flag_url}}">
+	  			<h4>{{crossing.from_country}}</h4>
+				</button>
+	  		</li>
+		</ul>
+		</div>
+
+		<div ng-show="from_country != null && to_country == null && address == null">
+		  <h2>To :</h2>
+		    <ul ng-repeat="crossing in crossings | unique: 'to_country'">
+		    	<div ng-if="crossing.from_country == from_country">
+			  		<li>
+			  			<button class="button button-block button-stable" ng-click=saveToCountry(crossing.to_country) style="padding:0px; overflow: hidden;">
+			  			<img style="height:47px; width:80px;" align="left" src="img/flags/{{crossing.to_flag_url}}">
+			  			<h4>{{crossing.to_country}}</h4>
+						</button>
+			  		</li>
+			  	</div>
+			</ul>
+		</div>
+
+		<div ng-show="from_country != null && to_country != null && address == null">
+		  <h2>By (City) :</h2>
+		    <ul ng-repeat="crossing in crossings | unique: 'address'">
+		    	<div ng-if="crossing.from_country == from_country && crossing.to_country == to_country">
+			  		<li>
+			  			<button class="button button-block button-stable" ng-click=saveAddress(crossing.address) style="padding:0px; overflow: hidden;">
+			  			<img style="height:47px; width:80px;" align="left" src="img/flags/{{crossing.flag_url}}">
+			  			<h4>{{crossing.address}}</h4>
+						</button>
+			  		</li>
+			  	</div>
+			</ul>
+		</div>
+	</div>
   </ion-content>
 </ion-nav-view>
