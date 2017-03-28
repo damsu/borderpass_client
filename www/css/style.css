@@ -1,3 +1,6 @@
 .main.logo {
   position:relative; margin-top:5px; padding-right:8px;
 }
+.menu-icon {
+  font-size: 16px !important;
+}
