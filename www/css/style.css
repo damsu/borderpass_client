@@ -1,1 +1,3 @@
-/* Empty. Add your own CSS if you like */
+.main.logo {
+  position:relative; margin-top:5px; padding-right:8px;
+}
