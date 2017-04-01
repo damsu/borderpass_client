@@ -1,5 +1,5 @@
 // Initialize the application.
-var app = angular.module('borderpass', ['ionic', 'angular.filter']);
+var app = angular.module('borderpass', ['ionic', 'angular.filter', 'CustomServices']);
 
 app.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
