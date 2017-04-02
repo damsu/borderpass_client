@@ -75,12 +75,37 @@ app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $
           controller: 'aboutusCtrl'
         }
       }
+    })
+
+    // These are state views that are not handled by the menu
+    //TODO: Add the views not handled by the menu
+
+    .state('aboutus/clients', {
+      url: '/aboutus/clients',
+      views: {
+        'menuContent': {
+          templateUrl: 'components/aboutus/clients.html',
+          controller: 'aboutusCtrl'
+        }
+      }
+    })
+    .state('aboutus/license', {
+      url: '/aboutus/license',
+      views: {
+        'menuContent': {
+          templateUrl: 'components/aboutus/license.html',
+          controller: 'aboutusCtrl'
+        }
+      }
     });
-
-  // These are state views that are not handled by the menu
-  //TODO: Add the views not handled by the menu
-
   // If none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home');
 
 });
+
+app.controller('appCtrl', ["$scope", "$ionicHistory", function ($scope, $ionicHistory) {
+  // Back button goes back to the previous page
+  $scope.goBack = function () {
+    $ionicHistory.goBack()
+  };
+}]);

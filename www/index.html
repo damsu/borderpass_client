@@ -50,7 +50,7 @@
     </div>
   </div>
   -->
-  <ion-side-menus>
+  <ion-side-menus ng-controller="appCtrl">
     <ion-side-menu side="left" menu-close="">
       <ion-header-bar>
         <h1 class="title">Menu</h1>
@@ -83,9 +83,6 @@
         <ion-nav-buttons side="right">
           <img src="img/borderpass.png" class="main logo" height="23">
         </ion-nav-buttons>
-        <ion-nav-back-button class="button-clear">
-          <i class="ion-arrow-left-c"></i> Back
-        </ion-nav-back-button>
       </ion-nav-bar>
       <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
     </ion-side-menu-content>
