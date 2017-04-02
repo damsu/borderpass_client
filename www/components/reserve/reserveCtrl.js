@@ -1,27 +1,36 @@
-app.controller('reserveCtrl', ['$scope', '$http', '$q', '$ionicPopup', 'Borders', function ($scope, $http, $q, $ionicPopup, Borders) {
+app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionicPopup', 'Borders', function ($ionicHistory, $scope, $http, $q, $ionicPopup, Borders) {
 
     var departure;
     var destination;
     var crossing;
     var flags = [];
-    $scope.stage = 1;
-    Borders.fetchFromServer().then(function(){
-        console.log("fetched all borders");
 
-        $scope.departures = Borders.departureCountries();
-        angular.forEach($scope.departures, function(value, key)
-        {
-        	console.log(value);
-        	flags.push(Borders.getFlagFrom(value));
-        });
-        $scope.flags = flags;
-        flags = [];
-    }).catch(function() {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Request Failed',
-            template: 'Failed to fetch Borders data from server'
-        });
-    });
+    $scope.init = function(){
+    	$ionicHistory.clearCache();
+    	$scope.crossing = "";
+    	$scope.progress_flag_left = "blank.png";
+	    $scope.progress_flag_right = "blank.png";
+	    $scope.progress_crossing = "border_blank.png";
+	    $scope.arrow_style = "width: 100%; height: 11px; display: flex; justify-content: flex-start; border-bottom: 2px solid black;";
+	    $scope.stage = 1;
+	    Borders.fetchFromServer().then(function(){
+	        console.log("fetched all borders");
+
+	        $scope.departures = Borders.departureCountries();
+	        angular.forEach($scope.departures, function(value, key)
+	        {
+	        	console.log(value);
+	        	flags.push(Borders.getFlagFrom(value));
+	        });
+	        $scope.flags = flags;
+	        flags = [];
+	    }).catch(function() {
+	        var alertPopup = $ionicPopup.alert({
+	            title: 'Request Failed',
+	            template: 'Failed to fetch Borders data from server'
+	        });
+	    });
+    }
 
 	$scope.saveDeparture = function(from_country){
 		departure = from_country;
@@ -33,18 +42,45 @@ app.controller('reserveCtrl', ['$scope', '$http', '$q', '$ionicPopup', 'Borders'
         });
         $scope.flags = flags;
         flags = [];
+        $scope.progress_flag_left = Borders.getFlagFrom(from_country);
+        $scope.arrow_style = "width: 100%; height: 11px; display: flex; justify-content: flex-end; border-bottom: 2px solid black;";
 		$scope.stage = 2;
 	}
 
 	$scope.saveDestination = function(to_country){
 		destination = to_country;
 		$scope.addresses = Borders.crossingCities(departure, to_country);
+		$scope.progress_flag_right = Borders.getFlagFrom(to_country);
+		$scope.arrow_style = "width: 100%; height: 11px; display: flex; justify-content: center; border-bottom: 2px solid black;";
 		$scope.stage = 3;
 	}
 
 	$scope.saveCrossing = function(address){
 		crossing = address;
-		$scope.message = "Going from " + departure + " to " + destination + " via " + crossing;
+		$scope.crossing = crossing;
+		$scope.progress_crossing = "border_filled.png";
+		$scope.arrow_style = "display:none;";
 		$scope.stage = 4;
+	}
+
+	$scope.goBackTo = function(currentStage, stageToGo){
+		if (stageToGo == 1)
+		{
+    		$scope.init();
+		} 
+		else if (stageToGo == 2 && currentStage > 1)
+		{	
+			$scope.progress_flag_right = "blank.png";
+    		$scope.progress_crossing = "border_blank.png";
+    		$scope.crossing = "";
+			$scope.saveDeparture(departure);
+
+		} 
+		else if (stageToGo == 3 && currentStage > 2)
+		{
+			$scope.progress_crossing = "border_blank.png";
+			$scope.crossing = "";
+			$scope.saveDestination(destination);
+		}
 	}
 }]);
