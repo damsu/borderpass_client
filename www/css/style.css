@@ -4,3 +4,7 @@
 .menu-icon {
   font-size: 16px !important;
 }
+
+.float.right {
+  float: right;
+}

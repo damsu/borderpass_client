@@ -1,9 +1,8 @@
-
 angular.module('CustomServices', []).factory('Borders', function($q, $http){
 	var borders;
 	return {
 
-		fetchFromServer: function() 
+		fetchFromServer: function()
         {
             return $q(function(resolve, reject)
             {
