@@ -1,5 +1,5 @@
 // Initialize the application.
-var app = angular.module('borderpass', ['ionic', 'angular.filter', 'CustomServices']);
+var app = angular.module('borderpass', ['ionic', 'angular.filter', 'CustomServices', 'ionic-datepicker', 'ionic-timepicker']);
 
 app.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
@@ -16,6 +16,38 @@ app.run(function ($ionicPlatform) {
     }
   });
 });
+
+app.config(function (ionicDatePickerProvider) {
+    var datePickerObj = {
+      inputDate: new Date(),
+      titleLabel: 'Select a Date',
+      setLabel: 'Set',
+      todayLabel: 'Today',
+      closeLabel: 'Close',
+      mondayFirst: false,
+      weeksList: ["S", "M", "T", "W", "T", "F", "S"],
+      monthsList: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
+      templateType: 'popup',
+      from: new Date(2012, 8, 1),
+      to: new Date(2018, 8, 1),
+      showTodayButton: true,
+      dateFormat: 'dd MMMM yyyy',
+      closeOnSelect: false,
+      disableWeekdays: []
+    };
+    ionicDatePickerProvider.configDatePicker(datePickerObj);
+  });
+
+app.config(function (ionicTimePickerProvider) {
+    var timePickerObj = {
+      inputTime: (((new Date()).getHours() * 60 * 60) + ((new Date()).getMinutes() * 60)),
+      format: 24,
+      step: 30,
+      setLabel: 'Set',
+      closeLabel: 'Close'
+    };
+    ionicTimePickerProvider.configTimePicker(timePickerObj);
+  })
 
 app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $compileProvider) {
 
