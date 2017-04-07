@@ -97,6 +97,15 @@ app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $
           controller: 'aboutusCtrl'
         }
       }
+    })
+    .state('myreservations/list', {
+      url: '/myreservations/list',
+      views: {
+        'menuContent': {
+          templateUrl: 'components/myreservations/list.html',
+          controller: 'aboutusCtrl'
+        }
+      }
     });
   // If none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home');

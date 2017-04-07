@@ -1,4 +1,4 @@
-app.controller('myreservationsCtrl', ["$scope", function ($scope) {
+app.controller('myreservationsCtrl', ["$scope", "$state", function ($scope, $state) {
 
   // Default Search Mode
   $scope.searchMode = "document";
@@ -23,5 +23,7 @@ app.controller('myreservationsCtrl', ["$scope", function ($scope) {
       case "reservation":
         break;
     }
+    // Move to the reservation listing
+    $state.go('myreservations/list');
   }
 }]);
