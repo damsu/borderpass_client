@@ -5,13 +5,13 @@
   <ion-content padding="true" class="has-header">
     <div class="button-bar">
       <a class="button button-stable" ng-class="{active: searchMode == 'document'}" ng-click="switchSearchMode()">Document</a>
-      <a class="button button-stable" ng-class="{active: searchMode == 'reservation'}" ng-click="switchSearchMode()">Number</a>
+      <a class="fixed button button-stable" ng-class="{active: searchMode == 'reservation'}" ng-click="switchSearchMode()">Number</a>
     </div>
     <form ng-if="searchMode == 'document'">
       <div class="list">
         <label class="item item-input item-select">
           <div class="input-label">
-            Issuing Country
+            Citizenship
           </div>
           <select ng-model="country">
             <option value="AF">Afghanistan</option>
@@ -267,7 +267,7 @@
         </label>
         <label class="item item-input item-select">
           <div class="input-label">
-            Document Type
+            Document
           </div>
           <select ng-model="documentType">
             <option value="Passport">Passport</option>

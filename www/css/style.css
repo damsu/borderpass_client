@@ -1,10 +1,16 @@
+/* Generic rules */
+.float.right {
+  float: right;
+}
+/* Fixed for the display of buttons in a button bar (myreservations page) */
+.fixed.button {
+  border-left-color: #a2a2a2;
+}
+/* Fix the location of the main logo */
 .main.logo {
   position:relative; margin-top:5px; padding-right:8px;
 }
+/* Menu buttons size-location */
 .menu-icon {
   font-size: 16px !important;
-}
-
-.float.right {
-  float: right;
 }

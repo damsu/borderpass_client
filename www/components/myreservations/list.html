@@ -1,25 +1,52 @@
 <ion-nav-view>
   <ion-header-bar class="bar bar-subheader" align-title="right">
-    <button class="button button-light" ng-click="goBack()"><i class="icon menu-icon ion-chevron-left"></i> Back</button>
+    <button class="button button-light" ng-click="goBack()"><i class="icon menu-icon ion-chevron-left"></i> Back
+    </button>
     <h2 class="title">Found Reservations</h2>
   </ion-header-bar>
   <ion-content>
-    <div class="list">
-      <div class="item item-thumbnail-left" href="#">
-        <img src="img/clients/fi.png">
-        <h2>Finnish Transport Agency</h2>
-        <p>7 Crossing Points</p>
+    <div class="list card">
+
+      <div class="item">
+        <strong><span class="ion-android-calendar"></span> 03/28/2017</strong> <strong class="float right"><span class="ion-android-time"></span> 22:00</strong>
+        <p>
+          <span class="subdued">Imatra - Svetogorsk</span>
+        </p>
       </div>
-      <div class="item item-thumbnail-left" href="#">
-        <img src="img/clients/ru.png">
-        <h2>Border Service of the Federal Security Service of the Russian Federation</h2>
-        <p>8 Crossing Points</p>
+
+      <div class="item item-body">
+        <div class="row">
+          <div class="col">
+            <i class="icon ion-person"></i> Joe Barbara Smith | 11.07.1997
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <i class="icon ion-document-text"></i> Passport/123456 | FI
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <i class="icon ion-android-car"></i> XIH-222 | Renault Logan
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <i class="icon ion-briefcase"></i> NCS Finland Oy / Niittytaival 13 / FI-02200 Espoo / Finland
+          </div>
+        </div>
+        <div class="card">
+          <div class="item item-text-wrap">
+            <strong>Reservation Number</strong><br>
+            0752386942346253442623
+          </div>
+        </div>
+        <div class="itemitem-text-wrap">
+          <img src="img/clients/fi.png" width="40" style="float:left; margin-right:10px;">
+          <a class="subdued"> Data is transfered to Finnish Transport Agency</a>
+        </div>
       </div>
-      <div class="item item-thumbnail-left" href="#">
-        <img src="img/clients/no.png">
-        <h2>Norwegian Customs Service</h2>
-        <p>1 Crossing Point</p>
-      </div>
+
     </div>
   </ion-content>
 </ion-nav-view>

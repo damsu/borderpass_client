@@ -17,6 +17,7 @@ app.controller('myreservationsCtrl', ["$scope", "$state", function ($scope, $sta
 
   // Search reservations
   $scope.search = function (by) {
+    // Decide on what request to make based on the mode (button) selected
     switch(by) {
       case "document":
         break;
