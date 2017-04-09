@@ -18,7 +18,8 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     	Document : null,
     	DocumentNumber : null,
     	Email : null,
-    	PhoneNumber : null
+    	PhoneNumber : null,
+    	Remember : false
     }
 
     $scope.Vehicle = {
@@ -26,7 +27,8 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     	CarPlate : null,
     	Owner : null,
     	CarManufacturer : null,
-    	CarModel : null
+    	CarModel : null,
+    	Remember : false
     }
 
     $scope.init = function(){
@@ -173,15 +175,37 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   $scope.toPersonInfo = function(){
   	if ($scope.date != "Date" && $scope.time != "Time"){
   		$scope.fulldatetime = $scope.date + ' @ ' + $scope.time;
+  		if (window.localStorage.hasOwnProperty("Person")) {
+  			$scope.Person = JSON.parse(window.localStorage.getItem("Person"));
+		}
   		$scope.stage = 5;
   	}
   };
 
   $scope.toVehicleInfo = function(){
+  	console.log($scope.Person.Remember);
+  	if ($scope.Person.Remember == true){
+  		window.localStorage.setItem("Person",JSON.stringify($scope.Person));
+  	} else {
+  		window.localStorage.removeItem("Person");
+  	}
+  	console.log(window.localStorage.getItem("Vehicle"));
+  	console.log(window.localStorage.hasOwnProperty("Vehicle"));
+  	if (window.localStorage.hasOwnProperty("Vehicle")) {
+  		console.log("went here");
+  		$scope.Vehicle = JSON.parse(window.localStorage.getItem("Vehicle"));
+	}
   	$scope.stage = 6;
   };
 
   $scope.toConfirmView = function(){
+  	console.log($scope.Vehicle.Remember);
+  	if ($scope.Vehicle.Remember == true){
+  		window.localStorage.setItem("Vehicle",JSON.stringify($scope.Vehicle));
+  	} else {
+  		window.localStorage.removeItem("Vehicle");
+  	}
+  	$scope.test = "Confirmation view";
   	$scope.stage = 7;
   };
 

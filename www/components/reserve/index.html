@@ -372,6 +372,10 @@
           <input type="text" placeholder="Tap here..." ng-model="Person.PhoneNumber">
         </label>
 		  </div>
+		  <label class="checkbox">
+		  	<h5 style="float: left; padding-right: 10px;">Remember for later </h5>
+   			<input style="float:left;" type="checkbox" ng-model="Person.Remember">
+   		  </label>
 		  <button class="button button-positive float right" ng-click=toVehicleInfo()>
 		  	Next
 		  </button>
@@ -410,6 +414,10 @@
           <input type="number" placeholder="Tap here..." ng-model="Vehicle.CarModel">
         </label>
 		  </div>
+		  <label class="checkbox">
+		  	<h5 style="float: left; padding-right: 10px;">Remember for later </h5>
+   			<input style="float:left;" type="checkbox" ng-model="Vehicle.Remember">
+   		  </label>
 		  <button class="button button-positive float right" ng-click=toConfirmView()>
 		  	Next
 		  </button>
@@ -417,8 +425,9 @@
 		<div ng-show="stage == 7">
 		<div class="item">
         <strong ng-click=goBackTo(stage,4)><span class="ion-android-calendar"></span> {{date}}</strong> <strong ng-click=goBackTo(stage,4) class="float right"><span class="ion-android-time"></span> {{time}}</strong>
-      </div>
-		</div>
+      	</div>
+      	{{test}}
+	  </div>
 	
 	
     </div>
