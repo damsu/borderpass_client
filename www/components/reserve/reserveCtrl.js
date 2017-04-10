@@ -245,9 +245,9 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   	$scope.VehicleToSend = $scope.Vehicle;
   	delete $scope.PersonToSend.Remember;
   	delete $scope.VehicleToSend.Remember;
-  	$scope.reservationID = Reservations.postReservation($scope.Crossing, $scope.PersonToSend, $scope.VehicleToSend).then(function(){
+  	Reservations.postReservation($scope.Crossing, $scope.PersonToSend, $scope.VehicleToSend).then(function(result){
 	        console.log("posting");
-
+	        $scope.reservationID = result;
 	        $scope.stage = 8;
 
 	    }).catch(function() {
