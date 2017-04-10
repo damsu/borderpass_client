@@ -1,4 +1,4 @@
-app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionicPopup', 'Borders', 'ionicDatePicker', 'ionicTimePicker', function ($ionicHistory, $scope, $http, $q, $ionicPopup, Borders, ionicDatePicker, ionicTimePicker) {
+app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionicPopup', 'Borders', 'Reservations', 'ionicDatePicker', 'ionicTimePicker', function ($ionicHistory, $scope, $http, $q, $ionicPopup, Borders, Reservations, ionicDatePicker, ionicTimePicker) {
 
     var destination;
     var crossing;
@@ -17,6 +17,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     }
 
     $scope.Person = {
+    	Remember : false,
     	Firstname : null,
     	Middlename : null,
     	Lastname : null,
@@ -25,18 +26,19 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     	Document : null,
     	DocumentNumber : null,
     	Email : null,
-    	PhoneNumber : null,
-    	Remember : false
+    	PhoneNumber : null
     }
 
     $scope.Vehicle = {
+    	Remember : false,
     	CarType : null,
     	CarPlate : null,
     	Owner : null,
     	CarManufacturer : null,
-    	CarModel : null,
-    	Remember : false
+    	CarModel : null
     }
+
+    $scope.reservationID;
 
     $scope.init = function(){
     	$ionicHistory.clearCache();
@@ -221,6 +223,8 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   	$scope.stage = 7;
   };
 
+
+
   $scope.showConfirm = function() {
    		var confirmPopup = $ionicPopup.confirm({
      		title: 'Change Crossing Info',
@@ -235,6 +239,24 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
      		}
    		});
  	};
+
+  $scope.sendReservation = function(){
+  	$scope.PersonToSend = $scope.Person;
+  	$scope.VehicleToSend = $scope.Vehicle;
+  	delete $scope.PersonToSend.Remember;
+  	delete $scope.VehicleToSend.Remember;
+  	$scope.reservationID = Reservations.postReservation($scope.Crossing, $scope.PersonToSend, $scope.VehicleToSend).then(function(){
+	        console.log("posting");
+
+	        $scope.stage = 8;
+
+	    }).catch(function() {
+	        var alertPopup = $ionicPopup.alert({
+	            title: 'Request Failed',
+	            template: 'Failed to post the Reservation'
+	        });
+	    });
+  }
 
   var ipObj3 = {
       callback: function (val) {  //Mandatory 

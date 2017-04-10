@@ -1,5 +1,5 @@
 // Initialize the application.
-var app = angular.module('borderpass', ['ionic', 'angular.filter', 'CustomServices', 'ionic-datepicker', 'ionic-timepicker']);
+var app = angular.module('borderpass', ['ionic', 'angular.filter', 'BordersService', 'ReservationsService', 'ionic-datepicker', 'ionic-timepicker']);
 
 app.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {

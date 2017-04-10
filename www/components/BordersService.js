@@ -1,4 +1,4 @@
-angular.module('CustomServices', []).factory('Borders', function($q, $http){
+angular.module('BordersService', []).factory('Borders', function($q, $http){
 	var borders;
 	return {
 

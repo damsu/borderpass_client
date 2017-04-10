@@ -363,7 +363,7 @@
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Document Number</span>
-          <input type="number" placeholder="Tap here..." ng-model="Person.DocumentNumber">
+          <input type="text" placeholder="Tap here..." ng-model="Person.DocumentNumber">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Email</span>
@@ -453,6 +453,9 @@
       	<button class="button button-positive float right" ng-click=sendReservation()>
 		  	Confirm
 		</button>
+	  </div>
+	  <div ng-show="stage == 8">
+	  	Confirmation view to be shown, but if you see this it means the reservation is in DB :)
 	  </div>
 	
 	
