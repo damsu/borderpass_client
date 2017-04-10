@@ -1,13 +1,20 @@
 app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionicPopup', 'Borders', 'ionicDatePicker', 'ionicTimePicker', function ($ionicHistory, $scope, $http, $q, $ionicPopup, Borders, ionicDatePicker, ionicTimePicker) {
 
-    var departure;
     var destination;
     var crossing;
     var flags = [];
     $scope.date = "Date";
     $scope.time = "Time";
-    var image_style_active = "height:35px; width:60px;box-shadow: 0px 0px 20px green;";
+    var image_style_active = "height:35px; width:60px;box-shadow: 0px 0px 10px green;";
     var image_style_inactive = "height:35px; width:60px;";
+
+    $scope.Crossing = {
+    	Departure : null,
+    	Destination : null,
+    	Address : "",
+    	Date : "Date",
+    	Time : "Time"
+    }
 
     $scope.Person = {
     	Firstname : null,
@@ -34,10 +41,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     $scope.init = function(){
     	$ionicHistory.clearCache();
     	$scope.loading = true;
-    	$scope.crossing = "";
-    	$scope.date = "Date";
-    	$scope.time = "Time";
-    	$scope.fulldatetime = "";
+    	$scope.Crossing.Address = "";
     	$scope.progress_flag_left = "blank.png";
     	$scope.progress_flag_left_style = image_style_active;
 	    $scope.progress_flag_right = "blank.png";
@@ -67,11 +71,10 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 	            template: 'Failed to fetch Borders data from server'
 	        });
 	    });
-	    
     }
 
 	$scope.saveDeparture = function(from_country){
-		departure = from_country;
+		$scope.Crossing.Departure = from_country;
 		$scope.destinations = Borders.destinationsFrom(from_country);
 		angular.forEach($scope.destinations, function(value, key)
         {
@@ -88,8 +91,8 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 	}
 
 	$scope.saveDestination = function(to_country){
-		destination = to_country;
-		$scope.addresses = Borders.crossingCities(departure, to_country);
+		$scope.Crossing.Destination = to_country;
+		$scope.addresses = Borders.crossingCities($scope.Crossing.Departure, to_country);
 		$scope.progress_flag_right = Borders.getFlagFrom(to_country);
 		$scope.progress_flag_left_style = image_style_inactive;
 	    $scope.progress_flag_right_style = image_style_inactive;
@@ -98,8 +101,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 	}
 
 	$scope.saveCrossing = function(address){
-		crossing = address;
-		$scope.crossing = crossing;
+		$scope.Crossing.Address = address;
 		$scope.progress_crossing = "border_filled.png";
 		$scope.progress_flag_left_style = image_style_inactive;
 	    $scope.progress_flag_right_style = image_style_inactive;
@@ -116,20 +118,31 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 		{	
 			$scope.progress_flag_right = "blank.png";
     		$scope.progress_crossing = "border_blank.png";
-    		$scope.crossing = "";
-			$scope.saveDeparture(departure);
+    		$scope.Crossing.Address = "";
+			$scope.saveDeparture($scope.Crossing.Departure);
 
 		} 
 		else if (stageToGo == 3 && currentStage > 2)
 		{
 			$scope.progress_crossing = "border_blank.png";
-			$scope.crossing = "";
-			$scope.saveDestination(destination);
+			$scope.Crossing.Address = "";
+			$scope.saveDestination($scope.Crossing.Destination);
 		}
 		else if (stageToGo == 4 && currentStage > 3)
 		{
-			$scope.fulldatetime = "";
 			$scope.stage = 4;
+		}
+		else if (stageToGo == 5 && currentStage > 4)
+		{
+			$scope.stage = 5;
+		}
+		else if (stageToGo == 6 && currentStage > 5)
+		{
+			$scope.stage = 6;
+		}
+		else if (stageToGo == 7 && currentStage > 6)
+		{
+			$scope.stage = 7;
 		}
 	}
 
@@ -137,7 +150,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
       callback: function (val) {  //Mandatory 
         console.log('Return value from the datepicker popup is : ' + val, new Date(val));
         var date = new Date(val);
-        $scope.date = date.toDateString();
+        $scope.Crossing.Date = date.toDateString();
       },
       from: new Date(), //Optional 
       to: new Date(2017, 12, 31), //Optional 
@@ -158,7 +171,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
       } else {
         var selectedTime = new Date(val * 1000);
         console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), 'H :', selectedTime.getUTCMinutes(), 'M');
-        $scope.time = selectedTime.getUTCHours() + ':' + addZero(selectedTime.getUTCMinutes());
+        $scope.Crossing.Time = selectedTime.getUTCHours() + ':' + addZero(selectedTime.getUTCMinutes());
         
       }
     },
@@ -173,8 +186,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   };
 
   $scope.toPersonInfo = function(){
-  	if ($scope.date != "Date" && $scope.time != "Time"){
-  		$scope.fulldatetime = $scope.date + ' @ ' + $scope.time;
+  	if ($scope.Crossing.Date != "Date" && $scope.Crossing.Time != "Time"){
   		if (window.localStorage.hasOwnProperty("Person")) {
   			$scope.Person = JSON.parse(window.localStorage.getItem("Person"));
 		}
@@ -208,6 +220,21 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   	$scope.test = "Confirmation view";
   	$scope.stage = 7;
   };
+
+  $scope.showConfirm = function() {
+   		var confirmPopup = $ionicPopup.confirm({
+     		title: 'Change Crossing Info',
+     		template: 'This will reset your choices for the Crossing, are you sure?'
+   		});
+
+   		confirmPopup.then(function(res) {
+     		if(res) {
+       			$scope.init();
+     		} else {
+       			console.log('Stayed');
+     		}
+   		});
+ 	};
 
   var ipObj3 = {
       callback: function (val) {  //Mandatory 
