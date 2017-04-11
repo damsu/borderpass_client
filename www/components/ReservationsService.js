@@ -1,5 +1,6 @@
 angular.module('ReservationsService', []).factory('Reservations', function($q, $http){
 	var reservationID;
+  var reservations;
 	return {
 
 		postReservation: function(crossing, traveller, vehicle)
@@ -24,7 +25,25 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
                     reject();
                 });
             });
-        }
-	  }
+        },
+
+    getReservationByID: function(id)
+    {
+            return $q(function(resolve, reject)
+            {
+                $http.get("https://border-pass-server.herokuapp.com/" + "reservations/id/" + id).then(function(response)
+                {
+                    reservations = response.data;
+                    console.log("ID to look for : " + id);
+                    console.log("reservations for that id : " + reservations);
+                    resolve(reservations);
+                },
+                function(err)
+                {
+                    reject();
+                });
+            });
+      }
+    }
 
 });

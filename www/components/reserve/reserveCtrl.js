@@ -265,19 +265,9 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   }
 
   $scope.copyToLocalStorage = function(){
-  	if (window.localStorage.hasOwnProperty("ReservationIDs")){
-  		var resIDArray = JSON.parse(window.localStorage.getItem("ReservationIDs"));
-  		resIDArray.push($scope.reservationID);
-  		window.localStorage.setItem("ReservationIDs",JSON.stringify(resIDArray));
+  		window.localStorage.setItem("ReservationIDs",$scope.reservationID);
   		console.log(window.localStorage.getItem("ReservationIDs"));
   		$scope.copied = true;
-  	} else {
-  		var resIDArray = [];
-  		resIDArray.push($scope.reservationID);
-  		window.localStorage.setItem("ReservationIDs",JSON.stringify(resIDArray));
-  		console.log(window.localStorage.getItem("ReservationIDs"));
-  		$scope.copied = true;
-  	}
   }
 
   var ipObj3 = {
