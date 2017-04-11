@@ -14,3 +14,27 @@
 .menu-icon {
   font-size: 16px !important;
 }
+
+.button_footer.active{
+    background-image: url('../img/selected.png');
+    background-size: 100%;
+    border:0px;
+    background-color:#f8f8f8;
+}
+a.button_footer{
+
+}
+
+a.button_footer.ion-clock {
+  font-size: 20px;
+}
+a.button_footer.ion-person {
+  font-size: 20px;
+}
+a.button_footer.ion-model-s {
+  font-size: 20px;
+}
+a.button_footer.ion-forward {
+  font-size: 20px;
+}
+

@@ -37,12 +37,13 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     	CarManufacturer : null,
     	CarModel : null
     }
-
+    $scope.copied;
     $scope.reservationID;
 
     $scope.init = function(){
     	$ionicHistory.clearCache();
     	$scope.loading = true;
+    	$scope.copied = false;
     	$scope.Crossing.Address = "";
     	$scope.progress_flag_left = "blank.png";
     	$scope.progress_flag_left_style = image_style_active;
@@ -243,6 +244,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   $scope.sendReservation = function(){
   	$scope.PersonToSend = $scope.Person;
   	$scope.VehicleToSend = $scope.Vehicle;
+  	$scope.copied = false;
   	delete $scope.PersonToSend.Remember;
   	delete $scope.VehicleToSend.Remember;
   	Reservations.postReservation($scope.Crossing, $scope.PersonToSend, $scope.VehicleToSend).then(function(result){
@@ -256,6 +258,26 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 	            template: 'Failed to post the Reservation'
 	        });
 	    });
+  }
+
+  $scope.copyToClipboard = function(){
+  	
+  }
+
+  $scope.copyToLocalStorage = function(){
+  	if (window.localStorage.hasOwnProperty("ReservationIDs")){
+  		var resIDArray = JSON.parse(window.localStorage.getItem("ReservationIDs"));
+  		resIDArray.push($scope.reservationID);
+  		window.localStorage.setItem("ReservationIDs",JSON.stringify(resIDArray));
+  		console.log(window.localStorage.getItem("ReservationIDs"));
+  		$scope.copied = true;
+  	} else {
+  		var resIDArray = [];
+  		resIDArray.push($scope.reservationID);
+  		window.localStorage.setItem("ReservationIDs",JSON.stringify(resIDArray));
+  		console.log(window.localStorage.getItem("ReservationIDs"));
+  		$scope.copied = true;
+  	}
   }
 
   var ipObj3 = {

@@ -25,6 +25,6 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
                 });
             });
         }
-	}
+	  }
 
 });

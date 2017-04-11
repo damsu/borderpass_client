@@ -458,6 +458,9 @@
 	  	<h4>Thanks !</h4>
 	  	<h5>Your Reservation Number is :</h5>
 	  	<h3 style="color : #11c1f3;">{{reservationID}}</h3>
+	  	<button class="button button-block button-calm" ng-click=init()><b>Restart</b></button>
+	  	<button class="button button-block button-calm" ng-click=copyToClipboard()>Copy to Clipboard</button>
+	  	<button class="button button-block button-calm" ng-class="{disabled: copied == true}" ng-click=copyToLocalStorage()>Copy to App Storage</button>
 	  </div>
 	
 	
@@ -467,9 +470,9 @@
       <div class="button button-calm" ng-click="init()">Restart</div>
     
       <div class="button-bar">
-	      <a class="fixed button ion-clock" ng-class="{active: stage < 5}"></a>
-	      <a class="fixed button ion-person" ng-class="{active: stage == 5}"></a>
-	      <a class="fixed button ion-model-s" ng-class="{active: stage == 6}"></a>
-	      <a class="fixed button ion-forward" ng-class="{active: stage > 6}"></a>
+	      <a class="button ion-clock button_footer" ng-class="{active: stage < 5}"></a>
+	      <a class="button ion-person button_footer" ng-class="{active: stage == 5}"></a>
+	      <a class="button ion-model-s button_footer" ng-class="{active: stage == 6}"></a>
+	      <a class="button ion-forward button_footer" ng-class="{active: stage > 6}"></a>
     </div></div>
 </ion-nav-view>
