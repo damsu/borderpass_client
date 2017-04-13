@@ -3,7 +3,7 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "Reservations", functi
   var Reservation;
   // Default Search Mode
   $scope.searchMode = "document";
-  $scope.dummyResID = window.localStorage.getItem("ReservationIDs");
+  $scope.reservationNumber = window.localStorage.getItem("ReservationIDs");
 
   // Function for changing search mode.
   $scope.switchSearchMode = function () {
@@ -19,12 +19,25 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "Reservations", functi
 
   // Search reservations
   $scope.search = function (by) {
-    // Decide on what request to make based on the mode (button) selected
+    // Decide on what request to make based on the mode (button) selected.
     switch(by) {
       case "document":
+        // TODO: Make the AJAX call for this one.
+        Reservations.getReservationByDocument(this.country, this.documentType, this.reservationNumber).then(function(result){
+          console.log("getting data...");
+          $scope.Reservation = result;
+          console.log($scope.Reservation);
+
+        }).catch(function() {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Request Failed',
+            template: 'Failed to get the Reservation'
+          });
+        });
         break;
       case "reservation":
-        Reservations.getReservationByID($scope.dummyResID).then(function(result){
+        console.log(this.reservationNumber);
+        Reservations.getReservationByID(this.reservationNumber).then(function(result){
           console.log("getting data...");
           $scope.Reservation = result;
           console.log($scope.Reservation);

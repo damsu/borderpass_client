@@ -10,11 +10,9 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
           console.log(vehicle);
             return $q(function(resolve, reject)
             {
-                $http.post("https://border-pass-server.herokuapp.com/" + "reservations", {
-                    crossing,
-                    traveller,
-                    vehicle
-                }).then(function(response)
+                $http.post("https://border-pass-server.herokuapp.com/" + "reservations", {crossing: crossing,
+                  traveller: traveller, vehicle: vehicle}, {headers: {'Content-Type': 'application/json'}})
+                  .then(function(response)
                 {
                     reservationID = response.data;
                     console.log("new reservation id : " + reservationID)
