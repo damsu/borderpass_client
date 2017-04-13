@@ -1,4 +1,4 @@
-app.controller('myreservationsCtrl', ["$scope", "$state", "Reservations", function ($scope, $state, Reservations) {
+app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reservations", function ($scope, $state, $ionicPopup, Reservations) {
 
   var Reservation;
   // Default Search Mode
@@ -7,7 +7,7 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "Reservations", functi
 
   // Function for changing search mode.
   $scope.switchSearchMode = function () {
-    switch($scope.searchMode) {
+    switch ($scope.searchMode) {
       case "document":
         $scope.searchMode = "reservation";
         break;
@@ -19,38 +19,45 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "Reservations", functi
 
   // Search reservations
   $scope.search = function (by) {
+    this.Reservation = [];
     // Decide on what request to make based on the mode (button) selected.
-    switch(by) {
+    switch (by) {
       case "document":
-        // TODO: Make the AJAX call for this one.
-        Reservations.getReservationByDocument(this.country, this.documentType, this.reservationNumber).then(function(result){
-          console.log("getting data...");
-          $scope.Reservation = result;
-          console.log($scope.Reservation);
+        // Proceed if the form is valid
+        if (this.documentSearchForm.$valid) {
+          // TODO: Make the AJAX call for this one.
+          Reservations.getReservationByDocument(this.country, this.documentType, this.documentNumber).then(function (result) {
+            this.Reservation = result;
 
-        }).catch(function() {
-          var alertPopup = $ionicPopup.alert({
-            title: 'Request Failed',
-            template: 'Failed to get the Reservation'
-          });
-        });
-        break;
-      case "reservation":
-        console.log(this.reservationNumber);
-        Reservations.getReservationByID(this.reservationNumber).then(function(result){
-          console.log("getting data...");
-          $scope.Reservation = result;
-          console.log($scope.Reservation);
-
-      }).catch(function() {
-          var alertPopup = $ionicPopup.alert({
+          }).catch(function () {
+            var alertPopup = $ionicPopup.alert({
               title: 'Request Failed',
               template: 'Failed to get the Reservation'
+            });
           });
-      });
+        }
+        break;
+      case "reservation":
+        // Proceed if the form is valid
+        if (this.reservationSearchForm.$valid) {
+          Reservations.getReservationByID(this.reservationNumber).then(function (result) {
+            this.Reservation = result;
+          }).catch(function () {
+            var alertPopup = $ionicPopup.alert({
+              title: 'Request Failed',
+              template: 'Failed to get the Reservation'
+            });
+          });
+        }
         break;
     }
+    // Form will display that submitted form returned no reservation
+    if (this.Reservation.length == 0) {
+      this.empty = true;
+    }
     // Move to the reservation listing
-    $state.go('myreservations/list');
+    else {
+      $state.go('myreservations/list');
+    }
   }
 }]);

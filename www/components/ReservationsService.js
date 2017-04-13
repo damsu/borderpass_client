@@ -25,23 +25,34 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
             });
         },
 
-    getReservationByID: function(id)
+    getReservationByID: function (id) {
+      return $q(function (resolve, reject) {
+        $http.get("https://border-pass-server.herokuapp.com/" + "reservations/id/" + id).then(function (response) {
+            reservations = response.data;
+            resolve(reservations);
+          },
+          function (err) {
+            reject();
+          });
+      });
+    },
+  getReservationByDocument: function(country, documentType, reservationNumber)
+  {
+    return $q(function(resolve, reject)
     {
-            return $q(function(resolve, reject)
-            {
-                $http.get("https://border-pass-server.herokuapp.com/" + "reservations/id/" + id).then(function(response)
-                {
-                    reservations = response.data;
-                    console.log("ID to look for : " + id);
-                    console.log("reservations for that id : " + reservations);
-                    resolve(reservations);
-                },
-                function(err)
-                {
-                    reject();
-                });
-            });
-      }
-    }
+      // TODO: Finish the back-end and use the correct API endpoint here
+      $http.get("https://border-pass-server.herokuapp.com/" + "reservations/id/" + id).then(function(response)
+        {
+          reservations = response.data;
+          resolve(reservations);
+        },
+        function(err)
+        {
+          reject();
+        });
+    });
+  }
+}
+
 
 });

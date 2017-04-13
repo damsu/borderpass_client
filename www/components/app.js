@@ -70,7 +70,6 @@ app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $
   $stateProvider
 
   // Each menu option has its own nav history stack:
-  //TODO: Add the views not handled by the menu
 
     .state('home', {
       url: '/home',
@@ -124,7 +123,6 @@ app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $
     })
 
     // These are state views that are not handled by the menu
-    //TODO: Add the views not handled by the menu
 
     .state('aboutus/clients', {
       url: '/aboutus/clients',
