@@ -28,4 +28,6 @@ app.controller('preferencesCtrl', ["$scope", function ($scope) {
 		window.localStorage.removeItem("ReservationIDs");
 		$scope.init();
 	}
+
+	$scope.init();
 }]);

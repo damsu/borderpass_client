@@ -17,19 +17,6 @@ app.run(function ($ionicPlatform) {
   });
 });
 
-app.run(['$rootScope', '$state', function($rootScope, $state) {
-
-    $rootScope.reloadPrefs = function() {
-        $state.go('preferences', {}, { reload: true });
-    }
-
-    // -- just to see our about => about state 'change'
-    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-        console.log('toState:   ' + toState.name );
-        console.log('fromState: ' + (fromState.name || 'Just got there! click again!'));
-    })
-}]);
-
 app.config(function (ionicDatePickerProvider) {
     var datePickerObj = {
       inputDate: new Date(),
