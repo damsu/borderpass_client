@@ -26,7 +26,7 @@
           <div class="input-label">
             Citizenship
           </div>
-          <select ng-model="country" ng-required="true" ng-minlength="2" ng-maxlength="2">
+          <select ng-model="formData.country" ng-required="true" ng-minlength="2" ng-maxlength="2">
             <option value="AF">Afghanistan</option>
             <option value="AX">Åland Islands</option>
             <option value="AL">Albania</option>
@@ -282,7 +282,7 @@
           <div class="input-label">
             Document
           </div>
-          <select ng-model="documentType" ng-required="true">
+          <select ng-model="formData.documentType" ng-required="true">
             <option value="Passport">Passport</option>
             <option value="Alien's Passport">Alien's Passport</option>
             <option value="Service Passport">Service Passport</option>
@@ -299,10 +299,16 @@
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Document Number</span>
-          <input type="text" placeholder="730663454" ng-model="documentNumber" ng-required="true">
-        </label>
+          <input type="text" placeholder="730663454" ng-model="formData.documentNumber" ng-required="true">
       </div>
       <div class="padding">
+        <a class="float left" ng-show="has_saved_person_data" ng-click="fillForms('document')">
+          Fill with saved info
+        </a>
+        <span ng-show="has_saved_person_data">  -or-  </span>
+        <a class="float left" ng-click="emptyForm('document')">
+          Empty
+        </a>
         <button class="button button-positive float right" ng-class="{'disabled': documentSearchForm.$invalid}" ng-click="search('document')">
           Search
         </button>
@@ -313,10 +319,17 @@
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Reservation Number</span>
-          <input type="text" placeholder="5802853599643334" ng-model="reservationNumber" ng-required="true">
+          <input type="text" placeholder="5802853599643334" ng-model="formData.reservationNumber" ng-required="true" ng-change="update(formData.reservationNumber);">
         </label>
       </div>
       <div class="padding">
+        <a class="float left" ng-show="has_saved_res_num" ng-click="fillForms('reservation')">
+          Fill with saved info
+        </a>
+        <span ng-show="has_saved_res_num">  -or-  </span>
+        <a class="float left" ng-click="emptyForm('reservation')">
+          Empty
+        </a>
         <button class="button button-positive float right" ng-class="{'disabled': reservationSearchForm.$invalid}" ng-click="search('reservation')">
           Search
         </button>

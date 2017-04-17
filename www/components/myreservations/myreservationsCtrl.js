@@ -3,7 +3,21 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reserv
   var Reservation;
   // Default Search Mode
   $scope.searchMode = "document";
-  $scope.reservationNumber = window.localStorage.getItem("ReservationIDs");
+  $scope.formData = { 
+    reservationNumber: '',
+    country: '',
+    documentType: '',
+    documentNumber: ''
+   };
+  $scope.empty = false;
+
+  if (window.localStorage.hasOwnProperty("Person")){
+        $scope.has_saved_person_data = true;
+  }
+
+  if (window.localStorage.hasOwnProperty("ReservationIDs")){
+        $scope.has_saved_res_num = true;
+  }
 
   // Function for changing search mode.
   $scope.switchSearchMode = function () {
@@ -15,7 +29,43 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reserv
         $scope.searchMode = "document";
         break;
     }
-  };
+  }
+
+  //empty forms
+  $scope.emptyForm = function (by) {
+    switch (by) {
+      case "document":
+        $scope.formData.country = '';
+        $scope.formData.documentType = '';
+        $scope.formData.documentNumber = '';
+        break;
+      case "reservation":
+        $scope.formData.reservationNumber = '';
+        break;
+    }
+  }
+
+  //fill forms with storage data
+  $scope.fillForms = function (by) {
+    switch (by) {
+      case "reservation":
+        var resNum = window.localStorage.getItem("ReservationIDs");
+        $scope.formData.reservationNumber = resNum;
+        break;
+
+      case "document":
+        var personData_string = window.localStorage.getItem("Person");
+        var personData = JSON.parse(personData_string);
+        $scope.formData.country = personData.Citizenship;
+        $scope.formData.documentType = personData.Document;
+        $scope.formData.documentNumber = personData.DocumentNumber;
+        break;
+    }
+  }
+
+  $scope.update = function (value) {
+    $scope.formData.reservationNumber = value;
+  }
 
   // Search reservations
   $scope.search = function (by) {
@@ -26,21 +76,27 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reserv
         // Proceed if the form is valid
         if (this.documentSearchForm.$valid) {
           // TODO: Make the AJAX call for this one.
-          Reservations.getReservationByDocument($scope.country, $scope.documentType, $scope.documentNumber).then(function (result) {
+          Reservations.getReservationByDocument($scope.formData.country, $scope.formData.documentType, $scope.formData.documentNumber).then(function (result) {
             $scope.Reservation = result;
+             // Form will display that submitted form returned no reservation
+            if ($scope.Reservation.length == 0) {
+              $scope.empty = true;
+            }
+            // Move to the reservation listing
+            else {
+              $scope.empty = false;
+            $state.go('myreservations/list');
+            }
 
           }).catch(function () {
-            var alertPopup = $ionicPopup.alert({
-              title: 'Request Failed',
-              template: 'Failed to get the Reservation'
-            });
+            $scope.empty = true;
           });
         }
         break;
       case "reservation":
         // Proceed if the form is valid
         if (this.reservationSearchForm.$valid) {
-          Reservations.getReservationByID($scope.reservationNumber).then(function (result) {
+          Reservations.getReservationByID($scope.formData.reservationNumber).then(function (result) {
             $scope.Reservation = result;
             // Form will display that submitted form returned no reservation
             if ($scope.Reservation.length == 0) {
@@ -48,14 +104,11 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reserv
             }
             // Move to the reservation listing
             else {
+              $scope.empty = false;
             $state.go('myreservations/list');
-            //console.log(Reservations.reservations.crossing.Date);
             }
           }).catch(function () {
-            var alertPopup = $ionicPopup.alert({
-              title: 'Request Failed',
-              template: 'Failed to get the Reservation'
-            });
+            $scope.empty = true;
           });
         }
         break;
