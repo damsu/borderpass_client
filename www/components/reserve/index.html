@@ -12,7 +12,7 @@
   <div ng-if="stage < 7" style="width: 100%; height: 20px; display: flex; justify-content: center;">
   	<h5 style="padding: 0px; margin: 0px;">{{Crossing.Address}}</h5>
   </div>
-  
+
   <div class="item" ng-if="stage < 7">
   <div style="width: 100%; height: 35px; display: flex; justify-content: center;">
 
@@ -406,7 +406,7 @@
     			<span class="input-label">Owner</span>
     			<input type="text" placeholder="Tap here..." ng-model="Vehicle.Owner">
   			</label>
-  			
+
         <label class="item item-input item-stacked-label">
           <span class="input-label">Car Manufacturer</span>
           <input type="text" placeholder="Tap here..." ng-model="Vehicle.CarManufacturer">
@@ -462,17 +462,17 @@
 	  	<button class="button button-block button-calm" ng-click=copyToClipboard()>Copy to Clipboard</button>
 	  	<button class="button button-block button-calm" ng-class="{disabled: copied == true}" ng-click=copyToLocalStorage()>Copy to App Storage</button>
 	  </div>
-	
-	
+
+
     </div>
   </ion-content>
   <div class="bar bar-footer">
       <div class="button button-calm" ng-click="init()">Restart</div>
-    
+
       <div class="button-bar">
-	      <a class="button ion-clock button_footer" ng-class="{active: stage < 5}"></a>
-	      <a class="button ion-person button_footer" ng-class="{active: stage == 5}"></a>
-	      <a class="button ion-model-s button_footer" ng-class="{active: stage == 6}"></a>
-	      <a class="button ion-forward button_footer" ng-class="{active: stage > 6}"></a>
+	      <a class="button button_footer" ng-class="{active: stage < 5}"><i class="ion ion-clock breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage == 5}"><i class="ion ion-person breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage == 6}"><i class="ion ion-model-s breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage > 6}"><i class="ion ion-forward breadcrumb footer icon"></i></a>
     </div></div>
 </ion-nav-view>
