@@ -29,12 +29,18 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
       return $q(function (resolve, reject) {
         $http.get("https://border-pass-server.herokuapp.com/" + "reservations/id/" + id).then(function (response) {
             reservations = response.data;
+            console.log(reservations);
             resolve(reservations);
           },
           function (err) {
             reject();
           });
       });
+    },
+    saved_reservations: function() {
+      console.log(reservations);
+      var saved_reservations = reservations;
+      return saved_reservations;
     },
   getReservationByDocument: function(country, documentType, reservationNumber)
   {

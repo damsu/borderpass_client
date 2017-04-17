@@ -19,15 +19,15 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reserv
 
   // Search reservations
   $scope.search = function (by) {
-    this.Reservation = [];
+    $scope.Reservation = [];
     // Decide on what request to make based on the mode (button) selected.
     switch (by) {
       case "document":
         // Proceed if the form is valid
         if (this.documentSearchForm.$valid) {
           // TODO: Make the AJAX call for this one.
-          Reservations.getReservationByDocument(this.country, this.documentType, this.documentNumber).then(function (result) {
-            this.Reservation = result;
+          Reservations.getReservationByDocument($scope.country, $scope.documentType, $scope.documentNumber).then(function (result) {
+            $scope.Reservation = result;
 
           }).catch(function () {
             var alertPopup = $ionicPopup.alert({
@@ -40,8 +40,17 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reserv
       case "reservation":
         // Proceed if the form is valid
         if (this.reservationSearchForm.$valid) {
-          Reservations.getReservationByID(this.reservationNumber).then(function (result) {
-            this.Reservation = result;
+          Reservations.getReservationByID($scope.reservationNumber).then(function (result) {
+            $scope.Reservation = result;
+            // Form will display that submitted form returned no reservation
+            if ($scope.Reservation.length == 0) {
+              $scope.empty = true;
+            }
+            // Move to the reservation listing
+            else {
+            $state.go('myreservations/list');
+            //console.log(Reservations.reservations.crossing.Date);
+            }
           }).catch(function () {
             var alertPopup = $ionicPopup.alert({
               title: 'Request Failed',
@@ -51,13 +60,6 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reserv
         }
         break;
     }
-    // Form will display that submitted form returned no reservation
-    if (this.Reservation.length == 0) {
-      this.empty = true;
-    }
-    // Move to the reservation listing
-    else {
-      $state.go('myreservations/list');
-    }
+    
   }
 }]);

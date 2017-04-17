@@ -8,26 +8,26 @@
     <div class="list card">
 
       <div class="item">
-        <strong><span class="ion-android-calendar"></span> 03/28/2017</strong> <strong class="float right"><span class="ion-android-time"></span> 22:00</strong>
+        <strong><span class="ion-android-calendar"></span> {{Reservation.crossing.Date}}</strong> <strong class="float right"><span class="ion-android-time"></span> {{Reservation.crossing.Time}}</strong>
         <p>
-          <span class="subdued">Imatra - Svetogorsk</span>
+          <span class="subdued">{{Reservation.crossing.Address}}</span>
         </p>
       </div>
 
       <div class="item item-body">
         <div class="row">
           <div class="col">
-            <i class="icon ion-person"></i> Joe Barbara Smith | 11.07.1997
+            <i class="icon ion-person"></i> {{Reservation.traveller.Firstname}} {{Reservation.traveller.Lastname}} | {{Reservation.traveller.Birthday}}
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <i class="icon ion-document-text"></i> Passport/123456 | FI
+            <i class="icon ion-document-text"></i> {{Reservation.traveller.Document}}/{{Reservation.traveller.DocumentNumber}} | {{Reservation.traveller.Citizenship}}
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <i class="icon ion-android-car"></i> XIH-222 | Renault Logan
+            <i class="icon ion-android-car"></i> {{Reservation.vehicle.CarPlate}} | {{Reservation.vehicle.CarManufacturer}} {{Reservation.vehicle.CarModel}}
           </div>
         </div>
         <div class="row">
@@ -38,7 +38,7 @@
         <div class="card">
           <div class="item item-text-wrap">
             <strong>Reservation Number</strong><br>
-            0752386942346253442623
+            {{Reservation._id}}
           </div>
         </div>
         <div class="itemitem-text-wrap">

@@ -130,11 +130,12 @@ app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $
       }
     })
     .state('myreservations/list', {
+      cache: false,
       url: '/myreservations/list',
       views: {
         'menuContent': {
           templateUrl: 'components/myreservations/list.html',
-          controller: 'aboutusCtrl'
+          controller: 'myreservations_result_Ctrl'
         }
       }
     });
