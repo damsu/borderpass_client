@@ -5,7 +5,7 @@
     <h2 class="title">Found Reservations</h2>
   </ion-header-bar>
   <ion-content>
-    <div class="list card">
+    <div class="list card" ng-repeat="Reservation in Reservations">
 
       <div class="item">
         <strong><span class="ion-android-calendar"></span> {{Reservation.crossing.Date}}</strong> <strong class="float right"><span class="ion-android-time"></span> {{Reservation.crossing.Time}}</strong>

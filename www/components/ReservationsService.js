@@ -41,12 +41,15 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
       var saved_reservations = reservations;
       return saved_reservations;
     },
-  getReservationByDocument: function(country, documentType, reservationNumber)
+  getReservationByDocument: function(country, document_Type, document_Number)
   {
     return $q(function(resolve, reject)
             {
-                $http.post("https://border-pass-server.herokuapp.com/" + "reservations/docNum", {country: country,
-                  documentType: documentType, reservationNumber: reservationNumber}, {headers: {'Content-Type': 'application/json'}})
+                var dataToSend = {"Citizenship": country,
+                  "Document": document_Type, "DocumentNumber": document_Number};
+                  console.log(dataToSend);
+                  
+                $http.post("https://border-pass-server.herokuapp.com/" + "reservations/docNum", dataToSend, {headers: {'Content-Type': 'application/json'}})
                   .then(function(response)
                 {
                     reservations = response.data;

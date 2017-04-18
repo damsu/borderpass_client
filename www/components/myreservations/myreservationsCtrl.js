@@ -72,7 +72,7 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
 
   // Search reservations
   $scope.search = function (by) {
-    $scope.Reservation = [];
+    $scope.Reservations = [];
     // Decide on what request to make based on the mode (button) selected.
     switch (by) {
       case "document":
@@ -80,9 +80,10 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
         if (this.documentSearchForm.$valid) {
           // TODO: Make the AJAX call for this one.
           Reservations.getReservationByDocument($scope.formData.country, $scope.formData.documentType, $scope.formData.documentNumber).then(function (result) {
-            $scope.Reservation = result;
+            $scope.Reservations = result;
+            console.log($scope.Reservations);
              // Form will display that submitted form returned no reservation
-            if ($scope.Reservation.length == 0) {
+            if ($scope.Reservations.length == 0) {
               $scope.empty = true;
             }
             // Move to the reservation listing
@@ -100,9 +101,9 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
         // Proceed if the form is valid
         if (this.reservationSearchForm.$valid) {
           Reservations.getReservationByID($scope.formData.reservationNumber).then(function (result) {
-            $scope.Reservation = result;
+            $scope.Reservations = result;
             // Form will display that submitted form returned no reservation
-            if ($scope.Reservation.length == 0) {
+            if ($scope.Reservations.length == 0) {
               $scope.empty = true;
             }
             // Move to the reservation listing
