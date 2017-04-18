@@ -305,13 +305,13 @@
           <input type="text" placeholder="730663454" ng-model="formData.documentNumber" ng-required="true">
       </div>
       <div class="padding">
-        <a class="float left" ng-show="has_saved_person_data" ng-click="fillForms('document')">
-          Fill with saved info
+        <a class="float left button button-outline button-stable" ng-show="has_saved_person_data" ng-click="fillForms('document')">
+          Use Cache
         </a>
         <span ng-show="has_saved_person_data">  -or-  </span>
-        <a class="float left" ng-click="emptyForm('document')">
+        <button class="float left button button-outline button-stable" ng-show="documentSearchForm.$dirty || reservationSearchForm.$valid" ng-click="emptyForm('document')">
           Empty
-        </a>
+        </button>
         <button class="button button-positive float right" ng-class="{'disabled': documentSearchForm.$invalid}" ng-click="search('document')">
           Search
         </button>
@@ -326,13 +326,12 @@
         </label>
       </div>
       <div class="padding">
-        <a class="float left" ng-show="has_saved_res_num" ng-click="fillForms('reservation')">
-          Fill with saved info
-        </a>
-        <span ng-show="has_saved_res_num">  -or-  </span>
-        <a class="float left" ng-click="emptyForm('reservation')">
+        <button class="float left button button-outline button-stable" ng-show="has_saved_res_num" ng-click="fillForms('reservation')">
+          Use Cache
+        </button>
+        <button class="float left button button-outline button-stable" ng-show="reservationSearchForm.$dirty || reservationSearchForm.$valid" ng-click="emptyForm('reservation')">
           Empty
-        </a>
+        </button>
         <button class="button button-positive float right" ng-class="{'disabled': reservationSearchForm.$invalid}" ng-click="search('reservation')">
           Search
         </button>

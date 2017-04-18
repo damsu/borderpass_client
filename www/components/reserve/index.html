@@ -1,7 +1,5 @@
 <ion-nav-view>
   <ion-header-bar class="bar bar-subheader" align-title="right">
-    <button ng-show="stage > 1" class="button button-light" ng-click="goBackTo(stage,(stage - 1))"><i class="icon menu-icon ion-chevron-left"></i> Back
-    </button>
     <h2 class="title">Reserve</h2>
     <div ng-show="loading == true">
 	  	<ion-spinner></ion-spinner>
@@ -474,9 +472,10 @@
       <div class="button button-calm" ng-click="init()">Restart</div>
 
       <div class="button-bar">
-	      <a class="button button_footer" ng-class="{active: stage < 5}"><i class="ion ion-clock breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage == 5}"><i class="ion ion-person breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage == 6}"><i class="ion ion-model-s breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage > 6}"><i class="ion ion-forward breadcrumb footer icon"></i></a>
-    </div></div>
+	      <a class="button button_footer" ng-class="{active: stage < 5}" ng-click="goBackTo(stage,1)"><i class="ion ion-clock breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage == 5}" ng-click="goBackTo(stage,5)" ng-disabled="stage < 5"><i class="ion ion-person breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage == 6}" ng-click="goBackTo(stage,6)" ng-disabled="stage < 6"><i class="ion ion-model-s breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage > 6}" ng-click="goBackTo(stage,7)" ng-disabled="stage < 7"><i class="ion ion-forward breadcrumb footer icon"></i></a>
+    </div>
+  </div>
 </ion-nav-view>
