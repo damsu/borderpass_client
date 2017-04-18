@@ -2,45 +2,56 @@
 .float.right {
   float: right;
 }
+
 /* Fixed for the display of buttons in a button bar (myreservations page) */
 .fixed.button {
   border-left-color: #a2a2a2;
 }
+
 /* Fix the location of the main logo */
 .main.logo {
-  position:relative; margin-top:5px; padding-right:8px;
+  position: relative;
+  margin-top: 5px;
+  padding-right: 8px;
 }
+
 /* Menu buttons size-location */
 .menu-icon {
   font-size: 16px !important;
 }
+
 /* Align the icons in breadcrumbs located at reserve page footer */
 .breadcrumb.footer.icon {
-  font-size:20px;
+  font-size: 20px;
   font-weight: bold;
   position: relative;
   bottom: 6px;
 }
 
-.button_footer.active{
-    background-image: url('../img/selected.png');
-    background-size: 100%;
-    border:0px;
-    background-color:#f8f8f8;
+.button_footer.active {
+  background-image: url('../img/selected.png');
+  background-position: center;
+  background-size: 100%;
+  border: 0px;
+  background-color: #f8f8f8;
 }
-a.button_footer{
+
+a.button_footer {
 
 }
 
 a.button_footer.ion-clock {
   font-size: 20px;
 }
+
 a.button_footer.ion-person {
   font-size: 20px;
 }
+
 a.button_footer.ion-model-s {
   font-size: 20px;
 }
+
 a.button_footer.ion-forward {
   font-size: 20px;
 }
