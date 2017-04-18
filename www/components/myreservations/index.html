@@ -308,8 +308,7 @@
         <a class="float left button button-outline button-stable" ng-show="has_saved_person_data" ng-click="fillForms('document')">
           Use Cache
         </a>
-        <span ng-show="has_saved_person_data">  -or-  </span>
-        <button class="float left button button-outline button-stable" ng-show="documentSearchForm.$dirty || reservationSearchForm.$valid" ng-click="emptyForm('document')">
+        <button class="float left button button-outline button-stable" ng-show="documentSearchForm.$dirty || documentSearchForm.$valid" ng-click="emptyForm('document')">
           Empty
         </button>
         <button class="button button-positive float right" ng-class="{'disabled': documentSearchForm.$invalid}" ng-click="search('document')">
