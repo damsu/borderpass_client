@@ -1,4 +1,4 @@
-app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reservations", function ($scope, $state, $ionicPopup, Reservations) {
+app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicPopup", "Reservations", function ($scope, $rootScope, $state, $ionicPopup, Reservations) {
 
   var Reservation;
   // Default Search Mode
@@ -11,13 +11,16 @@ app.controller('myreservationsCtrl', ["$scope", "$state", "$ionicPopup", "Reserv
    };
   $scope.empty = false;
 
-  if (window.localStorage.hasOwnProperty("Person")){
-        $scope.has_saved_person_data = true;
-  }
+  /*$rootScope.lookForStorageData = function () {
+    if (window.localStorage.hasOwnProperty("Person")){
+          $scope.has_saved_person_data = true;
+    }
 
-  if (window.localStorage.hasOwnProperty("ReservationIDs")){
-        $scope.has_saved_res_num = true;
-  }
+    if (window.localStorage.hasOwnProperty("ReservationIDs")){
+          $scope.has_saved_res_num = true;
+    }
+  }*/
+  
 
   // Function for changing search mode.
   $scope.switchSearchMode = function () {

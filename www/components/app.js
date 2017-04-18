@@ -17,6 +17,41 @@ app.run(function ($ionicPlatform) {
   });
 });
 
+app.run([
+        '$rootScope',
+        '$state',
+        '$location',
+        '$stateParams',
+        function(
+            $rootScope,
+            $state,
+            $location,
+            $stateParams) {
+                $rootScope.$state = $state;
+                $rootScope.$stateParams = $stateParams;
+
+                // here is my event handler
+                $rootScope.$on("$stateChangeStart", function (ev, to, toParams, from, fromParams) { 
+                    console.log(to.name);
+                    if (to.name == "myreservations") {
+                         if (window.localStorage.hasOwnProperty("Person")){
+                                $rootScope.has_saved_person_data = true;
+                          }
+                          else {
+                            $rootScope.has_saved_person_data = false;
+                          }
+
+                          if (window.localStorage.hasOwnProperty("ReservationIDs")){
+                                $rootScope.has_saved_res_num = true;
+                          }
+                          else {
+                            $rootScope.has_saved_res_num = false;
+                          }
+                    }
+               });
+        }
+]);
+
 app.config(function (ionicDatePickerProvider) {
     var datePickerObj = {
       inputDate: new Date(),

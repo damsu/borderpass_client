@@ -26,7 +26,8 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     	Document : null,
     	DocumentNumber : null,
     	Email : null,
-    	PhoneNumber : null
+    	PhoneNumber : null,
+      Company : null
     }
 
     $scope.Vehicle = {
@@ -247,6 +248,9 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   	$scope.copied = false;
   	delete $scope.PersonToSend.Remember;
   	delete $scope.VehicleToSend.Remember;
+    if ($scope.PersonToSend.Company == null || $scope.PersonToSend.Company == "") {
+      $scope.PersonToSend.Company = "No affiliated Company";
+    }
   	Reservations.postReservation($scope.Crossing, $scope.PersonToSend, $scope.VehicleToSend).then(function(result){
 	        console.log("posting");
 	        $scope.reservationID = result;
