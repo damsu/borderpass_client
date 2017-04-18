@@ -1,6 +1,9 @@
 <ion-nav-view>
   <ion-header-bar class="bar bar-subheader" align-title="right">
     <h2 class="title">My Reservations</h2>
+    <div ng-show="loading == true">
+        <ion-spinner></ion-spinner>
+    </div>
   </ion-header-bar>
   <ion-content padding="true" class="has-header">
     <div class="button-bar">
