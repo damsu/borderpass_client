@@ -4,8 +4,6 @@
     <list default="true" id="f40f3664-62a0-48f7-8370-4728ac848e71" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/components/myreservations/index.html" afterPath="$PROJECT_DIR$/www/components/myreservations/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/components/reserve/index.html" afterPath="$PROJECT_DIR$/www/components/reserve/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/www/components/reserve/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
-              <caret line="358" column="31" lean-forward="false" selection-start-line="358" selection-start-column="28" selection-end-line="358" selection-end-column="31" />
+              <caret line="66" column="70" lean-forward="false" selection-start-line="66" selection-start-column="68" selection-end-line="66" selection-end-column="70" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#0;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#1;n#div#0;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
@@ -81,8 +79,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/components/myreservations/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="311" column="137" lean-forward="false" selection-start-line="311" selection-start-column="137" selection-end-line="311" selection-end-column="137" />
+            <state relative-caret-position="430">
+              <caret line="312" column="17" lean-forward="true" selection-start-line="312" selection-start-column="17" selection-end-line="312" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -146,6 +144,7 @@
       <find>submi</find>
       <find>footer</find>
       <find>empty</find>
+      <find>Ca</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -462,15 +461,15 @@
       <workItem from="1492087168965" duration="8838000" />
       <workItem from="1492466563430" duration="402000" />
       <workItem from="1492505130630" duration="299000" />
-      <workItem from="1492511564878" duration="1921000" />
+      <workItem from="1492511564878" duration="2465000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46654000" />
+    <option name="totallyTimeSpent" value="47198000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="31" width="1932" height="1016" extended-state="1" />
+    <frame x="-7" y="31" width="1932" height="1016" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -910,7 +909,7 @@
     <entry file="file://$PROJECT_DIR$/www/components/reserve/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
-          <caret line="358" column="31" lean-forward="false" selection-start-line="358" selection-start-column="28" selection-end-line="358" selection-end-column="31" />
+          <caret line="66" column="70" lean-forward="false" selection-start-line="66" selection-start-column="68" selection-end-line="66" selection-end-column="70" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#0;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#1;n#div#0;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
@@ -922,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/components/myreservations/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="311" column="137" lean-forward="false" selection-start-line="311" selection-start-column="137" selection-end-line="311" selection-end-column="137" />
+        <state relative-caret-position="430">
+          <caret line="312" column="17" lean-forward="true" selection-start-line="312" selection-start-column="17" selection-end-line="312" selection-end-column="17" />
           <folding />
         </state>
       </provider>
