@@ -5,27 +5,27 @@
     <h2 class="title">Change Traveller</h2>
   </ion-header-bar>
   <ion-content>
-    <div class="list card">
+    <div class="list card" ng-repeat="Reservation in Reservations">
 
       <div class="item">
         <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">First Name</span>
-          <input type="text" ng-model="Reservations.traveller.Firstname">
+          <input type="text" ng-model="Reservation.traveller.Firstname">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Middle Name</span>
-          <input type="text" ng-model="Reservations.traveller.Middlename">
+          <input type="text" ng-model="Reservation.traveller.Middlename">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Last Name</span>
-          <input type="text" ng-model="Reservations.traveller.Lastname">
+          <input type="text" ng-model="Reservation.traveller.Lastname">
         </label>
         <label class="item item-input item-select">
           <div class="input-label">
             Citizenship
           </div>
-          <select ng-model="Reservations.traveller.Citizenship">
+          <select ng-model="Reservation.traveller.Citizenship">
             <option value="AF">Afghanistan</option>
             <option value="AX">Åland Islands</option>
             <option value="AL">Albania</option>
@@ -281,7 +281,7 @@
           <div class="input-label">
             Document
           </div>
-          <select ng-model="Reservations.traveller.Document">
+          <select ng-model="Reservation.traveller.Document">
             <option value="Passport">Passport</option>
             <option value="Alien's Passport">Alien's Passport</option>
             <option value="Service Passport">Service Passport</option>
@@ -298,19 +298,19 @@
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Document Number</span>
-          <input type="text" ng-model="Reservations.traveller.DocumentNumber">
+          <input type="text" ng-model="Reservation.traveller.DocumentNumber">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Email</span>
-          <input type="email" ng-model="Reservations.traveller.Email">
+          <input type="email" ng-model="Reservation.traveller.Email">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Phone Number</span>
-          <input type="text" ng-model="Reservations.traveller.PhoneNumber">
+          <input type="text" ng-model="Reservation.traveller.PhoneNumber">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Company Name (optionnal)</span>
-          <input type="text" ng-model="Reservations.traveller.Company">
+          <input type="text" ng-model="Reservation.traveller.Company">
         </label>
       </div>
       </div>
