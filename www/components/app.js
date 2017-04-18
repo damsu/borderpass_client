@@ -173,6 +173,26 @@ app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $
           controller: 'myreservations_result_Ctrl'
         }
       }
+    })
+    .state('myreservations/editTraveller', {
+      cache: false,
+      url: '/myreservations/editTraveller',
+      views: {
+        'menuContent': {
+          templateUrl: 'components/myreservations/editTraveller.html',
+          controller: 'myreservations_editTraveller_Ctrl'
+        }
+      }
+    })
+    .state('myreservations/editVehicle', {
+      cache: false,
+      url: '/myreservations/editVehicle',
+      views: {
+        'menuContent': {
+          templateUrl: 'components/myreservations/editVehicle.html',
+          controller: 'myreservations_editVehicle_Ctrl'
+        }
+      }
     });
   // If none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home');
