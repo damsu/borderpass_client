@@ -25,6 +25,24 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
             });
         },
 
+        updateReservation: function(crossing, traveller, vehicle)
+        {
+            return $q(function(resolve, reject)
+            {
+                $http.put("https://border-pass-server.herokuapp.com/" + "reservations/id/" + id, {crossing: crossing,
+                  traveller: traveller, vehicle: vehicle}, {headers: {'Content-Type': 'application/json'}})
+                  .then(function(response)
+                {
+                    reservations = response.data;
+                    resolve(reservations);
+                },
+                function(err)
+                {
+                    reject();
+                });
+            });
+        },
+
     getReservationByID: function (id) {
       return $q(function (resolve, reject) {
         $http.get("https://border-pass-server.herokuapp.com/" + "reservations/id/" + id).then(function (response) {
@@ -32,6 +50,7 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
             resolve(reservations);
           },
           function (err) {
+            reservations = [];
             reject();
           });
       });
@@ -57,6 +76,7 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
                 },
                 function(err)
                 {
+                    reservations = [];
                     reject();
                 });
             });
