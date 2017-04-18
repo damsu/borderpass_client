@@ -2,7 +2,7 @@
   <ion-header-bar class="bar bar-subheader" align-title="right">
     <h2 class="title">Preferences</h2>
   </ion-header-bar>
-  <ion-content padding="true" class="has-header">
+  <ion-content class="has-header padding">
     <div class="list">
       <label class="item item-input item-select">
         <div class="input-label">
@@ -15,8 +15,10 @@
           <option>Norge</option>
         </select>
       </label>
-      <button class="button button-block button-calm" ng-class="{disabled: pers_data_deletable == true}" ng-click=deletePersonData()>Clear Forms Data</button>
-      <button class="button button-block button-calm" ng-class="{disabled: res_nums_deletable == true}" ng-click=deleteResNums()>Clear Reservation Numbers</button>
+      <h4>Clear Cache</h4>
+      <p>This will delete the data you chose to keep "for later" in the App storage.</p>
+      <p style="color: blue;"><b>Please ensure that you copied your reservation number somewhere</b></p>
+      <button class="button button-block button-dark" ng-class="{disabled: no_data == true}" ng-click=deleteData()>Clear Cache</button>
     </div>
   </ion-content>
 </ion-nav-view>
