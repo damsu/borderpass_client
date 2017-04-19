@@ -3,7 +3,7 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
   var Reservation;
   // Default Search Mode
   $scope.searchMode = "document";
-  $scope.formData = { 
+  $scope.formData = {
     reservationNumber: '',
     country: '',
     documentType: '',
@@ -20,7 +20,7 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
           $scope.has_saved_res_num = true;
     }
   }*/
-  
+
 
   // Function for changing search mode.
   $scope.switchSearchMode = function () {
@@ -70,6 +70,11 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
     $scope.formData.reservationNumber = value;
   }
 
+  // Closes alert that states no reservations were found.
+  $scope.closeAlert = function () {
+    $scope.closed = true;
+  }
+
   // Search reservations
   $scope.search = function (by) {
     $scope.Reservations = [];
@@ -88,10 +93,12 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
              // Form will display that submitted form returned no reservation
             if ($scope.Reservations.length == 0) {
               $scope.empty = true;
+              $scope.closed = false;
             }
             // Move to the reservation listing
             else {
               $scope.empty = false;
+              $scope.closed = false;
             $state.go('myreservations/list');
             }
 
@@ -122,6 +129,6 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
         }
         break;
     }
-    
+
   }
 }]);

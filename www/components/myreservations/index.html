@@ -12,18 +12,18 @@
          ng-click="switchSearchMode()">Number</a>
     </div>
     <!-- No Reservations Found Alert -->
-    <button ng-show="empty" class="button button-full button-energized">
+    <div ng-show="empty && !closed" class="button button-full button-energized">
       <div class="row">
         <div class="col">
           No reservation was found
         </div>
-        <div class="col col-10">
+        <div class="col col-10" style="z-index:100" ng-click="closeAlert()">
           <i class="ion-ios-close-outline float right"></i>
         </div>
       </div>
-    </button>
+    </div>
     <form name="documentSearchForm" ng-if="searchMode == 'document'" novalidate>
-      <!-- Incorrect Document Number Alert -->
+      <!-- Form for finding reservations by document -->
       <div class="list">
         <label class="item item-input item-select">
           <div class="input-label">
@@ -316,8 +316,8 @@
         </button>
       </div>
     </form>
+    <!-- Form for finding reservations by reservation number -->
     <form name="reservationSearchForm" ng-if="searchMode == 'reservation'" novalidate>
-      <!-- Incorrect Reservation Number Alert -->
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Reservation Number</span>

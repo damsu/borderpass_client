@@ -5,7 +5,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     var flags = [];
     $scope.date = "Date";
     $scope.time = "Time";
-    var image_style_active = "height:35px; width:60px;box-shadow: 0px 0px 10px green;";
+    var image_style_active = "height:35px; width:60px;box-shadow: 0px 0px 5px green; border: 2px solid #90c590";
     var image_style_inactive = "height:35px; width:60px;";
 
     $scope.Crossing = {
@@ -54,7 +54,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 	    $scope.progress_crossing_style = image_style_inactive;
 	    $scope.stage = 0;
 	    $scope.arrow_style = "width: 100%; height: 15px; display: flex; justify-content: flex-start;";
-	    
+
 	    Borders.fetchFromServer().then(function(){
 	        console.log("fetched all borders");
 
@@ -117,15 +117,15 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 		if (stageToGo == 1)
 		{
     		$scope.init();
-		} 
+		}
 		else if (stageToGo == 2 && currentStage > 1)
-		{	
+		{
 			$scope.progress_flag_right = "blank.png";
     		$scope.progress_crossing = "border_blank.png";
     		$scope.Crossing.Address = "";
 			$scope.saveDeparture($scope.Crossing.Departure);
 
-		} 
+		}
 		else if (stageToGo == 3 && currentStage > 2)
 		{
 			$scope.progress_crossing = "border_blank.png";
@@ -151,40 +151,40 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 	}
 
 	var ipObj1 = {
-      callback: function (val) {  //Mandatory 
+      callback: function (val) {  //Mandatory
         console.log('Return value from the datepicker popup is : ' + val, new Date(val));
         var date = new Date(val);
         $scope.Crossing.Date = date.toDateString();
       },
-      from: new Date(), //Optional 
-      to: new Date(2017, 12, 31), //Optional 
-      inputDate: new Date(),      //Optional 
-      mondayFirst: true,          //Optional 
-      closeOnSelect: true,       //Optional 
-      templateType: 'popup'       //Optional 
+      from: new Date(), //Optional
+      to: new Date(2017, 12, 31), //Optional
+      inputDate: new Date(),      //Optional
+      mondayFirst: true,          //Optional
+      closeOnSelect: true,       //Optional
+      templateType: 'popup'       //Optional
     };
- 
+
     $scope.openDatePicker = function(){
       ionicDatePicker.openDatePicker(ipObj1);
     };
 
     var ipObj2 = {
-    callback: function (val) {      //Mandatory 
+    callback: function (val) {      //Mandatory
       if (typeof (val) === 'undefined') {
         console.log('Time not selected');
       } else {
         var selectedTime = new Date(val * 1000);
         console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), 'H :', selectedTime.getUTCMinutes(), 'M');
         $scope.Crossing.Time = selectedTime.getUTCHours() + ':' + addZero(selectedTime.getUTCMinutes());
-        
+
       }
     },
-    inputTime: 50400,   //Optional 
-    format: 24,         //Optional 
-    step: 30,           //Optional 
-    setLabel: 'Set'    //Optional 
+    inputTime: 50400,   //Optional
+    format: 24,         //Optional
+    step: 10,           //Optional
+    setLabel: 'Set'    //Optional
   };
-  
+
   $scope.openTimePicker = function(){
   	ionicTimePicker.openTimePicker(ipObj2);
   };
@@ -265,7 +265,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   }
 
   $scope.copyToClipboard = function(){
-  	
+
   }
 
   $scope.copyToLocalStorage = function(){
@@ -275,19 +275,19 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   }
 
   var ipObj3 = {
-      callback: function (val) {  //Mandatory 
+      callback: function (val) {  //Mandatory
         console.log('Return value from the datepicker popup is : ' + val, new Date(val));
         var birthday = new Date(val);
         $scope.Person.Birthday = birthday.toDateString();
       },
-      from: new Date(1900, 1, 1), //Optional 
-      to: new Date(), //Optional 
-      inputDate: new Date(),      //Optional 
-      mondayFirst: true,          //Optional 
-      closeOnSelect: true,       //Optional 
-      templateType: 'popup'       //Optional 
+      from: new Date(1900, 1, 1), //Optional
+      to: new Date(), //Optional
+      inputDate: new Date(),      //Optional
+      mondayFirst: true,          //Optional
+      closeOnSelect: true,       //Optional
+      templateType: 'popup'       //Optional
     };
- 
+
     $scope.openBirthdayPicker = function(){
       ionicDatePicker.openDatePicker(ipObj3);
     };
@@ -298,7 +298,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     }
     return i;
   }
-  
+
 
 
 }]);
