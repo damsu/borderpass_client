@@ -2,57 +2,50 @@
   <ion-header-bar class="bar bar-subheader" align-title="right">
     <button class="button button-light" ng-click="goBack()"><i class="icon menu-icon ion-chevron-left"></i> Back
     </button>
-    <h2 class="title">Found Reservations</h2>
+    <div ng-show="loading == true">
+        <ion-spinner></ion-spinner>
+    </div>
+    <h2 class="title">Change Vehicle</h2>
   </ion-header-bar>
   <ion-content>
-    <div class="list card" ng-repeat="Reservation in Reservations">
+    <div class="list card">
 
       <div class="item">
-        <strong><span class="ion-android-calendar"></span> {{Reservation.crossing.Date}}</strong> <strong class="float right"><span class="ion-android-time"></span> {{Reservation.crossing.Time}}</strong>
-        <p>
-          <span class="subdued">{{Reservation.crossing.Address}}</span>
-        </p>
-      </div>
+        <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            <b>Car Type</b>
+          </div>
+          <select ng-model="Reservation.vehicle.CarType">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><b>Car Plate</b></span>
+          <input type="text" placeholder="Tap here..." ng-model="Reservation.vehicle.CarPlate">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><b>Owner</b></span>
+          <input type="text" placeholder="Tap here..." ng-model="Reservation.vehicle.Owner">
+        </label>
 
-      <div class="item item-body">
-      <a class="float left" ng-show="has_saved_person_data" ng-click="editTraveller()">
-          Change traveller
-        </a>
-        <a class="float right" ng-show="has_saved_person_data" ng-click="editVehicle()">
-          Change vehicle
-        </a>
-        <div class="row">
-          <div class="col">
-            <i class="icon ion-person"></i> {{Reservation.traveller.Firstname}} {{Reservation.traveller.Lastname}} | {{Reservation.traveller.Birthday}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <i class="icon ion-document-text"></i> {{Reservation.traveller.Document}}/{{Reservation.traveller.DocumentNumber}} | {{Reservation.traveller.Citizenship}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <i class="icon ion-android-car"></i> {{Reservation.vehicle.CarPlate}} | {{Reservation.vehicle.CarManufacturer}} {{Reservation.vehicle.CarModel}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <i class="icon ion-briefcase"></i> {{Reservation.traveller.Company}}
-          </div>
-        </div>
-        <div class="card">
-          <div class="item item-text-wrap">
-            <strong>Reservation Number</strong><br>
-            {{Reservation._id}}
-          </div>
-        </div>
-        <div class="itemitem-text-wrap">
-          <img src="img/clients/fi.png" width="40" style="float:left; margin-right:10px;">
-          <a class="subdued"> Data is transfered to Finnish Transport Agency</a>
-        </div>
-      </div>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><b>Car Manufacturer</b></span>
+          <input type="text" placeholder="Tap here..." ng-model="Reservation.vehicle.CarManufacturer">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><b>Car Model</b></span>
+          <input type="text" placeholder="Tap here..." ng-model="Reservation.vehicle.CarModel">
+        </label>
 
+      </div>
+      </div>
     </div>
+    <button class="button button-positive float right" ng-click=sendChanges(Reservation)>
+        Send changes
+      </button>
   </ion-content>
 </ion-nav-view>

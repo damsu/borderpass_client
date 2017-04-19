@@ -1,6 +1,7 @@
 angular.module('ReservationsService', []).factory('Reservations', function($q, $http){
 	var reservationID;
   var reservations;
+  var reservationToEdit;
 	return {
 
 		postReservation: function(crossing, traveller, vehicle)
@@ -25,7 +26,7 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
             });
         },
 
-        updateReservation: function(crossing, traveller, vehicle)
+        updateReservation: function(id, crossing, traveller, vehicle)
         {
             return $q(function(resolve, reject)
             {
@@ -38,6 +39,7 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
                 },
                 function(err)
                 {
+                    console.log("not working");
                     reject();
                 });
             });
@@ -59,6 +61,14 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
       console.log(reservations);
       var saved_reservations = reservations;
       return saved_reservations;
+    },
+    reservationToEdit: function(Res) {
+      reservationToEdit = Res;
+    },
+    saved_reservationToEdit: function() {
+      console.log(reservations);
+      var saved_reservationToEdit = reservationToEdit;
+      return saved_reservationToEdit;
     },
   getReservationByDocument: function(country, document_Type, document_Number)
   {
