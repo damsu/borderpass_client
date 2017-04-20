@@ -1,4 +1,4 @@
-app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionicPopup', 'Borders', 'Reservations', 'ionicDatePicker', 'ionicTimePicker', function ($ionicHistory, $scope, $http, $q, $ionicPopup, Borders, Reservations, ionicDatePicker, ionicTimePicker) {
+app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '$q', '$ionicPopup', 'Borders', 'Reservations', 'ionicDatePicker', 'ionicTimePicker', function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reservations, ionicDatePicker, ionicTimePicker) {
 
     var destination;
     var crossing;
@@ -40,6 +40,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     }
     $scope.copied;
     $scope.reservationID;
+    $scope.checkBank = false;
 
     $scope.init = function(){
     	$ionicHistory.clearCache();
@@ -52,7 +53,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
 	    $scope.progress_flag_right_style = image_style_inactive;
 	    $scope.progress_crossing = "border_blank.png";
 	    $scope.progress_crossing_style = image_style_inactive;
-	    $scope.stage = 0;
+	    $scope.stage = 7;
 	    $scope.arrow_style = "width: 100%; height: 15px; display: flex; justify-content: flex-start;";
 
 	    Borders.fetchFromServer().then(function(){
@@ -225,6 +226,22 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   	$scope.stage = 7;
   };
 
+  $scope.toPayment = function(){
+    $scope.stage = 8;
+  }
+
+  $scope.checkBank = function(){
+    $scope.checkBank = true; 
+    $timeout(function () {
+                  $scope.bankOk();
+            }, 3000);  
+  }
+
+  $scope.bankOk = function(){
+    $scope.checkBank = false;
+    $scope.sendReservation();
+  }
+
 
 
   $scope.showConfirm = function() {
@@ -254,7 +271,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
   	Reservations.postReservation($scope.Crossing, $scope.PersonToSend, $scope.VehicleToSend).then(function(result){
 	        console.log("posting");
 	        $scope.reservationID = result;
-	        $scope.stage = 8;
+	        $scope.stage = 9;
 
 	    }).catch(function() {
 	        var alertPopup = $ionicPopup.alert({
@@ -298,7 +315,6 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$http', '$q', '$ionic
     }
     return i;
   }
-
 
 
 }]);
