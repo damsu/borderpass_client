@@ -4,8 +4,6 @@
     <list default="true" id="f40f3664-62a0-48f7-8370-4728ac848e71" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/components/home/index.html" afterPath="$PROJECT_DIR$/www/components/home/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/components/reserve/index.html" afterPath="$PROJECT_DIR$/www/components/reserve/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -90,12 +88,13 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/components/home/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="33" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+            <state relative-caret-position="75">
+              <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#button#0;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#ion-nav-view#0;n#!!top" expanded="true" />
-                <element signature="e#883#889#0" expanded="true" />
+                <element signature="e#939#945#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -383,7 +382,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57344000" />
+    <option name="totallyTimeSpent" value="57766000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
@@ -905,12 +904,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/components/home/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="33" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        <state relative-caret-position="75">
+          <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#img#0;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#button#0;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#ion-nav-view#0;n#!!top" expanded="true" />
-            <element signature="e#883#889#0" expanded="true" />
+            <element signature="e#939#945#0" expanded="true" />
           </folding>
         </state>
       </provider>
