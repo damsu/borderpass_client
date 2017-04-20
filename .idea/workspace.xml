@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f40f3664-62a0-48f7-8370-4728ac848e71" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/components/myreservations/index.html" afterPath="$PROJECT_DIR$/www/components/myreservations/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/components/reserve/index.html" afterPath="$PROJECT_DIR$/www/components/reserve/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/components/aboutus/license.html" afterPath="$PROJECT_DIR$/www/components/aboutus/license.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="license.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="license.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/components/aboutus/license.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="55" />
+            <state relative-caret-position="630">
+              <caret line="42" column="104" lean-forward="false" selection-start-line="42" selection-start-column="104" selection-end-line="42" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -84,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/components/reserve/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="191">
@@ -92,6 +90,16 @@
               <folding>
                 <element signature="n#style#0;n#h2#0;n#label#1;n#form#0;n#div#0;n#div#1;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/components/myreservations/list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="40" column="32" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -186,7 +194,6 @@
         <option value="$PROJECT_DIR$/www/components/aboutus/aboutusCtrl.js" />
         <option value="$PROJECT_DIR$/www/components/aboutus/index.html" />
         <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/components/aboutus/license.html" />
         <option value="$PROJECT_DIR$/www/components/aboutus/clients.html" />
         <option value="$PROJECT_DIR$/www/components/BordersService.js" />
         <option value="$PROJECT_DIR$/www/components/myreservations/list.html" />
@@ -197,6 +204,7 @@
         <option value="$PROJECT_DIR$/www/components/myreservations/myreservationsCtrl.js" />
         <option value="$PROJECT_DIR$/www/components/myreservations/index.html" />
         <option value="$PROJECT_DIR$/www/components/reserve/index.html" />
+        <option value="$PROJECT_DIR$/www/components/aboutus/license.html" />
       </list>
     </option>
   </component>
@@ -482,7 +490,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53919000" />
+    <option name="totallyTimeSpent" value="54383000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
@@ -916,13 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/components/myreservations/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="40" column="32" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/components/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2280">
@@ -983,14 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/components/aboutus/license.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/components/reserve/reserveCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1040,6 +1033,22 @@
           <folding>
             <element signature="n#style#0;n#h2#0;n#label#1;n#form#0;n#div#0;n#div#1;n#ion-content#0;n#ion-nav-view#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/components/myreservations/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="40" column="32" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/components/aboutus/license.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="104" lean-forward="false" selection-start-line="42" selection-start-column="104" selection-end-line="42" selection-end-column="104" />
+          <folding />
         </state>
       </provider>
     </entry>
