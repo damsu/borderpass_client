@@ -1,14 +1,15 @@
 <ion-nav-view>
-  <ion-content padding="true" class="has-header">
-    <ion-content class="padding">
-          <h4>Welcome !</h4>
-          <p>BorderPass allows you to reserve the date and time you will cross a border, along with all the information required by Border Officers, in order to speed up the process !</p>
-          <p><b>It costs 0.99 € only !</b></p>
-          <h5> Try it now !<h5>
-          <button class="button button-block button-positive" ng-click=goTo('reserve')><h4 style="color: white;">Reserve</h4></button>
-          <button class="button button-block button-positive" ng-click=goTo('myreservations')>My Reservations</button>
-          <button class="button button-block button-positive" ng-click=goTo('aboutus')>About Us</button>
-          <button class="button button-block button-positive" ng-click=goTo('preferences')>Preferences</button>
-        </ion-content>
+  <ion-content padding="false" class="has-header has-footer">
+    <img src="img/cop_fluid.jpg"style="width:100%">
+    <p class="text-center padding">Cross border faster - Border Pass<br>
+      <b>Border Reservation Cost - 0.99€!</b></p>
+    <button class="home button button-full button-positive" ng-click=goTo('reserve')><h4 style="color: white;">
+          Reserve</h4></button>
+        <button class="home button button-full button-positive" ng-click=goTo('myreservations')>My Reservations</button>
+        <button class="home button button-full button-positive" ng-click=goTo('aboutus')>About Us</button>
+        <button class="home button button-full button-positive" ng-click=goTo('preferences')>Preferences</button>
   </ion-content>
+  <div class="bar bar-footer">
+    <p class="text-center title" style="font-weight: 400 !important; font-size: 14px !important">&copy; Border Pass Team, 2017</p>
+  </div>
 </ion-nav-view>

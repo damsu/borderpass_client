@@ -8,6 +8,20 @@
   border-left-color: #a2a2a2;
 }
 
+/* Set minimum height for an input in forms */
+label.item.item-input {
+  min-height: 50px;
+}
+
+/* Fix button styling for the home page */
+.home.button.button-positive{
+  border-color: #73a4f8;
+}
+.home.button.button-block, .button.button-full {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
 /* Fix the location of the main logo */
 .main.logo {
   position: relative;
