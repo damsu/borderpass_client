@@ -303,6 +303,7 @@
         <label class="item item-input item-stacked-label">
           <span class="input-label">Document Number</span>
           <input type="text" placeholder="730663454" ng-model="formData.documentNumber" ng-required="true">
+        </label>
       </div>
       <div class="padding">
         <a class="float left button button-outline button-stable" ng-show="has_saved_person_data" ng-click="fillForms('document')">
@@ -321,7 +322,7 @@
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Reservation Number</span>
-          <input type="text" placeholder="5802853599643334" ng-model="formData.reservationNumber" ng-required="true" ng-change="update(formData.reservationNumber);">
+          <input type="text" placeholder="5802853599643334" ng-model="formData.reservationNumber" ng-required="true" ng-change="update(formData.reservationNumber);"  ng-maxlength="24" ng-minlength="24">
         </label>
       </div>
       <div class="padding">
