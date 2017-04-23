@@ -1,9 +1,8 @@
-angular.module('ReservationsService', []).factory('Reservations', function($q, $http){
+angular.module('ReservationsService', []).service('Reservations', ["$q", "$http", function($q, $http) {
 	var reservationID;
   var reservations;
   var reservationToEdit;
 	return {
-
 		postReservation: function(crossing, traveller, vehicle)
         {
           console.log(crossing);
@@ -77,7 +76,7 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
                 var dataToSend = {"Citizenship": country,
                   "Document": document_Type, "DocumentNumber": document_Number};
                   console.log(dataToSend);
-                  
+
                 $http.post("https://border-pass-server.herokuapp.com/" + "reservations/docNum", dataToSend, {headers: {'Content-Type': 'application/json'}})
                   .then(function(response)
                 {
@@ -94,4 +93,4 @@ angular.module('ReservationsService', []).factory('Reservations', function($q, $
 }
 
 
-});
+}]);

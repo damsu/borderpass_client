@@ -1,7 +1,6 @@
-angular.module('BordersService', []).factory('Borders', function($q, $http){
+angular.module('BordersService', []).service('Borders', ['$q', '$http', function($q, $http){
 	var borders;
 	return {
-
 		fetchFromServer: function()
         {
             return $q(function(resolve, reject)
@@ -9,6 +8,7 @@ angular.module('BordersService', []).factory('Borders', function($q, $http){
                 $http.get("https://border-pass-server.herokuapp.com/" + "borders").then(function(response)
                 {
                     borders = response.data;
+                    sessionStorage.borders = response.data;
                     resolve();
                 },
                 function(err)
@@ -56,7 +56,6 @@ angular.module('BordersService', []).factory('Borders', function($q, $http){
 			});
 			return addresses;
         },
-
         getFlagFrom: function(country)
         {
           var flagURL;
@@ -68,7 +67,19 @@ angular.module('BordersService', []).factory('Borders', function($q, $http){
             }
           });
           return flagURL;
+        },
+    getServiceProvider: function(country)
+    {
+      var serviceProvider;
+      angular.forEach(borders, function(value, key)
+      {
+        if (country == value.from_country)
+        {
+          serviceProvider = value.service_provider;
         }
+      });
+      return serviceProvider;
+    }
 	}
 
-});
+}]);

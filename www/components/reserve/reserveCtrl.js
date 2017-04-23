@@ -16,7 +16,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     	Address : "",
     	Date : "Date",
     	Time : "Time"
-    }
+    };
 
     $scope.Person = {
     	Remember : false,
@@ -30,7 +30,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     	Email : null,
     	PhoneNumber : null,
       Company : null
-    }
+    };
 
     $scope.Vehicle = {
     	Remember : false,
@@ -39,7 +39,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     	Owner : null,
     	CarManufacturer : null,
     	CarModel : null
-    }
+    };
     $scope.copied;
     $scope.reservationID;
     $scope.checkBank = false;
@@ -78,7 +78,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 	            template: 'Failed to fetch Borders data from server'
 	        });
 	    });
-    }
+    };
 
 	$scope.saveDeparture = function(from_country){
 		$scope.Crossing.Departure = from_country;
@@ -95,7 +95,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 	    $scope.progress_flag_right_style = image_style_active;
 	    $scope.progress_crossing_style = image_style_inactive;
 		$scope.stage = 2;
-	}
+	};
 
 	$scope.saveDestination = function(to_country){
 		$scope.Crossing.Destination = to_country;
@@ -105,7 +105,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 	    $scope.progress_flag_right_style = image_style_inactive;
 	    $scope.progress_crossing_style = image_style_active;
 		$scope.stage = 3;
-	}
+	};
 
 	$scope.saveCrossing = function(address){
 		$scope.Crossing.Address = address;
@@ -114,7 +114,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 	    $scope.progress_flag_right_style = image_style_inactive;
 	    $scope.progress_crossing_style = image_style_inactive;
 		$scope.stage = 4;
-	}
+	};
 
 	$scope.goBackTo = function(currentStage, stageToGo){
     $ionicScrollDelegate.scrollTop();
@@ -152,7 +152,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 		{
 			$scope.stage = 7;
 		}
-	}
+	};
 
 	var ipObj1 = {
       callback: function (val) {  //Mandatory
@@ -194,6 +194,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
   };
 
   $scope.toPersonInfo = function(){
+    $ionicScrollDelegate.scrollTop();
   	if ($scope.Crossing.Date != "Date" && $scope.Crossing.Time != "Time"){
   		if (window.localStorage.hasOwnProperty("Person")) {
   			$scope.Person = JSON.parse(window.localStorage.getItem("Person"));
@@ -203,6 +204,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
   };
 
   $scope.toVehicleInfo = function(){
+    $ionicScrollDelegate.scrollTop();
   	console.log($scope.Person.Remember);
   	if ($scope.Person.Remember == true){
   		window.localStorage.setItem("Person",JSON.stringify($scope.Person));
@@ -219,6 +221,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
   };
 
   $scope.toConfirmView = function(){
+    $ionicScrollDelegate.scrollTop();
   	console.log($scope.Vehicle.Remember);
   	if ($scope.Vehicle.Remember == true){
   		window.localStorage.setItem("Vehicle",JSON.stringify($scope.Vehicle));
@@ -230,6 +233,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
   };
 
   $scope.toPayment = function(){
+    $ionicScrollDelegate.scrollTop();
     $scope.stage = 8;
   }
 
@@ -238,12 +242,12 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     $timeout(function () {
                   $scope.bankOk();
             }, 3000);
-  }
+  };
 
   $scope.bankOk = function(){
     $scope.checkBank = false;
     $scope.sendReservation();
-  }
+  };
 
 
 
@@ -282,17 +286,17 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 	            template: 'Failed to post the Reservation'
 	        });
 	    });
-  }
+  };
 
   $scope.copyToClipboard = function(){
 
-  }
+  };
 
   $scope.copyToLocalStorage = function(){
   		window.localStorage.setItem("ReservationIDs",$scope.reservationID);
   		console.log(window.localStorage.getItem("ReservationIDs"));
   		$scope.copied = true;
-  }
+  };
 
   var ipObj3 = {
       callback: function (val) {  //Mandatory
@@ -318,6 +322,4 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     }
     return i;
   }
-
-
 }]);

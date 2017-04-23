@@ -10,7 +10,7 @@
       <div class="item">
         <strong><span class="ion-android-calendar"></span> {{Reservation.crossing.Date}}</strong> <strong class="float right"><span class="ion-android-time"></span> {{Reservation.crossing.Time}}</strong>
         <p>
-          <span class="subdued">{{Reservation.crossing.Address}}</span>
+          <span class="subdued">{{Reservation.crossing.Departure}} ({{Reservation.crossing.Address}}) - {{Reservation.crossing.Destination}}</span>
         </p>
       </div>
 
@@ -47,12 +47,11 @@
             {{Reservation._id}}
           </div>
         </div>
-        <div class="itemitem-text-wrap">
-          <img src="img/clients/fi.png" width="40" style="float:left; margin-right:10px;">
-          <a class="subdued"> Data is transfered to Finnish Transport Agency</a>
+        <div class="item item-text-wrap">
+          <img ng-src="../../img/clients/{{Reservation.flag}}" width="40" style="float:left; margin-right:10px;">
+          <a class="subdued"> Data is transfered to {{Reservation.service_provider}}</a>
         </div>
       </div>
-
     </div>
   </ion-content>
 </ion-nav-view>

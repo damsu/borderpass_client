@@ -6,7 +6,7 @@
   </div>
   </ion-header-bar>
   <ion-content padding="true" class="has-header has-footer" ng-init="init()">
-  <div ng-show="checkBank == true" class="button button-full button-positive" id="top">
+  <div ng-show="checkBank == true" class="button button-full button-positive">
       <div class="row">
         <div class="col">
           <h4 style="color: white;">Checking with your bank...</h4><ion-spinner></ion-spinner>
@@ -499,9 +499,11 @@
         <div class="float right" ng-show="checkBank == true">
         <ion-spinner></ion-spinner>
         </div>
+        <div class="padding-top">
         <button class="button button-positive float right" ng-click=checkBank() ng-disabled="paymentForm.$invalid">
             Confirm
         </button>
+        </div>
         </form>
       </div>
 	  <div ng-show="stage == 9">
@@ -518,10 +520,10 @@
       <div class="button button-calm" ng-click="init()">Restart</div>
 
       <div class="button-bar">
-	      <a class="button button_footer" ng-class="{active: stage < 5}" ng-click="goBackTo(stage,1); location.href='#top';"><i class="ion ion-clock breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage == 5}" ng-click="goBackTo(stage,5); location.href='#top';" ng-disabled="stage < 5"><i class="ion ion-person breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage == 6}" ng-click="goBackTo(stage,6); location.href='#top';" ng-disabled="stage < 6"><i class="ion ion-model-s breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage > 6}" ng-click="goBackTo(stage,7); location.href='#top';" ng-disabled="stage < 7"><i class="ion ion-forward breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage < 5}" ng-click="goBackTo(stage,1);"><i class="ion ion-clock breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage == 5}" ng-click="goBackTo(stage,5);" ng-disabled="stage < 5"><i class="ion ion-person breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage == 6}" ng-click="goBackTo(stage,6);" ng-disabled="stage < 6"><i class="ion ion-model-s breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage > 6}" ng-click="goBackTo(stage,7);" ng-disabled="stage < 7"><i class="ion ion-forward breadcrumb footer icon"></i></a>
     </div>
   </div>
 </ion-nav-view>
