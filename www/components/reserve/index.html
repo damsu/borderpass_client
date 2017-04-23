@@ -6,7 +6,7 @@
   </div>
   </ion-header-bar>
   <ion-content padding="true" class="has-header has-footer" ng-init="init()">
-  <div ng-show="checkBank == true" class="button button-full button-positive">
+  <div ng-show="checkBank == true" class="button button-full button-positive" id="top">
       <div class="row">
         <div class="col">
           <h4 style="color: white;">Checking with your bank...</h4><ion-spinner></ion-spinner>
@@ -23,9 +23,9 @@
   <div class="item" ng-if="stage < 7">
   <div style="width: 100%; height: 35px; display: flex; justify-content: center;">
 
-  	<div style="float:left; width: 33%;"><img style={{progress_flag_left_style}} align="left" src="img/flags/{{progress_flag_left}}" ng-click=goBackTo(stage,1)></div>
-  	<div style="width: 33%; display: flex; justify-content: center;"><img style={{progress_crossing_style}} align="middle" src="img/flags/{{progress_crossing}}" ng-click=goBackTo(stage,3)></div>
-  	<div style="float:right; width: 33%;"><img style={{progress_flag_right_style}} align="right" src="img/flags/{{progress_flag_right}}" ng-click=goBackTo(stage,2)></div>
+  	<div style="float:left; width: 33%;"><img style="{{progress_flag_left_style}}" align="left" src="img/flags/{{progress_flag_left}}" ng-click="goBackTo(stage,1);"></div>
+  	<div style="width: 33%; display: flex; justify-content: center;"><img style="{{progress_crossing_style}}" align="middle" src="img/flags/{{progress_crossing}}" ng-click="goBackTo(stage,3);"></div>
+  	<div style="float:right; width: 33%;"><img style="{{progress_flag_right_style}}" align="right" src="img/flags/{{progress_flag_right}}" ng-click="goBackTo(stage,2);"></div>
   </div></div>
 	  <div ng-show="stage == 1">
 	    <ul ng-repeat="departure in departures">
@@ -78,15 +78,15 @@
       </div>
 		  <div class="list">
   			<label class="item item-input item-stacked-label">
-    			<span class="input-label">First Name</span>
+    			<span class="input-label">First name</span>
     			<input type="text" placeholder="Tap here..." ng-model="Person.Firstname" required>
   			</label>
   			<label class="item item-input item-stacked-label">
-    			<span class="input-label">Middle Name</span>
+    			<span class="input-label">Middle name (optional)</span>
     			<input type="text" placeholder="Tap here..." ng-model="Person.Middlename">
   			</label>
   			<label class="item item-input item-stacked-label">
-    			<span class="input-label">Last Name</span>
+    			<span class="input-label">Last name</span>
     			<input type="text" placeholder="Tap here..." ng-model="Person.Lastname" required>
   			</label>
   			<label class="item item-input item-stacked-label">
@@ -378,11 +378,11 @@
           <input type="email" placeholder="Tap here..." ng-model="Person.Email" required>
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Phone Number</span>
-          <input type="text" placeholder="Tap here..." ng-model="Person.PhoneNumber" required>
+          <span class="input-label">Phone Number (optional)</span>
+          <input type="text" placeholder="Tap here..." ng-model="Person.PhoneNumber">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Company Name (optionnal)</span>
+          <span class="input-label">Company Name (optional)</span>
           <input type="text" placeholder="Tap here..." ng-model="Person.Company">
         </label>
 		  </div>
@@ -415,7 +415,7 @@
     			<input type="text" placeholder="Tap here..." ng-model="Vehicle.CarPlate" required>
   			</label>
   			<label class="item item-input item-stacked-label">
-    			<span class="input-label">Owner</span>
+    			<span class="input-label">Owner (optional)</span>
     			<input type="text" placeholder="Tap here..." ng-model="Vehicle.Owner">
   			</label>
 
@@ -519,10 +519,10 @@
       <div class="button button-calm" ng-click="init()">Restart</div>
 
       <div class="button-bar">
-	      <a class="button button_footer" ng-class="{active: stage < 5}" ng-click="goBackTo(stage,1)"><i class="ion ion-clock breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage == 5}" ng-click="goBackTo(stage,5)" ng-disabled="stage < 5"><i class="ion ion-person breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage == 6}" ng-click="goBackTo(stage,6)" ng-disabled="stage < 6"><i class="ion ion-model-s breadcrumb footer icon"></i></a>
-	      <a class="button button_footer" ng-class="{active: stage > 6}" ng-click="goBackTo(stage,7)" ng-disabled="stage < 7"><i class="ion ion-forward breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage < 5}" ng-click="goBackTo(stage,1); location.href='#top';"><i class="ion ion-clock breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage == 5}" ng-click="goBackTo(stage,5); location.href='#top';" ng-disabled="stage < 5"><i class="ion ion-person breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage == 6}" ng-click="goBackTo(stage,6); location.href='#top';" ng-disabled="stage < 6"><i class="ion ion-model-s breadcrumb footer icon"></i></a>
+	      <a class="button button_footer" ng-class="{active: stage > 6}" ng-click="goBackTo(stage,7); location.href='#top';" ng-disabled="stage < 7"><i class="ion ion-forward breadcrumb footer icon"></i></a>
     </div>
   </div>
 </ion-nav-view>

@@ -1,4 +1,6 @@
-app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '$q', '$ionicPopup', 'Borders', 'Reservations', 'ionicDatePicker', 'ionicTimePicker', function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reservations, ionicDatePicker, ionicTimePicker) {
+app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '$q', '$ionicPopup', 'Borders',
+'Reservations', 'ionicDatePicker', 'ionicTimePicker', '$ionicScrollDelegate',
+function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reservations, ionicDatePicker, ionicTimePicker, $ionicScrollDelegate) {
 
     var destination;
     var crossing;
@@ -129,6 +131,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '
   }
 
 	$scope.goBackTo = function(currentStage, stageToGo){
+    $ionicScrollDelegate.scrollTop();
 		if (stageToGo == 1)
 		{
     		$scope.init();
@@ -272,10 +275,10 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '
   }
 
   $scope.checkBank = function(){
-    $scope.checkBank = true; 
+    $scope.checkBank = true;
     $timeout(function () {
                   $scope.bankOk();
-            }, 3000);  
+            }, 3000);
   }
 
   $scope.bankOk = function(){
