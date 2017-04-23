@@ -8,15 +8,27 @@ app.controller('myreservations_editTraveller_Ctrl', ["$scope", "$state", "$ionic
   	Reservations.updateReservation(Reservation._id, Reservation.crossing, Reservation.traveller, Reservation.vehicle).then(function(result){
 	        console.log("updating");
 	        $scope.loading = false;
-	        $state.go('myreservations');
+	        
+	        var myPopup = $ionicPopup.show({
+		         title: 'Update successful',
+		         subTitle: 'New data has been sent to border crossing agency',
+		         buttons: [
+		           {
+		               text: '<b>OK</b>',
+		               type: 'button-positive',
+		                  onTap: function(e) {
+							 $state.go('myreservations');
+		                  }
+		            }
+		         ]
+		      });
 
 	    }).catch(function() {
 	    	$scope.loading = false;
-	    	$state.go('myreservations');
-	        /*var alertPopup = $ionicPopup.alert({
-	            title: 'Request Failed',
+	        var alertPopup = $ionicPopup.alert({
+	            title: 'Update Failed',
 	            template: 'Failed to update the Reservation'
-	        });*/
+	        });
 	    });
   }
 

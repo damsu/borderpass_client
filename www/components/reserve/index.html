@@ -63,9 +63,10 @@
 		  <button class="button button-block button-stable" ng-click=openDatePicker() style="padding:0px; overflow: hidden;">
 		  	<h4>{{Crossing.Date}}</h4>
 		  </button>
-		  <button class="button button-block button-stable" ng-click=openTimePicker() style="padding:0px; overflow: hidden;">
+		  <button class="button button-block button-stable" ng-click=openTimePicker() ng-show="Crossing.Date != 'Date'" style="padding:0px; overflow: hidden;">
 		  	<h4>{{Crossing.Time}}</h4>
 		  </button>
+          <span style="color: red;" ng-show="timesNotForChoosing != null">Unavailable : </span><span style="color: red;" ng-repeat="time in timesNotForChoosing"><b>{{time}}</b> - </span>
 		  <button class="button button-positive float right" ng-click=toPersonInfo() ng-show="Crossing.Date != 'Date' && Crossing.Time != 'Time'">
 		  	Next
 		  </button>
@@ -482,18 +483,18 @@
 
         <label class="item item-input item-stacked-label padding">
           Card Number
-          <input type="text" ng-model="card.number" name="cardNumber" cc-number cc-type="card.cardType" style="height:30px;border:1px solid grey; padding-left:10px" ng-minlength="16" ng-maxlength="16" required />
+          <input type="text" ng-model="card.number" name="cardNumber" style="height:30px;border:1px solid grey; padding-left:10px" ng-minlength="16" ng-maxlength="16" required />
         </label>
         <label class="item item-input item-stacked-label padding">
           Card CVC
-          <input type="number" ng-model="card.cvc" cc-type="cardNumber.$ccType"
-           style="height:30px;border:1px solid grey; padding-left:10px" ng-minlength="3" ng-maxlength="3"required>
+          <input type="number" ng-model="card.cvc"
+           style="height:30px;border:1px solid grey; padding-left:10px" ng-minlength="3" ng-maxlength="3" required>
         </label>
         <label class="item item-input item-stacked-label padding">
           Expiration Date:
-          <div cc-exp>
-            <input ng-model="card.exp_month" cc-exp-month style="height:30px;width:50px;border:1px solid grey; text-align:center" ng-minlength="2" ng-maxlength="2" required>
-            <input ng-model="card.exp_year" cc-exp-year style="height:30px;width:50px;border:1px solid grey; text-align:center" ng-minlength="2" ng-maxlength="2" required>
+          <div>
+            <input ng-model="card.exp_month" style="height:30px;width:50px;border:1px solid grey; text-align:center" ng-minlength="2" ng-maxlength="2" required>
+            <input ng-model="card.exp_year" style="height:30px;width:50px;border:1px solid grey; text-align:center" ng-minlength="2" ng-maxlength="2" required>
           </div>
         </label>
         <div class="float right" ng-show="checkBank == true">
