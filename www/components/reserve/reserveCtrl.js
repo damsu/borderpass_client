@@ -41,6 +41,7 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '
     $scope.copied;
     $scope.reservationID;
     $scope.checkBank = false;
+    $scope.timesNotForChoosing = null;
 
     $scope.init = function(){
     	$ionicHistory.clearCache();
@@ -53,8 +54,11 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '
 	    $scope.progress_flag_right_style = image_style_inactive;
 	    $scope.progress_crossing = "border_blank.png";
 	    $scope.progress_crossing_style = image_style_inactive;
-	    $scope.stage = 7;
+	    $scope.stage = 0;
 	    $scope.arrow_style = "width: 100%; height: 15px; display: flex; justify-content: flex-start;";
+      $scope.timesNotForChoosing = null;
+      $scope.Crossing.Date = "Date";
+      $scope.Crossing.Time = "Time";
 
 	    Borders.fetchFromServer().then(function(){
 	        console.log("fetched all borders");
@@ -111,8 +115,18 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '
 		$scope.progress_flag_left_style = image_style_inactive;
 	    $scope.progress_flag_right_style = image_style_inactive;
 	    $scope.progress_crossing_style = image_style_inactive;
+    $scope.checkTimeslots();
+    if ($scope.Crossing.Date != "Date"){
+      getTimesNotForChoosing();
+    }
 		$scope.stage = 4;
 	}
+
+  $scope.checkTimeslots = function() {
+    $scope.timesNotForChoosing = null;
+    $scope.unavailableTimes = Borders.getTimeslots($scope.Crossing.Address);
+    console.log($scope.unavailableTimes);
+  }
 
 	$scope.goBackTo = function(currentStage, stageToGo){
 		if (stageToGo == 1)
@@ -151,11 +165,29 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '
 		}
 	}
 
+  function checkForValues(json, value) {
+    for (key in json) {
+        if (key === value) {
+            return json[key];
+        }
+    }
+    return false;
+  }
+
+  function getTimesNotForChoosing(){
+    if(checkForValues($scope.unavailableTimes, $scope.Crossing.Date) != false){
+      $scope.timesNotForChoosing = checkForValues($scope.unavailableTimes, $scope.Crossing.Date);
+    } else {
+      $scope.timesNotForChoosing = null;
+    }
+  }
+
 	var ipObj1 = {
       callback: function (val) {  //Mandatory
         console.log('Return value from the datepicker popup is : ' + val, new Date(val));
         var date = new Date(val);
         $scope.Crossing.Date = date.toDateString();
+        getTimesNotForChoosing();
       },
       from: new Date(), //Optional
       to: new Date(2017, 12, 31), //Optional
@@ -169,6 +201,10 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '
       ionicDatePicker.openDatePicker(ipObj1);
     };
 
+    function isInArray(value, array) {
+      return array.indexOf(value) > -1;
+    }
+
     var ipObj2 = {
     callback: function (val) {      //Mandatory
       if (typeof (val) === 'undefined') {
@@ -176,7 +212,12 @@ app.controller('reserveCtrl', ['$ionicHistory', '$scope', '$timeout', '$http', '
       } else {
         var selectedTime = new Date(val * 1000);
         console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), 'H :', selectedTime.getUTCMinutes(), 'M');
-        $scope.Crossing.Time = selectedTime.getUTCHours() + ':' + addZero(selectedTime.getUTCMinutes());
+        if (isInArray((selectedTime.getUTCHours() + ':' + addZero(selectedTime.getUTCMinutes())), $scope.timesNotForChoosing)){
+          $scope.openTimePicker();
+        } else {
+          $scope.Crossing.Time = selectedTime.getUTCHours() + ':' + addZero(selectedTime.getUTCMinutes());
+        }
+        
 
       }
     },

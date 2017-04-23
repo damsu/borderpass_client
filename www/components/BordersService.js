@@ -68,6 +68,19 @@ angular.module('BordersService', []).factory('Borders', function($q, $http){
             }
           });
           return flagURL;
+        },
+
+        getTimeslots: function(address)
+        {
+          var timeslots;
+          angular.forEach(borders, function(value, key)
+          {
+            if (address == value.address)
+            {
+              timeslots = value.timeslots;
+            }
+          });
+          return timeslots;
         }
 	}
 
