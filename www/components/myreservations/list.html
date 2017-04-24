@@ -15,10 +15,10 @@
       </div>
 
       <div class="item item-body">
-      <a class="float left" ng-show="has_saved_person_data" ng-click="editTraveller(Reservation)">
+      <a class="float left" ng-click="editTraveller(Reservation)">
           Change traveller
         </a>
-        <a class="float right" ng-show="has_saved_person_data" ng-click="editVehicle(Reservation)">
+        <a class="float right" ng-click="editVehicle(Reservation)">
           Change vehicle
         </a>
         <div class="row">
@@ -48,8 +48,8 @@
           </div>
         </div>
         <div class="item item-text-wrap">
-          <img ng-src="../../img/clients/{{Reservation.flag}}" width="40" style="float:left; margin-right:10px;">
-          <a class="subdued"> Data is transfered to {{Reservation.service_provider}}</a>
+          <img ng-src="../../img/clients/{{Reservation.crossing.ServiceProviderLogo}}" width="40" style="float:left; margin-right:10px;">
+          <a class="subdued"> Data is transfered to {{Reservation.crossing.ServiceProvider}}</a>
         </div>
       </div>
     </div>

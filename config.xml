@@ -75,4 +75,5 @@
   <allow-navigation href="http://192.168.56.1:8100"/>
   <allow-navigation href="http://10.4.2.71:8100"/>
   <allow-navigation href="http://10.4.2.64:8100"/>
+  <access origin="*" />
 </widget>
