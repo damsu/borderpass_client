@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.bpclient688663" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>bp-client</name>
-  <description>&#xD;&#xD;
-        An Ionic Framework and Cordova project.&#xD;&#xD;
+  <description>&#xD;&#xD;&#xD;
+        An Ionic Framework and Cordova project.&#xD;&#xD;&#xD;
     </description>
-  <author email="you@example.com" href="http://example.com/">&#xD;&#xD;
-      Your Name Here&#xD;&#xD;
+  <author email="you@example.com" href="http://example.com/">&#xD;&#xD;&#xD;
+      Your Name Here&#xD;&#xD;&#xD;
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -74,4 +74,5 @@
   </platform>
   <allow-navigation href="http://192.168.56.1:8100"/>
   <allow-navigation href="http://10.4.2.71:8100"/>
+  <allow-navigation href="http://10.4.2.64:8100"/>
 </widget>

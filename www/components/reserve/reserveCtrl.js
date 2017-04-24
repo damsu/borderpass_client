@@ -322,8 +322,25 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     }
   	Reservations.postReservation($scope.Crossing, $scope.PersonToSend, $scope.VehicleToSend).then(function(result){
 	        console.log("posting");
-	        $scope.reservationID = result;
-	        $scope.stage = 9;
+          if (result == "TIMESLOT ALREADY TAKEN!"){
+            var myPopup = $ionicPopup.show({
+             title: 'Someone just stole your time!',
+             subTitle: 'Sorry, you were too slow, you will have to pick a new time !',
+             buttons: [
+               {
+                   text: '<b>OK</b>',
+                   type: 'button-positive',
+                      onTap: function(e) {
+                        $scope.init();
+                      }
+                }
+             ]
+          });
+          } else {
+            $scope.reservationID = result;
+            $scope.stage = 9;
+          }
+	        
 
 	    }).catch(function() {
 	        var alertPopup = $ionicPopup.alert({
