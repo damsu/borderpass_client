@@ -101,7 +101,7 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
               // Move to the reservation listing
               else {
                 // Add to each reservation border/client related information
-                borders = sessionStorage.borders;
+                borders = Borders.getBorders();
                 $scope.Reservations.forEach(function (reservation) {
                   reservation.flag = Borders.getFlagFrom(reservation.crossing.Departure);
                   reservation.service_provider = Borders.getServiceProvider(reservation.crossing.Departure);
@@ -131,7 +131,7 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
               else {
                 $scope.empty = false;
                 // Add to each reservation border/client related information
-                borders = sessionStorage.borders;
+                borders = Borders.getBorders();
                 $scope.Reservations.forEach(function (reservation) {
                   reservation.flag = Borders.getFlagFrom(reservation.crossing.Departure);
                   reservation.service_provider = Borders.getServiceProvider(reservation.crossing.Departure);

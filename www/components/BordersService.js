@@ -5,13 +5,16 @@ angular.module('BordersService', []).service('Borders', ['$q', '$http', function
       return $q(function (resolve, reject) {
         $http.get("https://border-pass-server.herokuapp.com/" + "borders").then(function (response) {
             borders = response.data;
-            sessionStorage.borders = response.data;
             resolve();
           },
           function (err) {
             reject();
           });
       });
+    },
+    getBorders: function() {
+      var saved_borders = borders;
+      return saved_borders;
     },
 
     departureCountries: function () {
