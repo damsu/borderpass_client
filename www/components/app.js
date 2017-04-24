@@ -32,7 +32,6 @@ app.run([
 
                 // here is my event handler
                 $rootScope.$on("$stateChangeStart", function (ev, to, toParams, from, fromParams) { 
-                    console.log(to.name);
                     if (to.name == "myreservations") {
                          if (window.localStorage.hasOwnProperty("Person")){
                                 $rootScope.has_saved_person_data = true;

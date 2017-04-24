@@ -5,9 +5,6 @@ angular.module('ReservationsService', []).service('Reservations', ["$q", "$http"
 	return {
 		postReservation: function(crossing, traveller, vehicle)
         {
-          console.log(crossing);
-          console.log(traveller);
-          console.log(vehicle);
             return $q(function(resolve, reject)
             {
                 $http.post("https://border-pass-server.herokuapp.com/" + "reservations", {crossing: crossing,
@@ -15,7 +12,6 @@ angular.module('ReservationsService', []).service('Reservations', ["$q", "$http"
                   .then(function(response)
                 {
                     reservationID = response.data;
-                    console.log("new reservation id : " + reservationID)
                     resolve(reservationID);
                 },
                 function(err)
@@ -38,7 +34,6 @@ angular.module('ReservationsService', []).service('Reservations', ["$q", "$http"
                 },
                 function(err)
                 {
-                    console.log("not working");
                     reject();
                 });
             });
@@ -57,7 +52,6 @@ angular.module('ReservationsService', []).service('Reservations', ["$q", "$http"
       });
     },
     saved_reservations: function() {
-      console.log(reservations);
       var saved_reservations = reservations;
       return saved_reservations;
     },
@@ -65,7 +59,6 @@ angular.module('ReservationsService', []).service('Reservations', ["$q", "$http"
       reservationToEdit = Res;
     },
     saved_reservationToEdit: function() {
-      console.log(reservations);
       var saved_reservationToEdit = reservationToEdit;
       return saved_reservationToEdit;
     },
@@ -75,7 +68,6 @@ angular.module('ReservationsService', []).service('Reservations', ["$q", "$http"
             {
                 var dataToSend = {"Citizenship": country,
                   "Document": document_Type, "DocumentNumber": document_Number};
-                  console.log(dataToSend);
 
                 $http.post("https://border-pass-server.herokuapp.com/" + "reservations/docNum", dataToSend, {headers: {'Content-Type': 'application/json'}})
                   .then(function(response)

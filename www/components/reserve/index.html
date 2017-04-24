@@ -6,7 +6,7 @@
   </div>
   </ion-header-bar>
   <ion-content padding="true" class="has-header has-footer" ng-init="init()">
-  <div ng-show="checkBank == true" class="button button-full button-positive">
+  <div ng-show="checkingBank == true" class="button button-full button-positive">
       <div class="row">
         <div class="col">
           <h4 style="color: white;">Checking with your bank...</h4><ion-spinner></ion-spinner>
@@ -497,9 +497,6 @@
             <input ng-model="card.exp_year" style="height:30px;width:50px;border:1px solid grey; text-align:center" ng-minlength="2" ng-maxlength="2" required>
           </div>
         </label>
-        <div class="float right" ng-show="checkBank == true">
-        <ion-spinner></ion-spinner>
-        </div>
         <div class="padding-top">
         <button class="button button-positive float right" ng-click=checkBank() ng-disabled="paymentForm.$invalid">
             Confirm

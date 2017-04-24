@@ -92,8 +92,6 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
             Reservations.getReservationByDocument($scope.formData.country, $scope.formData.documentType, $scope.formData.documentNumber).then(function (result) {
               $scope.loading = false;
               $scope.Reservations = result;
-              console.log($scope.Reservations);
-              console.log($scope.Reservations.length);
               // Form will display that submitted form returned no reservation
               if ($scope.Reservations.length == 0) {
                 $scope.empty = true;
@@ -123,7 +121,6 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
             Reservations.getReservationByID($scope.formData.reservationNumber).then(function (result) {
               $scope.loading = false;
               $scope.Reservations = result;
-              console.log($scope.Reservations.length);
               // Form will display that submitted form returned no reservation
               if ($scope.Reservations.length == 0) {
                 $scope.empty = true;

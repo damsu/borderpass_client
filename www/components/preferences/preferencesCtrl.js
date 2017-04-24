@@ -7,10 +7,6 @@ app.controller('preferencesCtrl', ["$scope", function ($scope) {
   		} else {
 	  		$scope.no_data = true;
   		}
-
-  		console.log("Person : " + window.localStorage.getItem("Person"));
-  		console.log("Vehicle : " + window.localStorage.getItem("Vehicle"));
-  		console.log("ReservationIDs : " + window.localStorage.getItem("ReservationIDs"));
 	}
 
 	$scope.deleteData = function(){

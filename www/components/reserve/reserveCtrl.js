@@ -42,7 +42,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     };
     $scope.copied;
     $scope.reservationID;
-    $scope.checkBank = false;
+    $scope.checkingBank = false;
     $scope.timesNotForChoosing = [];
     $scope.hasTimesInArray = false;
 
@@ -65,12 +65,10 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
       $scope.Crossing.Time = "Time";
 
 	    Borders.fetchFromServer().then(function(){
-	        console.log("fetched all borders");
 
 	        $scope.departures = Borders.departureCountries();
 	        angular.forEach($scope.departures, function(value, key)
 	        {
-	        	console.log(value);
 	        	flags.push(Borders.getFlagFrom(value));
 	        	$scope.loading = false;
 	        	$scope.stage = 1; //has to be 1 but can be changed for test purpose
@@ -91,7 +89,6 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 		$scope.destinations = Borders.destinationsFrom(from_country);
 		angular.forEach($scope.destinations, function(value, key)
         {
-        	console.log(value);
         	flags.push(Borders.getFlagFrom(value));
         });
         $scope.flags = flags;
@@ -129,7 +126,6 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
   $scope.checkTimeslots = function() {
     $scope.timesNotForChoosing = [];
     $scope.unavailableTimes = Borders.getTimeslots($scope.Crossing.Address);
-    console.log($scope.unavailableTimes);
   }
 
 	$scope.goBackTo = function(currentStage, stageToGo){
@@ -191,7 +187,6 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 
 	var ipObj1 = {
       callback: function (val) {  //Mandatory
-        console.log('Return value from the datepicker popup is : ' + val, new Date(val));
         var date = new Date(val);
         $scope.Crossing.Date = date.toDateString();
         getTimesNotForChoosing();
@@ -215,10 +210,8 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     var ipObj2 = {
     callback: function (val) {      //Mandatory
       if (typeof (val) === 'undefined') {
-        console.log('Time not selected');
       } else {
         var selectedTime = new Date(val * 1000);
-        console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), 'H :', selectedTime.getUTCMinutes(), 'M');
         if (isInArray((selectedTime.getUTCHours() + ':' + addZero(selectedTime.getUTCMinutes())), $scope.timesNotForChoosing)){
           $scope.openTimePicker();
         } else {
@@ -250,16 +243,12 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 
   $scope.toVehicleInfo = function(){
     $ionicScrollDelegate.scrollTop();
-  	console.log($scope.Person.Remember);
   	if ($scope.Person.Remember == true){
   		window.localStorage.setItem("Person",JSON.stringify($scope.Person));
   	} else {
   		window.localStorage.removeItem("Person");
   	}
-  	console.log(window.localStorage.getItem("Vehicle"));
-  	console.log(window.localStorage.hasOwnProperty("Vehicle"));
   	if (window.localStorage.hasOwnProperty("Vehicle")) {
-  		console.log("went here");
   		$scope.Vehicle = JSON.parse(window.localStorage.getItem("Vehicle"));
 	}
   	$scope.stage = 6;
@@ -267,7 +256,6 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 
   $scope.toConfirmView = function(){
     $ionicScrollDelegate.scrollTop();
-  	console.log($scope.Vehicle.Remember);
   	if ($scope.Vehicle.Remember == true){
   		window.localStorage.setItem("Vehicle",JSON.stringify($scope.Vehicle));
   	} else {
@@ -284,14 +272,14 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 
   $scope.checkBank = function(){
     $ionicScrollDelegate.scrollTop();
-    $scope.checkBank = true;
+    $scope.checkingBank = true;
     $timeout(function () {
                   $scope.bankOk();
             }, 3000);
   };
 
   $scope.bankOk = function(){
-    $scope.checkBank = false;
+    $scope.checkingBank = false;
     $scope.sendReservation();
   };
 
@@ -322,7 +310,6 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
       $scope.PersonToSend.Company = "No affiliated Company";
     }
   	Reservations.postReservation($scope.Crossing, $scope.PersonToSend, $scope.VehicleToSend).then(function(result){
-	        console.log("posting");
           if (result == "TIMESLOT ALREADY TAKEN!"){
             var myPopup = $ionicPopup.show({
              title: 'Someone just stole your time!',
@@ -358,13 +345,11 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 
   $scope.copyToLocalStorage = function(){
   		window.localStorage.setItem("ReservationIDs",$scope.reservationID);
-  		console.log(window.localStorage.getItem("ReservationIDs"));
   		$scope.copied = true;
   };
 
   var ipObj3 = {
       callback: function (val) {  //Mandatory
-        console.log('Return value from the datepicker popup is : ' + val, new Date(val));
         var birthday = new Date(val);
         $scope.Person.Birthday = birthday.toDateString();
       },
