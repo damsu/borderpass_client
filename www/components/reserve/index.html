@@ -23,15 +23,15 @@
   <div class="item" ng-if="stage < 7">
   <div style="width: 100%; height: 35px; display: flex; justify-content: center;">
 
-  	<div style="float:left; width: 33%;"><img style="{{progress_flag_left_style}}" align="left" src="img/flags/{{progress_flag_left}}" ng-click="goBackTo(stage,1);"></div>
-  	<div style="width: 33%; display: flex; justify-content: center;"><img style="{{progress_crossing_style}}" align="middle" src="img/flags/{{progress_crossing}}" ng-click="goBackTo(stage,3);"></div>
-  	<div style="float:right; width: 33%;"><img style="{{progress_flag_right_style}}" align="right" src="img/flags/{{progress_flag_right}}" ng-click="goBackTo(stage,2);"></div>
+  	<div style="float:left; width: 33%;"><img style="{{progress_flag_left_style}}" align="left" ng-src="img/flags/{{progress_flag_left}}" ng-click="goBackTo(stage,1);"></div>
+  	<div style="width: 33%; display: flex; justify-content: center;"><img style="{{progress_crossing_style}}" align="middle" ng-src="img/flags/{{progress_crossing}}" ng-click="goBackTo(stage,3);"></div>
+  	<div style="float:right; width: 33%;"><img style="{{progress_flag_right_style}}" align="right" ng-src="img/flags/{{progress_flag_right}}" ng-click="goBackTo(stage,2);"></div>
   </div></div>
 	  <div ng-show="stage == 1">
 	    <ul ng-repeat="departure in departures">
 	  		<li>
 	  			<button class="button button-block button-stable" ng-click=saveDeparture(departure) style="padding:0px; overflow: hidden;">
-	  			<img style="height:47px; width:80px;" align="left" src="img/flags/{{flags[$index]}}">
+	  			<img style="height:47px; width:80px;" align="left" ng-src="img/flags/{{flags[$index]}}">
 	  			<h4>{{departure}}</h4>
 				</button>
 	  		</li>
@@ -42,7 +42,7 @@
 		    <ul ng-repeat="destination in destinations">
 	  		<li>
 	  			<button class="button button-block button-stable" ng-click=saveDestination(destination) style="padding:0px; overflow: hidden;">
-	  			<img style="height:47px; width:80px;" align="left" src="img/flags/{{flags[$index]}}">
+	  			<img style="height:47px; width:80px;" align="left" ng-src="img/flags/{{flags[$index]}}">
 	  			<h4>{{destination}}</h4>
 				</button>
 	  		</li>
