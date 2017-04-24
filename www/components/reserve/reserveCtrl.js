@@ -43,7 +43,8 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
     $scope.copied;
     $scope.reservationID;
     $scope.checkBank = false;
-    $scope.timesNotForChoosing = null;
+    $scope.timesNotForChoosing = [];
+    $scope.hasTimesInArray = false;
 
     $scope.init = function(){
     	$ionicHistory.clearCache();
@@ -58,7 +59,8 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 	    $scope.progress_crossing_style = image_style_inactive;
 	    $scope.stage = 0;
 	    $scope.arrow_style = "width: 100%; height: 15px; display: flex; justify-content: flex-start;";
-      $scope.timesNotForChoosing = null;
+      $scope.timesNotForChoosing = [];
+      $scope.hasTimesInArray = false;
       $scope.Crossing.Date = "Date";
       $scope.Crossing.Time = "Time";
 
@@ -125,7 +127,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 	};
 
   $scope.checkTimeslots = function() {
-    $scope.timesNotForChoosing = null;
+    $scope.timesNotForChoosing = [];
     $scope.unavailableTimes = Borders.getTimeslots($scope.Crossing.Address);
     console.log($scope.unavailableTimes);
   }
@@ -179,9 +181,11 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 
   function getTimesNotForChoosing(){
     if(checkForValues($scope.unavailableTimes, $scope.Crossing.Date) != false){
+      $scope.hasTimesInArray = true;
       $scope.timesNotForChoosing = checkForValues($scope.unavailableTimes, $scope.Crossing.Date);
     } else {
-      $scope.timesNotForChoosing = null;
+      $scope.hasTimesInArray = false;
+      $scope.timesNotForChoosing = [];
     }
   }
 
