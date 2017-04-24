@@ -217,7 +217,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
         } else {
           $scope.Crossing.Time = selectedTime.getUTCHours() + ':' + addZero(selectedTime.getUTCMinutes());
         }
-        
+
 
       }
     },
@@ -268,7 +268,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
   $scope.toPayment = function(){
     $ionicScrollDelegate.scrollTop();
     $scope.stage = 8;
-  }
+  };
 
   $scope.checkBank = function(){
     $ionicScrollDelegate.scrollTop();
@@ -329,7 +329,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
             $ionicScrollDelegate.scrollTop();
             $scope.stage = 9;
           }
-	        
+
 
 	    }).catch(function() {
 	        var alertPopup = $ionicPopup.alert({

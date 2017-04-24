@@ -37,7 +37,7 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
           $scope.searchMode = "document";
           break;
       }
-    }
+    };
 
     //empty forms
     $scope.emptyForm = function (by) {
@@ -51,7 +51,7 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
           $scope.formData.reservationNumber = '';
           break;
       }
-    }
+    };
 
     //fill forms with storage data
     $scope.fillForms = function (by) {
@@ -69,16 +69,16 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
           $scope.formData.documentNumber = personData.DocumentNumber;
           break;
       }
-    }
+    };
 
     $scope.update = function (value) {
       $scope.formData.reservationNumber = value;
-    }
+    };
 
     // Closes alert that states no reservations were found.
     $scope.closeAlert = function () {
       $scope.closed = true;
-    }
+    };
 
     // Search reservations
     $scope.search = function (by) {
@@ -99,12 +99,6 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
               }
               // Move to the reservation listing
               else {
-                // Add to each reservation border/client related information
-                borders = Borders.getBorders();
-                $scope.Reservations.forEach(function (reservation) {
-                  reservation.flag = Borders.getFlagFrom(reservation.crossing.Departure);
-                  reservation.service_provider = Borders.getServiceProvider(reservation.crossing.Departure);
-                });
                 $scope.empty = false;
                 $scope.closed = false;
                 $state.go('myreservations/list');
@@ -128,12 +122,6 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
               // Move to the reservation listing
               else {
                 $scope.empty = false;
-                // Add to each reservation border/client related information
-                borders = Borders.getBorders();
-                $scope.Reservations.forEach(function (reservation) {
-                  reservation.flag = Borders.getFlagFrom(reservation.crossing.Departure);
-                  reservation.service_provider = Borders.getServiceProvider(reservation.crossing.Departure);
-                });
                 $state.go('myreservations/list');
               }
             }).catch(function () {

@@ -31,7 +31,7 @@ app.run([
                 $rootScope.$stateParams = $stateParams;
 
                 // here is my event handler
-                $rootScope.$on("$stateChangeStart", function (ev, to, toParams, from, fromParams) { 
+                $rootScope.$on("$stateChangeStart", function (ev, to, toParams, from, fromParams) {
                     if (to.name == "myreservations") {
                          if (window.localStorage.hasOwnProperty("Person")){
                                 $rootScope.has_saved_person_data = true;
@@ -81,7 +81,7 @@ app.config(function (ionicTimePickerProvider) {
       closeLabel: 'Close'
     };
     ionicTimePickerProvider.configTimePicker(timePickerObj);
-  })
+  });
 
 app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $compileProvider) {
 

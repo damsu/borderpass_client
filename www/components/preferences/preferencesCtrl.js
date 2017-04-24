@@ -7,14 +7,14 @@ app.controller('preferencesCtrl', ["$scope", function ($scope) {
   		} else {
 	  		$scope.no_data = true;
   		}
-	}
+	};
 
 	$scope.deleteData = function(){
 		window.localStorage.removeItem("Person");
 		window.localStorage.removeItem("Vehicle");
 		window.localStorage.removeItem("ReservationIDs");
 		$scope.init();
-	}
+	};
 
 	$scope.init();
 }]);
