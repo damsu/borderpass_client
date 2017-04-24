@@ -306,8 +306,6 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
   	$scope.PersonToSend = $scope.Person;
   	$scope.VehicleToSend = $scope.Vehicle;
   	$scope.copied = false;
-    $scope.Crossing.ServiceProvider = Borders.getServiceProvider($scope.Crossing.Departure);
-    $scope.Crossing.ServiceProviderLogo = Borders.getFlagFrom($scope.Crossing.Departure);
   	delete $scope.PersonToSend.Remember;
   	delete $scope.VehicleToSend.Remember;
     if ($scope.PersonToSend.Company == null || $scope.PersonToSend.Company == "") {
