@@ -339,10 +339,6 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
 	    });
   };
 
-  $scope.copyToClipboard = function(){
-
-  };
-
   $scope.copyToLocalStorage = function(){
   		window.localStorage.setItem("ReservationIDs",$scope.reservationID);
   		$scope.copied = true;

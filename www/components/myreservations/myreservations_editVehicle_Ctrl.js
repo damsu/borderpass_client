@@ -23,11 +23,10 @@ app.controller('myreservations_editVehicle_Ctrl', ["$scope", "$state", "$ionicPo
 
 	    }).catch(function() {
 	    	$scope.loading = false;
-	    	$state.go('myreservations');
-	        /*var alertPopup = $ionicPopup.alert({
-	            title: 'Request Failed',
+	        var alertPopup = $ionicPopup.alert({
+	            title: 'Update Failed',
 	            template: 'Failed to update the Reservation'
-	        });*/
+	        });
 	    });
   }
 
