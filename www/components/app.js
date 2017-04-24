@@ -104,6 +104,7 @@ app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $
     })
 
     .state('reserve', {
+      cache: false,
       url: '/reserve',
       views: {
         'menuContent': {
@@ -114,6 +115,7 @@ app.config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $
     })
 
     .state('myreservations', {
+      cache: false,
       url: '/myreservations',
       views: {
         'menuContent': {

@@ -283,6 +283,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
   }
 
   $scope.checkBank = function(){
+    $ionicScrollDelegate.scrollTop();
     $scope.checkBank = true;
     $timeout(function () {
                   $scope.bankOk();
@@ -338,6 +339,7 @@ function ($ionicHistory, $scope,$timeout, $http, $q, $ionicPopup, Borders, Reser
           });
           } else {
             $scope.reservationID = result;
+            $ionicScrollDelegate.scrollTop();
             $scope.stage = 9;
           }
 	        

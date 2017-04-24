@@ -2,7 +2,8 @@ app.controller('myreservationsCtrl', ["$scope", "$rootScope", "$state", "$ionicP
   function ($scope, $rootScope, $state, $ionicPopup, Reservations, Borders) {
 
     // Fetch the border related informtaion
-    borders = Borders.fetchFromServer();
+    //borders = Borders.fetchFromServer();
+    var borders;
 
     var Reservation;
     // Default Search Mode
